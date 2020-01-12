@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Models;
+
+
+use Illuminate\Database\Eloquent\Model;
+
+class Antivirus extends Model
+{
+    protected $fillable = [
+        'published',
+        'title',
+        'description',
+    ];
+
+    protected $table = 'antiviruses';
+
+    public function periods()
+    {
+        return $this->hasMany(AntivirusPeriod::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(AntivirusType::class, 'antivirus_type_id', 'id');
+    }
+
+    public function getClassName()
+    {
+        return quotemeta(self::class);
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function getIsMyLikeExistsAttribute()
+    {
+        return Like::isExists(request()->ip(), $this->id, self::class);
+    }
+
+    public function getMinPrice()
+    {
+        return $this->periods()->orderBy('price', 'ASC')->first()->price;
+    }
+}

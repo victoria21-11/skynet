@@ -1,0 +1,100 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+@import '~swiper/dist/css/swiper.css';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+[v-cloak] {
+    display: none;
+}
+
+
+.navbar-nav {
+  .show > .nav-link,
+  .active > .nav-link,
+  .nav-link.show,
+  .nav-link.active {
+    color: $navbar-dark-active-color;
+    background-color: $secondary;
+  }
+}
+
+.navigation__container {
+    background: linear-gradient(90deg, $white 50%, $secondary 50%);
+
+    .navigation__container__menu {
+        background-color: $secondary;
+
+        a {
+            color: $dark;
+            display: inline-block;
+        }
+
+    }
+
+}
+
+.card-header {
+    border-bottom: $border-width solid $card-border-color;
+    padding: $card-spacer-x 0;
+}
+
+.card.bg-transparent {
+
+    .card-header {
+        background-color: transparent;
+    }
+
+}
+
+.card-body {
+    padding: $card-spacer-x 0;
+}
+
+.card-footer {
+    padding: $card-spacer-x 0;
+    border-top: $border-width dashed $card-border-color;
+}
+
+.card {
+    padding: 0 $card-spacer-y;
+}
+
+.btn {
+    text-transform: uppercase;
+}
+
+.like {
+    color: $like-color;
+}
+
+.like:hover {
+    text-decoration: none;
+    color: $like-color;
+}
+
+.navigation__children {
+
+    a {
+        color: $white;
+    }
+
+}
+
+html, body, #app {
+    height: 100%;
+}
+
+footer {
+}
