@@ -27,6 +27,10 @@ Vue.component('houses-index', require('./components/admin/houses/index.js').defa
 Vue.component('houses-edit', require('./components/admin/houses/edit.js').default);
 Vue.component('houses-create', require('./components/admin/houses/create.js').default);
 
+Vue.component('questions-index', require('./components/admin/questions/index.js').default);
+Vue.component('questions-edit', require('./components/admin/questions/edit.js').default);
+Vue.component('questions-create', require('./components/admin/questions/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

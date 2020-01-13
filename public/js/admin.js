@@ -83059,6 +83059,9 @@ Vue.component('streets-create', __webpack_require__(/*! ./components/admin/stree
 Vue.component('houses-index', __webpack_require__(/*! ./components/admin/houses/index.js */ "./resources/js/components/admin/houses/index.js")["default"]);
 Vue.component('houses-edit', __webpack_require__(/*! ./components/admin/houses/edit.js */ "./resources/js/components/admin/houses/edit.js")["default"]);
 Vue.component('houses-create', __webpack_require__(/*! ./components/admin/houses/create.js */ "./resources/js/components/admin/houses/create.js")["default"]);
+Vue.component('questions-index', __webpack_require__(/*! ./components/admin/questions/index.js */ "./resources/js/components/admin/questions/index.js")["default"]);
+Vue.component('questions-edit', __webpack_require__(/*! ./components/admin/questions/edit.js */ "./resources/js/components/admin/questions/edit.js")["default"]);
+Vue.component('questions-create', __webpack_require__(/*! ./components/admin/questions/create.js */ "./resources/js/components/admin/questions/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83275,6 +83278,72 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: '/admin/houses'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/questions/create.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/questions/create.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/questions'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/questions/edit.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/admin/questions/edit.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/questions'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/questions/index.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/admin/questions/index.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/questions'
     };
   },
   mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]

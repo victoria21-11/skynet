@@ -55,5 +55,15 @@ return [
             'street_id' => 'Улица',
         ]
     ],
+    'questions' => [
+        'columns' => [
+            'title' => 'Вопрос',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'general' => 'Общий',
+            'description' => 'Ответ',
+            'question_type_id' => 'Тип',
+        ]
+    ],
 
 ];

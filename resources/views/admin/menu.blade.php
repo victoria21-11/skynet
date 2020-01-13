@@ -14,4 +14,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/houses') }}">Дома</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/questions') }}">FAQ</a>
+    </li>
 </ul>
