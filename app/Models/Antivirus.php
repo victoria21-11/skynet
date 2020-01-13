@@ -6,6 +6,12 @@ class Antivirus extends Model
 {
     protected $table = 'antiviruses';
 
+    protected $scopes = [
+        'title' => 'ofTitle',
+        'published' => 'ofPublished',
+        'antivirus_type_id' => 'ofAntivirusType',
+    ];
+
     public function periods()
     {
         return $this->hasMany(AntivirusPeriod::class);
@@ -34,5 +40,10 @@ class Antivirus extends Model
     public function getMinPrice()
     {
         return $this->periods()->orderBy('price', 'ASC')->first()->price;
+    }
+
+    public function scopeOfAntivirusType($query, $antivirusType)
+    {
+        return $query->where('antivirus_type_id', $antivirusType);
     }
 }

@@ -97,5 +97,15 @@ return [
             'price' => 'Стоимость',
         ]
     ],
+    'antiviruses' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'extra' => 'Дополнительно',
+            'antivirus_type_id' => 'Тип',
+        ]
+    ],
 
 ];

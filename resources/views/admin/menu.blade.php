@@ -26,4 +26,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/equipments') }}">Оборудование</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/antiviruses') }}">Антивирусная защита</a>
+    </li>
 </ul>

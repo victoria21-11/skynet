@@ -15,6 +15,10 @@ class Model extends DefaultModel
 
     ];
 
+    protected $casts = [
+        'published' => 'integer'
+    ];
+
     public function scopeOfTitle($query, $title)
     {
         return $query->where('title', 'like', "%$title%");

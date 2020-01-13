@@ -83071,6 +83071,9 @@ Vue.component('jobopenings-create', __webpack_require__(/*! ./components/admin/j
 Vue.component('equipments-index', __webpack_require__(/*! ./components/admin/equipments/index.js */ "./resources/js/components/admin/equipments/index.js")["default"]);
 Vue.component('equipments-edit', __webpack_require__(/*! ./components/admin/equipments/edit.js */ "./resources/js/components/admin/equipments/edit.js")["default"]);
 Vue.component('equipments-create', __webpack_require__(/*! ./components/admin/equipments/create.js */ "./resources/js/components/admin/equipments/create.js")["default"]);
+Vue.component('antiviruses-index', __webpack_require__(/*! ./components/admin/antiviruses/index.js */ "./resources/js/components/admin/antiviruses/index.js")["default"]);
+Vue.component('antiviruses-edit', __webpack_require__(/*! ./components/admin/antiviruses/edit.js */ "./resources/js/components/admin/antiviruses/edit.js")["default"]);
+Vue.component('antiviruses-create', __webpack_require__(/*! ./components/admin/antiviruses/create.js */ "./resources/js/components/admin/antiviruses/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83108,6 +83111,72 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antiviruses/create.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/admin/antiviruses/create.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antiviruses'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antiviruses/edit.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/antiviruses/edit.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antiviruses'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antiviruses/index.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/antiviruses/index.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antiviruses'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
 
 /***/ }),
 

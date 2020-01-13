@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Antivirus;
+use App\Http\Requests\Admin\Antivirus\{
+    Store,
+    Update,
+    Index,
+    Delete
+};
+
+class AntivirusController extends Controller
+{
+    protected $title = 'Антивирусная защита';
+
+    public function index(Index $request)
+    {
+        $filters = $request->validated();
+        $paginatedData = Antivirus::with('type')->ofFilters($filters)
+        ->paginate(env('ADMIN_PAGINATION'));
+
+        if($request->ajax()) {
+            return response([
+                'paginatedData' => $paginatedData,
+                'filters' => $filters,
+                'request' => http_build_query($filters),
+            ]);
+        }
+
+        return view('admin.antiviruses.index', [
+            'title' => $this->title,
+        ]);
+    }
+
+    public function create()
+    {
+        return view('admin.antiviruses.create', [
+            'title' => "Новый антивирус",
+        ]);
+    }
+
+    public function store(Store $request, Antivirus $antivirus)
+    {
+        $antivirus = Antivirus::create($request->validated());
+        return response([]);
+    }
+
+    public function edit(Antivirus $antivirus)
+    {
+        return view('admin.antiviruses.edit', [
+            'title' => "Редактировать $antivirus->title",
+            'data' => $antivirus,
+        ]);
+    }
+
+    public function update(Update $request, Antivirus $antivirus)
+    {
+        $antivirus->update($request->validated());
+        return response([]);
+    }
+
+    public function destroy(Delete $request, Antivirus $antivirus)
+    {
+        $antivirus->delete();
+        return response([]);
+    }
+}

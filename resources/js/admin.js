@@ -43,6 +43,10 @@ Vue.component('equipments-index', require('./components/admin/equipments/index.j
 Vue.component('equipments-edit', require('./components/admin/equipments/edit.js').default);
 Vue.component('equipments-create', require('./components/admin/equipments/create.js').default);
 
+Vue.component('antiviruses-index', require('./components/admin/antiviruses/index.js').default);
+Vue.component('antiviruses-edit', require('./components/admin/antiviruses/edit.js').default);
+Vue.component('antiviruses-create', require('./components/admin/antiviruses/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });
