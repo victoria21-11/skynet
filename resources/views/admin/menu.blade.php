@@ -17,4 +17,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/questions') }}">FAQ</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/question_types') }}">Типы вопросов</a>
+    </li>
 </ul>

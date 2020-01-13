@@ -31,6 +31,10 @@ Vue.component('questions-index', require('./components/admin/questions/index.js'
 Vue.component('questions-edit', require('./components/admin/questions/edit.js').default);
 Vue.component('questions-create', require('./components/admin/questions/create.js').default);
 
+Vue.component('question-types-index', require('./components/admin/question_types/index.js').default);
+Vue.component('question-types-edit', require('./components/admin/question_types/edit.js').default);
+Vue.component('question-types-create', require('./components/admin/question_types/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

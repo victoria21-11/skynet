@@ -65,5 +65,13 @@ return [
             'question_type_id' => 'Тип',
         ]
     ],
+    'question_types' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+        ]
+    ],
 
 ];
