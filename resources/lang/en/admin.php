@@ -20,6 +20,16 @@ return [
             'published' => 'Опубликовано',
             'description' => 'Описание',
         ]
+    ],
+    'tariff_groups' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'tariff_type_id' => 'Тип',
+            'rebate' => 'Акция',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+        ]
     ]
 
 ];

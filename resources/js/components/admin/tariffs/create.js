@@ -7,9 +7,9 @@ export default {
     },
     methods: {
         store() {
-            axios.post(this.url)
+            axios.post(this.url, this.form)
                 .then(response => {
-
+                    window.location.replace(this.url);
                 })
         }
     }

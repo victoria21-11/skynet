@@ -83047,6 +83047,9 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
 Vue.component('tariffs-index', __webpack_require__(/*! ./components/admin/tariffs/index.js */ "./resources/js/components/admin/tariffs/index.js")["default"]);
 Vue.component('tariffs-edit', __webpack_require__(/*! ./components/admin/tariffs/edit.js */ "./resources/js/components/admin/tariffs/edit.js")["default"]);
 Vue.component('tariffs-create', __webpack_require__(/*! ./components/admin/tariffs/create.js */ "./resources/js/components/admin/tariffs/create.js")["default"]);
+Vue.component('tariff-groups-index', __webpack_require__(/*! ./components/admin/tariff_groups/index.js */ "./resources/js/components/admin/tariff_groups/index.js")["default"]);
+Vue.component('tariff-groups-edit', __webpack_require__(/*! ./components/admin/tariff_groups/edit.js */ "./resources/js/components/admin/tariff_groups/edit.js")["default"]);
+Vue.component('tariff-groups-create', __webpack_require__(/*! ./components/admin/tariff_groups/create.js */ "./resources/js/components/admin/tariff_groups/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83087,6 +83090,120 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/admin/tariff_groups/create.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_groups/create.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {},
+      url: '/admin/tariff_groups'
+    };
+  },
+  methods: {
+    store: function store() {
+      var _this = this;
+
+      axios.post(this.url, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_groups/edit.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_groups/edit.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: this.data,
+      url: '/admin/tariff_groups'
+    };
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    update: function update() {
+      var _this = this;
+
+      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_groups/index.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_groups/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      paginatedData: {},
+      filters: {},
+      url: '/admin/tariff_groups'
+    };
+  },
+  props: {},
+  mounted: function mounted() {
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get(this.url, {
+        params: Object.assign(this.filters, {
+          page: page
+        })
+      }).then(function (response) {
+        _this.paginatedData = response.data.paginatedData;
+      });
+    },
+    clearFilters: function clearFilters() {
+      this.filters = {};
+      this.getData();
+    },
+    remove: function remove(id) {
+      var _this2 = this;
+
+      axios["delete"](this.url + '/' + id).then(function (response) {
+        _this2.getData();
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/admin/tariffs/create.js":
 /*!*********************************************************!*\
   !*** ./resources/js/components/admin/tariffs/create.js ***!
@@ -83105,7 +83222,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     store: function store() {
-      axios.post(this.url).then(function (response) {});
+      var _this = this;
+
+      axios.post(this.url, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
     }
   }
 });
@@ -83136,7 +83257,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     update: function update() {
-      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {});
+      var _this = this;
+
+      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
     }
   }
 });
@@ -83200,7 +83325,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/dev/projects/sknt/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /var/www/sknt/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

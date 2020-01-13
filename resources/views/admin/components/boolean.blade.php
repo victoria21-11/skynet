@@ -1,7 +1,7 @@
 <div class="form-group">
     <label for="">@lang($lang)</label>
     <select class="form-control" v-model="{{ $model }}">
-        <option :value="true">Да</option>
-        <option :value="false">Нет</option>
+        <option value="1">Да</option>
+        <option value="0">Нет</option>
     </select>
 </div>

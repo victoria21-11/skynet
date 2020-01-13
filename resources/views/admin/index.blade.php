@@ -2,6 +2,6 @@
 
 @section('content')
 
-lorem
+Главная
 
 @endsection

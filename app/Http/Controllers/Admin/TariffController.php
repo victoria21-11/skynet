@@ -7,14 +7,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Tariff;
 use App\Http\Requests\Admin\Tariff\{
     Store,
-    Update
+    Update,
+    Index,
+    Delete
 };
 
 class TariffController extends Controller
 {
     protected $title = 'Тарифы';
 
-    public function index(Request $request)
+    public function index(Index $request)
     {
         $paginatedData = Tariff::with('group.type', 'periodType')
         ->ofFilters($request)
@@ -58,9 +60,9 @@ class TariffController extends Controller
         return response([]);
     }
 
-    public function destroy(Tariff $tariff)
+    public function destroy(Delete $request, Tariff $tariff)
     {
         $tariff->delete();
-        return response();
+        return response([]);
     }
 }

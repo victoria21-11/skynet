@@ -60,6 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::namespace('Admin')->group(function () {
         Route::get('/', 'HomeController@index');
         Route::resource('tariffs', 'TariffController');
+        Route::resource('tariff_groups', 'TariffGroupController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);

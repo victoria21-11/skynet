@@ -33,11 +33,6 @@ class Tariff extends Model
         'published' => 'ofPublished',
     ];
 
-    protected $casts = [
-        'rebate' => 'boolean',
-        'published' => 'boolean',
-    ];
-
     public function group()
     {
         return $this->belongsTo(TariffGroup::class, 'tariff_group_id', 'id');
@@ -97,7 +92,7 @@ class Tariff extends Model
 
     public function scopeOfFilters($query, Request $request)
     {
-        foreach ($request->all() as $key => $value) {
+        foreach ($request->validated() as $key => $value) {
             if(isset($this->scopes[$key])) {
                 $query->{$this->scopes[$key]}($value);
             }

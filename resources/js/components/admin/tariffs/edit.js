@@ -15,7 +15,7 @@ export default {
         update() {
             axios.put(this.url + '/' + this.data.id, this.form)
                 .then(response => {
-
+                    window.location.replace(this.url);
                 })
         }
     }

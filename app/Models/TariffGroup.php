@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class TariffGroup extends Model
@@ -18,6 +18,13 @@ class TariffGroup extends Model
     ];
 
     protected $appends = ['is_my_like_exists'];
+
+    protected $scopes = [
+        'title' => 'ofTitle',
+        'tariff_type_id' => 'ofType',
+        'rebate' => 'ofRebate',
+        'published' => 'ofPublished',
+    ];
 
     public function tariffs()
     {
@@ -77,6 +84,31 @@ class TariffGroup extends Model
     public function packages()
     {
         return $this->belongsToMany(Package::class);
+    }
+
+    public function scopeOfPublished($query, $published)
+    {
+        return $query->where('published', $published);
+    }
+
+    public function scopeOfRebate($query, $rebate)
+    {
+        return $query->where('rebate', $rebate);
+    }
+
+    public function scopeOfTitle($query, $title)
+    {
+        return $query->where('title', 'like', "%$title%");
+    }
+
+    public function scopeOfFilters($query, Request $request)
+    {
+        foreach ($request->validated() as $key => $value) {
+            if(isset($this->scopes[$key])) {
+                $query->{$this->scopes[$key]}($value);
+            }
+        }
+        return $query;
     }
 
 }
