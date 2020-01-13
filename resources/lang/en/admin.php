@@ -152,5 +152,16 @@ return [
             'description' => 'Описание',
         ]
     ],
+    'news' => [
+        'title' => 'Новости',
+        'create' => 'Новая тема',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'created_at' => 'Дата',
+        ]
+    ],
 
 ];

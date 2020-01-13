@@ -4,8 +4,12 @@ require('@fortawesome/fontawesome-free/js/all.js');
 window.Vue = require('vue');
 
 import BootstrapVue from 'bootstrap-vue';
+import VueFlatPickr from 'vue-flatpickr-component';
+import VueQuillEditor from 'vue-quill-editor';
 
 Vue.use(BootstrapVue);
+Vue.use(VueFlatPickr);
+Vue.use(VueQuillEditor, {});
 
 Vue.component('tariffs-index', require('./components/admin/tariffs/index.js').default);
 Vue.component('tariffs-edit', require('./components/admin/tariffs/edit.js').default);
@@ -55,6 +59,19 @@ Vue.component('antivirus-types-index', require('./components/admin/antivirus_typ
 Vue.component('antivirus-types-edit', require('./components/admin/antivirus_types/edit.js').default);
 Vue.component('antivirus-types-create', require('./components/admin/antivirus_types/create.js').default);
 
+Vue.component('news-index', require('./components/admin/news/index.js').default);
+Vue.component('news-edit', require('./components/admin/news/edit.js').default);
+Vue.component('news-create', require('./components/admin/news/create.js').default);
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data() {
+        return {
+            flatpickrConf: {
+                mode: 'range',
+                dateFormat: 'd.m.Y',
+            },
+            editorOption: {}
+        }
+    }
 });

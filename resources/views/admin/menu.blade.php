@@ -35,4 +35,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/antivirus_types') }}">@lang('admin.antivirus_types.title')</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/news') }}">@lang('admin.news.title')</a>
+    </li>
 </ul>
