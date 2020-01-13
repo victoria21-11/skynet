@@ -18,13 +18,16 @@ class TariffController extends Controller
 
     public function index(Index $request)
     {
+        $filters = $request->validated();
         $paginatedData = Tariff::with('group.type', 'periodType')
-        ->ofFilters($request)
+        ->ofFilters($filters)
         ->paginate(env('ADMIN_PAGINATION'));
 
         if($request->ajax()) {
             return response([
-                'paginatedData' => $paginatedData
+                'paginatedData' => $paginatedData,
+                'filters' => $filters,
+                'request' => http_build_query($filters),
             ]);
         }
 

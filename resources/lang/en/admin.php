@@ -6,6 +6,7 @@ return [
     'clear' => 'Очистить',
     'search' => 'Искать',
     'create' => 'Создать',
+    'programmer_help' => 'Для изменения данного параметра обратитесь к техническому специалисту.',
     'tariffs' => [
         'columns' => [
             'title' => 'Название',
@@ -27,6 +28,14 @@ return [
             'id' => 'ID',
             'tariff_type_id' => 'Тип',
             'rebate' => 'Акция',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+        ]
+    ],
+    'tariff_types' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
             'published' => 'Опубликовано',
             'description' => 'Описание',
         ]

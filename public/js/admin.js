@@ -83050,6 +83050,9 @@ Vue.component('tariffs-create', __webpack_require__(/*! ./components/admin/tarif
 Vue.component('tariff-groups-index', __webpack_require__(/*! ./components/admin/tariff_groups/index.js */ "./resources/js/components/admin/tariff_groups/index.js")["default"]);
 Vue.component('tariff-groups-edit', __webpack_require__(/*! ./components/admin/tariff_groups/edit.js */ "./resources/js/components/admin/tariff_groups/edit.js")["default"]);
 Vue.component('tariff-groups-create', __webpack_require__(/*! ./components/admin/tariff_groups/create.js */ "./resources/js/components/admin/tariff_groups/create.js")["default"]);
+Vue.component('tariff-types-index', __webpack_require__(/*! ./components/admin/tariff_types/index.js */ "./resources/js/components/admin/tariff_types/index.js")["default"]);
+Vue.component('tariff-types-edit', __webpack_require__(/*! ./components/admin/tariff_types/edit.js */ "./resources/js/components/admin/tariff_types/edit.js")["default"]);
+Vue.component('tariff-types-create', __webpack_require__(/*! ./components/admin/tariff_types/create.js */ "./resources/js/components/admin/tariff_types/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83180,12 +83183,130 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(this.url, {
+      axios.get(window.location.href, {
         params: Object.assign(this.filters, {
           page: page
         })
       }).then(function (response) {
         _this.paginatedData = response.data.paginatedData;
+        _this.filters = Object.assign(_this.filters, response.data.filters);
+        window.history.pushState('', '', _this.url + '?' + response.data.request);
+      });
+    },
+    clearFilters: function clearFilters() {
+      this.filters = {};
+      this.getData();
+    },
+    remove: function remove(id) {
+      var _this2 = this;
+
+      axios["delete"](this.url + '/' + id).then(function (response) {
+        _this2.getData();
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_types/create.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_types/create.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {},
+      url: '/admin/tariff_types'
+    };
+  },
+  methods: {
+    store: function store() {
+      var _this = this;
+
+      axios.post(this.url, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_types/edit.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_types/edit.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: this.data,
+      url: '/admin/tariff_types'
+    };
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    update: function update() {
+      var _this = this;
+
+      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_types/index.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_types/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      paginatedData: {},
+      filters: {},
+      url: '/admin/tariff_types'
+    };
+  },
+  props: {},
+  mounted: function mounted() {
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get(window.location.href, {
+        params: Object.assign(this.filters, {
+          page: page
+        })
+      }).then(function (response) {
+        _this.paginatedData = response.data.paginatedData;
+        _this.filters = Object.assign(_this.filters, response.data.filters);
+        window.history.pushState('', '', _this.url + '?' + response.data.request);
       });
     },
     clearFilters: function clearFilters() {
@@ -83294,12 +83415,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(this.url, {
+      axios.get(window.location.href, {
         params: Object.assign(this.filters, {
           page: page
         })
       }).then(function (response) {
         _this.paginatedData = response.data.paginatedData;
+        _this.filters = Object.assign(_this.filters, response.data.filters);
+        window.history.pushState('', '', _this.url + '?' + response.data.request);
       });
     },
     clearFilters: function clearFilters() {

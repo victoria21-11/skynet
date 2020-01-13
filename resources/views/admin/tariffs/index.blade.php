@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="mb-3">
-                <a href="{{ url('admin/tariffs/create') }}" role="button" class="btn btn-success">
+                <a :href="url + '/create'" role="button" class="btn btn-success">
                     <i class="fas fa-plus"></i>
                     @lang('admin.create')
                 </a>
@@ -56,7 +56,7 @@
                             </td>
                             <td>
                                 <div class="d-flex flex-nowrap">
-                                    <a :href="'/admin/tariffs/' + item.id + '/edit'" role="button" class="btn btn-primary mx-1">
+                                    <a :href="url + '/' + item.id + '/edit'" role="button" class="btn btn-primary mx-1">
                                         <i class="fas fa-pen-square"></i>
                                     </a>
                                     <button type="button" class="btn btn-danger mx-1" @click="remove(item.id)">

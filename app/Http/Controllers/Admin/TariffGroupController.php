@@ -18,12 +18,15 @@ class TariffGroupController extends Controller
 
     public function index(Index $request)
     {
-        $paginatedData = TariffGroup::ofFilters($request)
+        $filters = $request->validated();
+        $paginatedData = TariffGroup::ofFilters($filters)
         ->paginate(env('ADMIN_PAGINATION'));
 
         if($request->ajax()) {
             return response([
-                'paginatedData' => $paginatedData
+                'paginatedData' => $paginatedData,
+                'filters' => $filters,
+                'request' => http_build_query($filters),
             ]);
         }
 
@@ -41,7 +44,7 @@ class TariffGroupController extends Controller
 
     public function store(Store $request, TariffGroup $tariffGroup)
     {
-        $tariff = TariffGroup::create($request->validated());
+        $tariffGroup = TariffGroup::create($request->validated());
         return response([]);
     }
 

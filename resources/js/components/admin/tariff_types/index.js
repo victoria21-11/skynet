@@ -3,7 +3,7 @@ export default {
         return {
             paginatedData: {},
             filters: {},
-            url: '/admin/tariffs'
+            url: '/admin/tariff_types'
         }
     },
     props: {

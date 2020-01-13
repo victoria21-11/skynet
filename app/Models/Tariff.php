@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Tariff extends Model
@@ -90,9 +89,9 @@ class Tariff extends Model
         return $query->where('published', $published);
     }
 
-    public function scopeOfFilters($query, Request $request)
+    public function scopeOfFilters($query, array $filters)
     {
-        foreach ($request->validated() as $key => $value) {
+        foreach ($filters as $key => $value) {
             if(isset($this->scopes[$key])) {
                 $query->{$this->scopes[$key]}($value);
             }

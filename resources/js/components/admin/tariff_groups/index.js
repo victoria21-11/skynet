@@ -14,13 +14,15 @@ export default {
     },
     methods: {
         getData(page = 1) {
-            axios.get(this.url, {
+            axios.get(window.location.href, {
                 params: Object.assign(this.filters, {
                     page: page
                 })
             })
                 .then(response => {
-                    this.paginatedData = response.data.paginatedData
+                    this.paginatedData = response.data.paginatedData;
+                    this.filters = Object.assign(this.filters, response.data.filters);
+                    window.history.pushState('', '', this.url + '?' + response.data.request);
                 })
         },
         clearFilters() {

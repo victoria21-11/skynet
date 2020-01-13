@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class TariffGroup extends Model
@@ -51,19 +50,19 @@ class TariffGroup extends Model
         return $this->tariffs()->with('group', 'periodType')->orderBy('period')->first();
     }
 
-    public function scopeOfType($query, TariffType $type)
+    public function scopeOfType($query, $type)
     {
-        return $query->where('tariff_type_id', $type->id);
+        return $query->where('tariff_type_id', $type);
     }
 
     public function scopeInternet($query)
     {
-        return $query->ofType(TariffType::internet()->first());
+        return $query->ofType(TariffType::internet()->first()->id);
     }
 
     public function scopeTv($query)
     {
-        return $query->ofType(TariffType::tv()->first());
+        return $query->ofType(TariffType::tv()->first()->id);
     }
 
     public function getClassName()
@@ -101,9 +100,9 @@ class TariffGroup extends Model
         return $query->where('title', 'like', "%$title%");
     }
 
-    public function scopeOfFilters($query, Request $request)
+    public function scopeOfFilters($query, array $filters)
     {
-        foreach ($request->validated() as $key => $value) {
+        foreach ($filters as $key => $value) {
             if(isset($this->scopes[$key])) {
                 $query->{$this->scopes[$key]}($value);
             }
