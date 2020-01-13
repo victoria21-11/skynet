@@ -3,16 +3,18 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
+
 
 class Street extends Model
 {
-
-
     protected $fillable = [
         'published',
         'title',
         'description',
+    ];
+
+    protected $scopes = [
+        'title' => 'ofTitle',
     ];
 
     public function houses()
@@ -20,8 +22,4 @@ class Street extends Model
         return $this->hasMany(House::class);
     }
 
-    public function scopeOfTitle($query, $title)
-    {
-        return $query->where('title', 'like', $title . '%');
-    }
 }

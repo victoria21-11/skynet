@@ -1,9 +1,9 @@
-import CRUDMixins from '../crud/create.js';
+import CRUDMixins from '../crud/index.js';
 
 export default {
     data() {
         return {
-            url: '/admin/tariffs'
+            url: '/admin/streets'
         }
     },
     mixins: [CRUDMixins],

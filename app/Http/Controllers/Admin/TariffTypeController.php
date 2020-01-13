@@ -63,7 +63,7 @@ class TariffTypeController extends Controller
 
     public function destroy(Delete $request, TariffType $tariffType)
     {
-        $tariff->delete();
+        $tariffType->delete();
         return response([]);
     }
 }

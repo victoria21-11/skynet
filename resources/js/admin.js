@@ -19,6 +19,10 @@ Vue.component('tariff-types-index', require('./components/admin/tariff_types/ind
 Vue.component('tariff-types-edit', require('./components/admin/tariff_types/edit.js').default);
 Vue.component('tariff-types-create', require('./components/admin/tariff_types/create.js').default);
 
+Vue.component('streets-index', require('./components/admin/streets/index.js').default);
+Vue.component('streets-edit', require('./components/admin/streets/edit.js').default);
+Vue.component('streets-create', require('./components/admin/streets/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

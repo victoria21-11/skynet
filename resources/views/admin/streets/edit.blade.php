@@ -2,21 +2,15 @@
 
 @section('content')
 
-<tariff-groups-edit :data="{{ $data }}" inline-template>
+<streets-edit :data="{{ $data }}" inline-template>
     <div class="card">
         <div class="card-header">
             {{ $title }}
         </div>
         <div class="card-body">
             @component('admin.components.input', [
-                'lang' => 'admin.tariff_groups.columns.title',
+                'lang' => 'admin.streets.columns.title',
                 'model' => 'form.title',
-            ])
-            @endcomponent
-
-            @component('admin.components.boolean', [
-                'lang' => 'admin.tariff_groups.columns.published',
-                'model' => 'form.published',
             ])
             @endcomponent
 
@@ -25,5 +19,5 @@
             </div>
         </div>
     </div>
-</tariff-groups-edit>
+</streets-edit>
 @endsection

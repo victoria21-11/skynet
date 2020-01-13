@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Tariff extends Model
 {
 
@@ -40,11 +38,6 @@ class Tariff extends Model
     public function periodType()
     {
         return $this->belongsTo(PeriodType::class);
-    }
-
-    public function scopeOfTitle($query, $title)
-    {
-        return $query->where('title', 'like', "%$title%");
     }
 
     public function scopeOfType($query, $type)
@@ -87,16 +80,6 @@ class Tariff extends Model
     public function scopeOfPublished($query, $published)
     {
         return $query->where('published', $published);
-    }
-
-    public function scopeOfFilters($query, array $filters)
-    {
-        foreach ($filters as $key => $value) {
-            if(isset($this->scopes[$key])) {
-                $query->{$this->scopes[$key]}($value);
-            }
-        }
-        return $query;
     }
 
 }

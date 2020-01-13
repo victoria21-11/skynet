@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+
 
 class TariffGroup extends Model
 {
@@ -93,21 +93,6 @@ class TariffGroup extends Model
     public function scopeOfRebate($query, $rebate)
     {
         return $query->where('rebate', $rebate);
-    }
-
-    public function scopeOfTitle($query, $title)
-    {
-        return $query->where('title', 'like', "%$title%");
-    }
-
-    public function scopeOfFilters($query, array $filters)
-    {
-        foreach ($filters as $key => $value) {
-            if(isset($this->scopes[$key])) {
-                $query->{$this->scopes[$key]}($value);
-            }
-        }
-        return $query;
     }
 
 }

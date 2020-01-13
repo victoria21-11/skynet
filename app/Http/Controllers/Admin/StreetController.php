@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\TariffGroup;
-use App\Http\Requests\Admin\TariffGroup\{
+use App\Models\Street;
+use App\Http\Requests\Admin\Street\{
     Store,
     Update,
     Index,
     Delete
 };
 
-class TariffGroupController extends Controller
+class StreetController extends Controller
 {
     protected $title = 'Группы тарифов';
 
     public function index(Index $request)
     {
         $filters = $request->validated();
-        $paginatedData = TariffGroup::ofFilters($filters)
+        $paginatedData = Street::ofFilters($filters)
         ->paginate(env('ADMIN_PAGINATION'));
 
         if($request->ajax()) {
@@ -30,41 +30,41 @@ class TariffGroupController extends Controller
             ]);
         }
 
-        return view('admin.tariff_groups.index', [
+        return view('admin.streets.index', [
             'title' => $this->title,
         ]);
     }
 
     public function create()
     {
-        return view('admin.tariff_groups.create', [
+        return view('admin.streets.create', [
             'title' => "Новая группа тарифов",
         ]);
     }
 
-    public function store(Store $request, TariffGroup $tariffGroup)
+    public function store(Store $request, Street $street)
     {
-        $tariffGroup = TariffGroup::create($request->validated());
+        $street = Street::create($request->validated());
         return response([]);
     }
 
-    public function edit(TariffGroup $tariffGroup)
+    public function edit(Street $street)
     {
-        return view('admin.tariff_groups.edit', [
-            'title' => "Редактировать $tariffGroup->title",
-            'data' => $tariffGroup,
+        return view('admin.streets.edit', [
+            'title' => "Редактировать $street->title",
+            'data' => $street,
         ]);
     }
 
-    public function update(Update $request, TariffGroup $tariffGroup)
+    public function update(Update $request, Street $street)
     {
-        $tariffGroup->update($request->validated());
+        $street->update($request->validated());
         return response([]);
     }
 
-    public function destroy(Delete $request, TariffGroup $tariffGroup)
+    public function destroy(Delete $request, Street $street)
     {
-        $tariffGroup->delete();
+        $street->delete();
         return response([]);
     }
 }

@@ -9,13 +9,13 @@
         </div>
         <div class="card-body">
             @component('admin.components.input', [
-                'lang' => 'admin.tariffs.columns.title',
+                'lang' => 'admin.tariff_types.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
             @component('admin.components.textarea', [
-                'lang' => 'admin.tariffs.columns.description',
+                'lang' => 'admin.tariff_types.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent

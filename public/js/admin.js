@@ -83053,6 +83053,9 @@ Vue.component('tariff-groups-create', __webpack_require__(/*! ./components/admin
 Vue.component('tariff-types-index', __webpack_require__(/*! ./components/admin/tariff_types/index.js */ "./resources/js/components/admin/tariff_types/index.js")["default"]);
 Vue.component('tariff-types-edit', __webpack_require__(/*! ./components/admin/tariff_types/edit.js */ "./resources/js/components/admin/tariff_types/edit.js")["default"]);
 Vue.component('tariff-types-create', __webpack_require__(/*! ./components/admin/tariff_types/create.js */ "./resources/js/components/admin/tariff_types/create.js")["default"]);
+Vue.component('streets-index', __webpack_require__(/*! ./components/admin/streets/index.js */ "./resources/js/components/admin/streets/index.js")["default"]);
+Vue.component('streets-edit', __webpack_require__(/*! ./components/admin/streets/edit.js */ "./resources/js/components/admin/streets/edit.js")["default"]);
+Vue.component('streets-create', __webpack_require__(/*! ./components/admin/streets/create.js */ "./resources/js/components/admin/streets/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83093,10 +83096,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/admin/tariff_groups/create.js":
-/*!***************************************************************!*\
-  !*** ./resources/js/components/admin/tariff_groups/create.js ***!
-  \***************************************************************/
+/***/ "./resources/js/components/admin/crud/create.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/admin/crud/create.js ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -83106,7 +83109,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: {},
-      url: '/admin/tariff_groups'
+      url: '/'
     };
   },
   methods: {
@@ -83118,6 +83121,182 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/crud/edit.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/admin/crud/edit.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: this.data,
+      url: '/'
+    };
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    update: function update() {
+      var _this = this;
+
+      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
+        window.location.replace(_this.url);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/crud/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/admin/crud/index.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      paginatedData: {},
+      filters: {},
+      url: '/'
+    };
+  },
+  props: {},
+  mounted: function mounted() {
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get(window.location.href, {
+        params: Object.assign(this.filters, {
+          page: page
+        })
+      }).then(function (response) {
+        _this.paginatedData = response.data.paginatedData;
+        _this.filters = Object.assign(_this.filters, response.data.filters);
+        window.history.pushState('', '', _this.url + '?' + response.data.request);
+      });
+    },
+    clearFilters: function clearFilters() {
+      this.filters = {};
+      window.history.pushState('', '', this.url);
+      this.getData();
+    },
+    remove: function remove(id) {
+      var _this2 = this;
+
+      axios["delete"](this.url + '/' + id).then(function (response) {
+        _this2.getData();
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/streets/create.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/admin/streets/create.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/streets'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/streets/edit.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/admin/streets/edit.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/streets'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/streets/index.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/admin/streets/index.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/streets'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/tariff_groups/create.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/admin/tariff_groups/create.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/tariff_groups'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83131,28 +83310,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: this.data,
       url: '/admin/tariff_groups'
     };
   },
-  props: {
-    data: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    update: function update() {
-      var _this = this;
-
-      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
-        window.location.replace(_this.url);
-      });
-    }
-  }
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83166,45 +83332,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      paginatedData: {},
-      filters: {},
       url: '/admin/tariff_groups'
     };
   },
-  props: {},
-  mounted: function mounted() {
-    this.getData();
-  },
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(window.location.href, {
-        params: Object.assign(this.filters, {
-          page: page
-        })
-      }).then(function (response) {
-        _this.paginatedData = response.data.paginatedData;
-        _this.filters = Object.assign(_this.filters, response.data.filters);
-        window.history.pushState('', '', _this.url + '?' + response.data.request);
-      });
-    },
-    clearFilters: function clearFilters() {
-      this.filters = {};
-      this.getData();
-    },
-    remove: function remove(id) {
-      var _this2 = this;
-
-      axios["delete"](this.url + '/' + id).then(function (response) {
-        _this2.getData();
-      });
-    }
-  }
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83218,22 +83354,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: {},
       url: '/admin/tariff_types'
     };
   },
-  methods: {
-    store: function store() {
-      var _this = this;
-
-      axios.post(this.url, this.form).then(function (response) {
-        window.location.replace(_this.url);
-      });
-    }
-  }
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83247,28 +83376,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: this.data,
       url: '/admin/tariff_types'
     };
   },
-  props: {
-    data: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    update: function update() {
-      var _this = this;
-
-      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
-        window.location.replace(_this.url);
-      });
-    }
-  }
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83282,45 +83398,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      paginatedData: {},
-      filters: {},
       url: '/admin/tariff_types'
     };
   },
-  props: {},
-  mounted: function mounted() {
-    this.getData();
-  },
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(window.location.href, {
-        params: Object.assign(this.filters, {
-          page: page
-        })
-      }).then(function (response) {
-        _this.paginatedData = response.data.paginatedData;
-        _this.filters = Object.assign(_this.filters, response.data.filters);
-        window.history.pushState('', '', _this.url + '?' + response.data.request);
-      });
-    },
-    clearFilters: function clearFilters() {
-      this.filters = {};
-      this.getData();
-    },
-    remove: function remove(id) {
-      var _this2 = this;
-
-      axios["delete"](this.url + '/' + id).then(function (response) {
-        _this2.getData();
-      });
-    }
-  }
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83334,22 +83420,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: {},
       url: '/admin/tariffs'
     };
   },
-  methods: {
-    store: function store() {
-      var _this = this;
-
-      axios.post(this.url, this.form).then(function (response) {
-        window.location.replace(_this.url);
-      });
-    }
-  }
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83363,28 +83442,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: this.data,
       url: '/admin/tariffs'
     };
   },
-  props: {
-    data: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    update: function update() {
-      var _this = this;
-
-      axios.put(this.url + '/' + this.data.id, this.form).then(function (response) {
-        window.location.replace(_this.url);
-      });
-    }
-  }
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83398,45 +83464,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      paginatedData: {},
-      filters: {},
       url: '/admin/tariffs'
     };
   },
-  props: {},
-  mounted: function mounted() {
-    this.getData();
-  },
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(window.location.href, {
-        params: Object.assign(this.filters, {
-          page: page
-        })
-      }).then(function (response) {
-        _this.paginatedData = response.data.paginatedData;
-        _this.filters = Object.assign(_this.filters, response.data.filters);
-        window.history.pushState('', '', _this.url + '?' + response.data.request);
-      });
-    },
-    clearFilters: function clearFilters() {
-      this.filters = {};
-      this.getData();
-    },
-    remove: function remove(id) {
-      var _this2 = this;
-
-      axios["delete"](this.url + '/' + id).then(function (response) {
-        _this2.getData();
-      });
-    }
-  }
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),

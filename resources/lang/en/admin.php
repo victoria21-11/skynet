@@ -39,6 +39,13 @@ return [
             'published' => 'Опубликовано',
             'description' => 'Описание',
         ]
-    ]
+    ],
+    'streets' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+        ]
+    ],
 
 ];

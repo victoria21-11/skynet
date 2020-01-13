@@ -62,6 +62,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('tariffs', 'TariffController');
         Route::resource('tariff_groups', 'TariffGroupController');
         Route::resource('tariff_types', 'TariffTypeController');
+        Route::resource('streets', 'StreetController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);
