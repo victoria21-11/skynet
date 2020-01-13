@@ -35,6 +35,10 @@ Vue.component('question-types-index', require('./components/admin/question_types
 Vue.component('question-types-edit', require('./components/admin/question_types/edit.js').default);
 Vue.component('question-types-create', require('./components/admin/question_types/create.js').default);
 
+Vue.component('jobopenings-index', require('./components/admin/jobopenings/index.js').default);
+Vue.component('jobopenings-edit', require('./components/admin/jobopenings/edit.js').default);
+Vue.component('jobopenings-create', require('./components/admin/jobopenings/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

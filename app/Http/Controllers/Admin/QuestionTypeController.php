@@ -14,7 +14,7 @@ use App\Http\Requests\Admin\QuestionType\{
 
 class QuestionTypeController extends Controller
 {
-    protected $title = 'Типы тарифов';
+    protected $title = 'Типы вопросов';
 
     public function index(Index $request)
     {
@@ -37,7 +37,7 @@ class QuestionTypeController extends Controller
     public function create()
     {
         return view('admin.question_types.create', [
-            'title' => "Новый тип тарифов",
+            'title' => "Новый тип вопросов",
         ]);
     }
 

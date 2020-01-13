@@ -20,4 +20,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/question_types') }}">Типы вопросов</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/jobopenings') }}">Вакансии</a>
+    </li>
 </ul>

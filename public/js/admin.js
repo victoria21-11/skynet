@@ -83065,6 +83065,9 @@ Vue.component('questions-create', __webpack_require__(/*! ./components/admin/que
 Vue.component('question-types-index', __webpack_require__(/*! ./components/admin/question_types/index.js */ "./resources/js/components/admin/question_types/index.js")["default"]);
 Vue.component('question-types-edit', __webpack_require__(/*! ./components/admin/question_types/edit.js */ "./resources/js/components/admin/question_types/edit.js")["default"]);
 Vue.component('question-types-create', __webpack_require__(/*! ./components/admin/question_types/create.js */ "./resources/js/components/admin/question_types/create.js")["default"]);
+Vue.component('jobopenings-index', __webpack_require__(/*! ./components/admin/jobopenings/index.js */ "./resources/js/components/admin/jobopenings/index.js")["default"]);
+Vue.component('jobopenings-edit', __webpack_require__(/*! ./components/admin/jobopenings/edit.js */ "./resources/js/components/admin/jobopenings/edit.js")["default"]);
+Vue.component('jobopenings-create', __webpack_require__(/*! ./components/admin/jobopenings/create.js */ "./resources/js/components/admin/jobopenings/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83281,6 +83284,72 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: '/admin/houses'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/jobopenings/create.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/admin/jobopenings/create.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/jobopenings'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/jobopenings/edit.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/jobopenings/edit.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/jobopenings'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/jobopenings/index.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/jobopenings/index.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/jobopenings'
     };
   },
   mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]

@@ -73,5 +73,17 @@ return [
             'description' => 'Описание',
         ]
     ],
+    'jobopenings' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'requirements' => 'Требования',
+            'responsibilities' => 'Обязанности',
+            'extra' => 'Дополнительно',
+            'conditions' => 'Условия',
+        ]
+    ],
 
 ];
