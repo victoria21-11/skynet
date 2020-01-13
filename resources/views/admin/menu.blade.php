@@ -29,4 +29,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/antiviruses') }}">Антивирусная защита</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/antivirus_periods') }}">Антивирусная защита (периоды действия)</a>
+    </li>
 </ul>

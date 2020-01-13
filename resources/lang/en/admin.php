@@ -107,5 +107,17 @@ return [
             'antivirus_type_id' => 'Тип',
         ]
     ],
+    'antivirus_periods' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'period' => 'Период',
+            'period_type_id' => 'Тип периода',
+            'price' => 'Стоимость',
+            'antivirus_id' => 'Антивирус',
+        ]
+    ],
 
 ];
