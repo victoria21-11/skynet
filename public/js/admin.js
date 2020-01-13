@@ -83068,6 +83068,9 @@ Vue.component('question-types-create', __webpack_require__(/*! ./components/admi
 Vue.component('jobopenings-index', __webpack_require__(/*! ./components/admin/jobopenings/index.js */ "./resources/js/components/admin/jobopenings/index.js")["default"]);
 Vue.component('jobopenings-edit', __webpack_require__(/*! ./components/admin/jobopenings/edit.js */ "./resources/js/components/admin/jobopenings/edit.js")["default"]);
 Vue.component('jobopenings-create', __webpack_require__(/*! ./components/admin/jobopenings/create.js */ "./resources/js/components/admin/jobopenings/create.js")["default"]);
+Vue.component('equipments-index', __webpack_require__(/*! ./components/admin/equipments/index.js */ "./resources/js/components/admin/equipments/index.js")["default"]);
+Vue.component('equipments-edit', __webpack_require__(/*! ./components/admin/equipments/edit.js */ "./resources/js/components/admin/equipments/edit.js")["default"]);
+Vue.component('equipments-create', __webpack_require__(/*! ./components/admin/equipments/create.js */ "./resources/js/components/admin/equipments/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83221,6 +83224,72 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/equipments/create.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/equipments/create.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/equipments'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/equipments/edit.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/admin/equipments/edit.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/equipments'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/equipments/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/equipments/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/equipments'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -83760,7 +83829,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/sknt/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /home/dev/projects/sknt/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

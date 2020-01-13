@@ -37,7 +37,7 @@ class QuestionTypeController extends Controller
     public function create()
     {
         return view('admin.question_types.create', [
-            'title' => "Новый тип вопросов",
+            'title' => "Новый тип",
         ]);
     }
 

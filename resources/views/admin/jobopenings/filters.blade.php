@@ -1,7 +1,7 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.jobopenings.columns.title',
                 'model' => 'filters.title',
             ])

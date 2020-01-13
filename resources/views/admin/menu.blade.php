@@ -23,4 +23,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/jobopenings') }}">Вакансии</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/equipments') }}">Оборудование</a>
+    </li>
 </ul>

@@ -8,7 +8,7 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.title',
                 'model' => 'form.title',
             ])
@@ -20,7 +20,7 @@
             ])
             @endcomponent
 
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.bill_tariff_id',
                 'model' => 'form.bill_tariff_id',
             ])
@@ -33,7 +33,7 @@
             ])
             @endcomponent
 
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.period',
                 'model' => 'form.period',
             ])
@@ -46,7 +46,7 @@
             ])
             @endcomponent
 
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.price',
                 'model' => 'form.price',
             ])

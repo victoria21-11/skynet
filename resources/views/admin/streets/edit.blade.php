@@ -8,7 +8,7 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.streets.columns.title',
                 'model' => 'form.title',
             ])

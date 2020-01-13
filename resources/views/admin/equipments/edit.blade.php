@@ -2,50 +2,50 @@
 
 @section('content')
 
-<jobopenings-edit :data="{{ $data }}" inline-template>
+<equipments-edit :data="{{ $data }}" inline-template>
     <div class="card">
         <div class="card-header">
             {{ $title }}
         </div>
         <div class="card-body">
             @component('admin.components.text', [
-                'lang' => 'admin.jobopenings.columns.title',
+                'lang' => 'admin.equipments.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
             @component('admin.components.textarea', [
-                'lang' => 'admin.jobopenings.columns.description',
+                'lang' => 'admin.equipments.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
             @component('admin.components.textarea', [
-                'lang' => 'admin.jobopenings.columns.requirements',
-                'model' => 'form.requirements',
-            ])
-            @endcomponent
-
-            @component('admin.components.textarea', [
-                'lang' => 'admin.jobopenings.columns.responsibilities',
-                'model' => 'form.responsibilities',
-            ])
-            @endcomponent
-
-            @component('admin.components.textarea', [
-                'lang' => 'admin.jobopenings.columns.conditions',
-                'model' => 'form.conditions',
-            ])
-            @endcomponent
-
-            @component('admin.components.textarea', [
-                'lang' => 'admin.jobopenings.columns.extra',
+                'lang' => 'admin.equipments.columns.extra',
                 'model' => 'form.extra',
             ])
             @endcomponent
 
+            @component('admin.components.text', [
+                'lang' => 'admin.equipments.columns.price',
+                'model' => 'form.price',
+            ])
+            @endcomponent
+
             @component('admin.components.boolean', [
-                'lang' => 'admin.jobopenings.columns.published',
+                'lang' => 'admin.equipments.columns.installment',
+                'model' => 'form.installment',
+            ])
+            @endcomponent
+
+            @component('admin.components.text', [
+                'lang' => 'admin.equipments.columns.installment_period',
+                'model' => 'form.installment_period',
+            ])
+            @endcomponent
+
+            @component('admin.components.boolean', [
+                'lang' => 'admin.equipments.columns.published',
                 'model' => 'form.published',
             ])
             @endcomponent
@@ -55,5 +55,5 @@
             </div>
         </div>
     </div>
-</jobopenings-edit>
+</equipments-edit>
 @endsection

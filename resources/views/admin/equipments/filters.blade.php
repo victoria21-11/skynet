@@ -2,22 +2,35 @@
     <div class="row">
         <div class="col-lg-4">
             @component('admin.components.text', [
-                'lang' => 'admin.houses.columns.title',
+                'lang' => 'admin.equipments.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.search_select', [
-                'lang' => 'admin.houses.columns.street_id',
-                'model' => 'filters.street_id',
-                'options' => App\Models\Street::get()
+            @component('admin.components.text', [
+                'lang' => 'admin.equipments.columns.price',
+                'model' => 'filters.price',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
             @component('admin.components.boolean', [
-                'lang' => 'admin.houses.columns.published',
+                'lang' => 'admin.equipments.columns.installment',
+                'model' => 'filters.installment',
+            ])
+            @endcomponent
+        </div>
+        <div class="col-lg-4">
+            @component('admin.components.text', [
+                'lang' => 'admin.equipments.columns.installment_period',
+                'model' => 'filters.installment_period',
+            ])
+            @endcomponent
+        </div>
+        <div class="col-lg-4">
+            @component('admin.components.boolean', [
+                'lang' => 'admin.equipments.columns.published',
                 'model' => 'filters.published',
             ])
             @endcomponent

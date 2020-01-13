@@ -39,6 +39,10 @@ Vue.component('jobopenings-index', require('./components/admin/jobopenings/index
 Vue.component('jobopenings-edit', require('./components/admin/jobopenings/edit.js').default);
 Vue.component('jobopenings-create', require('./components/admin/jobopenings/create.js').default);
 
+Vue.component('equipments-index', require('./components/admin/equipments/index.js').default);
+Vue.component('equipments-edit', require('./components/admin/equipments/edit.js').default);
+Vue.component('equipments-create', require('./components/admin/equipments/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

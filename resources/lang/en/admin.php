@@ -85,5 +85,17 @@ return [
             'conditions' => 'Условия',
         ]
     ],
+    'equipments' => [
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'extra' => 'Дополнительно',
+            'installment' => 'В рассрочку',
+            'installment_period' => 'Период рассрочки',
+            'price' => 'Стоимость',
+        ]
+    ],
 
 ];

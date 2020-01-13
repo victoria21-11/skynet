@@ -1,14 +1,14 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.bill_tariff_id',
                 'model' => 'filters.bill_tariff_id',
             ])
@@ -31,7 +31,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.period',
                 'model' => 'filters.period',
             ])
@@ -46,7 +46,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.input', [
+            @component('admin.components.text', [
                 'lang' => 'admin.tariffs.columns.price',
                 'model' => 'filters.price',
             ])
