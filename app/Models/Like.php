@@ -2,17 +2,8 @@
 
 namespace App\Models;
 
-
-
 class Like extends Model
 {
-
-
-    protected $fillable = [
-        'likeable_type',
-        'likeable_id',
-        'ip',
-    ];
 
     public function commentable()
     {

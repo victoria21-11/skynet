@@ -14,7 +14,7 @@ use App\Http\Requests\Admin\Street\{
 
 class StreetController extends Controller
 {
-    protected $title = 'Группы тарифов';
+    protected $title = 'Улицы';
 
     public function index(Index $request)
     {
@@ -38,7 +38,7 @@ class StreetController extends Controller
     public function create()
     {
         return view('admin.streets.create', [
-            'title' => "Новая группа тарифов",
+            'title' => "Новая улица",
         ]);
     }
 

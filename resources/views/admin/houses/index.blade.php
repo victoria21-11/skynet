@@ -2,7 +2,7 @@
 
 @section('content')
 
-<streets-index inline-template>
+<houses-index inline-template>
     <div class="card">
         <div class="card-header">
             {{ $title }}
@@ -14,14 +14,15 @@
                     @lang('admin.create')
                 </a>
             </div>
-            @include('admin.streets.filters')
+            @include('admin.houses.filters')
             <div class="table-responsive table-hover mb-3">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.streets.columns.id')</th>
-                            <th>@lang('admin.streets.columns.title')</th>
-                            <th>@lang('admin.streets.columns.published')</th>
+                            <th>@lang('admin.houses.columns.id')</th>
+                            <th>@lang('admin.houses.columns.title')</th>
+                            <th>@lang('admin.houses.columns.street_id')</th>
+                            <th>@lang('admin.tariffs.columns.published')</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -29,6 +30,7 @@
                         <tr v-for="item in paginatedData.data">
                             <td>@{{ item.id }}</td>
                             <td>@{{ item.title }}</td>
+                            <td>@{{ item.street.title }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" v-model="item.published">
@@ -57,6 +59,6 @@
             ></b-pagination>
         </div>
     </div>
-</streets>
+</houses>
 
 @endsection

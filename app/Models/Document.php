@@ -2,17 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Document extends Model
 {
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function getClassName()
     {

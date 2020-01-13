@@ -2,19 +2,10 @@
 
 namespace App\Models;
 
-
-
 use Illuminate\Database\Eloquent\Builder;
 
 class Navigation extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function children()
     {

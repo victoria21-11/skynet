@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class PaymentMethod extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function scopeAlternative($query)
     {

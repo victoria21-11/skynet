@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Telephone extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function getClassName()
     {

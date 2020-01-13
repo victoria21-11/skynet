@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Equipment extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     protected $table = 'equipments';
 

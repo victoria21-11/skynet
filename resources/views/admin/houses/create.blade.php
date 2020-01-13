@@ -2,20 +2,27 @@
 
 @section('content')
 
-<streets-create inline-template>
+<houses-create inline-template>
     <div class="card">
         <div class="card-header">
             {{ $title }}
         </div>
         <div class="card-body">
             @component('admin.components.input', [
-                'lang' => 'admin.streets.columns.title',
+                'lang' => 'admin.houses.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
+            @component('admin.components.search_select', [
+                'lang' => 'admin.houses.columns.street_id',
+                'model' => 'form.street_id',
+                'options' => App\Models\Street::get(),
+            ])
+            @endcomponent
+
             @component('admin.components.boolean', [
-                'lang' => 'admin.streets.columns.published',
+                'lang' => 'admin.houses.columns.published',
                 'model' => 'form.published',
             ])
             @endcomponent
@@ -25,5 +32,5 @@
             </div>
         </div>
     </div>
-</streets-create>
+</houses-create>
 @endsection

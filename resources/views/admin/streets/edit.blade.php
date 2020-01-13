@@ -14,6 +14,12 @@
             ])
             @endcomponent
 
+            @component('admin.components.boolean', [
+                'lang' => 'admin.streets.columns.published',
+                'model' => 'form.published',
+            ])
+            @endcomponent
+
             <div class="text-right">
                 <button type="button" class="btn btn-success" @click="update">@lang('admin.save')</button>
             </div>

@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class NavigationType extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function scopeHeader($query)
     {

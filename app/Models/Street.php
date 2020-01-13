@@ -2,19 +2,12 @@
 
 namespace App\Models;
 
-
-
-
 class Street extends Model
 {
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     protected $scopes = [
         'title' => 'ofTitle',
+        'published' => 'ofPublished',
     ];
 
     public function houses()

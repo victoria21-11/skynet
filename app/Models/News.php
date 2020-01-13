@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class News extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     protected $appends = ['is_my_like_exists'];
 

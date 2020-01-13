@@ -23,6 +23,10 @@ Vue.component('streets-index', require('./components/admin/streets/index.js').de
 Vue.component('streets-edit', require('./components/admin/streets/edit.js').default);
 Vue.component('streets-create', require('./components/admin/streets/create.js').default);
 
+Vue.component('houses-index', require('./components/admin/houses/index.js').default);
+Vue.component('houses-edit', require('./components/admin/houses/edit.js').default);
+Vue.component('houses-create', require('./components/admin/houses/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });

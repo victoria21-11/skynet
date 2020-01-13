@@ -2,17 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Antivirus extends Model
 {
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
-
     protected $table = 'antiviruses';
 
     public function periods()

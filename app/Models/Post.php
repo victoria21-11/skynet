@@ -2,19 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Post extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-        'navigation_id',
-    ];
 
     public function navigation()
     {

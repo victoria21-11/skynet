@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class QuestionType extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function scopePublished($query)
     {

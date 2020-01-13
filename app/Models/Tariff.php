@@ -5,19 +5,6 @@ namespace App\Models;
 class Tariff extends Model
 {
 
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-        'period',
-        'period_type_id',
-        'bill_tariff_id',
-        'tariff_group_id',
-        'price',
-        'rebate',
-    ];
-
     protected $scopes = [
         'title' => 'ofTitle',
         'tariff_type_id' => 'ofType',
@@ -76,10 +63,4 @@ class Tariff extends Model
     {
         return $query->where('rebate', $rebate);
     }
-
-    public function scopeOfPublished($query, $published)
-    {
-        return $query->where('published', $published);
-    }
-
 }

@@ -2,19 +2,8 @@
 
 namespace App\Models;
 
-
-
 class TariffGroup extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-        'tariff_type_id',
-        'rebate',
-    ];
 
     protected $appends = ['is_my_like_exists'];
 
@@ -83,11 +72,6 @@ class TariffGroup extends Model
     public function packages()
     {
         return $this->belongsToMany(Package::class);
-    }
-
-    public function scopeOfPublished($query, $published)
-    {
-        return $query->where('published', $published);
     }
 
     public function scopeOfRebate($query, $rebate)

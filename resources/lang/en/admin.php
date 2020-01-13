@@ -47,5 +47,13 @@ return [
             'published' => 'Опубликовано',
         ]
     ],
+    'houses' => [
+        'columns' => [
+            'title' => 'Номер дома',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'street_id' => 'Улица',
+        ]
+    ],
 
 ];

@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-
-
 class NavparentNavchild extends Model
 {
     protected $table = 'navparent_navchild';
-
-    protected $guarded = ['id'];
 
     public function scopeOfUrl($query, $url)
     {

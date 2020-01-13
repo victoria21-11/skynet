@@ -2,17 +2,7 @@
 
 namespace App\Models;
 
-
-
-
 class User extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
 }

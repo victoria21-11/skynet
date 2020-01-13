@@ -2,16 +2,8 @@
 
 namespace App\Models;
 
-
-
 class TariffType extends Model
 {
-
-
-    protected $fillable = [
-        'title',
-        'description',
-    ];
 
     protected $scopes = [
         'title' => 'ofTitle',

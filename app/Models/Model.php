@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model as DefaultModel;
 class Model extends DefaultModel
 {
 
+    protected $guarded = [
+        'id',
+    ];
+
     protected $scopes = [
 
     ];
@@ -14,6 +18,11 @@ class Model extends DefaultModel
     public function scopeOfTitle($query, $title)
     {
         return $query->where('title', 'like', "%$title%");
+    }
+
+    public function scopeOfPublished($query, $published)
+    {
+        return $query->where('published', $published);
     }
 
     public function scopeOfFilters($query, array $filters)

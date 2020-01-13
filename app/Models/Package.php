@@ -2,18 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class Package extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-    ];
 
     public function scopeExtra($query)
     {

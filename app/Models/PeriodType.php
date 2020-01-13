@@ -2,19 +2,8 @@
 
 namespace App\Models;
 
-
-
-
 class PeriodType extends Model
 {
-
-
-    protected $fillable = [
-        'published',
-        'title',
-        'description',
-        'name',
-    ];
 
     static function getOptions() {
         return self::all()->map(function ($value) {
