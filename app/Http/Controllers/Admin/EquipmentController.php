@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Equipment\{
 
 class EquipmentController extends Controller
 {
-    protected $title = 'Оборудование';
+    public function getTitle()
+    {
+        return trans('admin.equipments.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,7 +34,7 @@ class EquipmentController extends Controller
         }
 
         return view('admin.equipments.index', [
-            'title' => $this->title,
+            'title' => trans('admin.equipments.create'),
         ]);
     }
 

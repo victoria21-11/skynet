@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\TariffType\{
 
 class TariffTypeController extends Controller
 {
-    protected $title = 'Типы тарифов';
+    public function getTitle()
+    {
+        return trans('admin.tariff_types.title');
+    }
 
     public function index(Index $request)
     {
@@ -30,14 +33,14 @@ class TariffTypeController extends Controller
         }
 
         return view('admin.tariff_types.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.tariff_types.create', [
-            'title' => "Новый тип тарифов",
+            'title' => trans('admin.tariff_types.create'),
         ]);
     }
 

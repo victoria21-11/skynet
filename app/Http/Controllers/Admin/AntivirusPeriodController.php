@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\AntivirusPeriod\{
 
 class AntivirusPeriodController extends Controller
 {
-    protected $title = 'Антивирусная защита (периоды действия)';
+    public function getTitle()
+    {
+        return trans('admin.antivirus_periods.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class AntivirusPeriodController extends Controller
         }
 
         return view('admin.antivirus_periods.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.antivirus_periods.create', [
-            'title' => "Новый период",
+            'title' => trans('admin.antivirus_periods.create'),
         ]);
     }
 

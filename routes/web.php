@@ -70,6 +70,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('equipments', 'EquipmentController');
         Route::resource('antiviruses', 'AntivirusController');
         Route::resource('antivirus_periods', 'AntivirusPeriodController');
+        Route::resource('antivirus_types', 'AntivirusTypeController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);

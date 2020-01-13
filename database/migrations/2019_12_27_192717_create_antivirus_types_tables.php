@@ -12,6 +12,7 @@ class CreateAntivirusTypesTables extends Migration
             $table->string('title', 255)->nullable();
             $table->text('description')->nullable();
             $table->text('preview_description')->nullable();
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

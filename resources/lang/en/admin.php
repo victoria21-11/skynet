@@ -8,6 +8,8 @@ return [
     'create' => 'Создать',
     'programmer_help' => 'Для изменения данного параметра обратитесь к техническому специалисту.',
     'tariffs' => [
+        'title' => 'Тарифы',
+        'create' => 'Новый тариф',
         'columns' => [
             'title' => 'Название',
             'bill_tariff_id' => 'ID в биллинге',
@@ -23,6 +25,8 @@ return [
         ]
     ],
     'tariff_groups' => [
+        'title' => 'Группы тарифов',
+        'create' => 'Новая группа',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -33,6 +37,8 @@ return [
         ]
     ],
     'tariff_types' => [
+        'title' => 'Типы тарифов',
+        'create' => 'Новый тип',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -41,6 +47,8 @@ return [
         ]
     ],
     'streets' => [
+        'title' => 'Улицы',
+        'create' => 'Новая улица',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -48,6 +56,8 @@ return [
         ]
     ],
     'houses' => [
+        'title' => 'Дома',
+        'create' => 'Новый дом',
         'columns' => [
             'title' => 'Номер дома',
             'id' => 'ID',
@@ -56,6 +66,8 @@ return [
         ]
     ],
     'questions' => [
+        'title' => 'FAQ',
+        'create' => 'Новый вопрос',
         'columns' => [
             'title' => 'Вопрос',
             'id' => 'ID',
@@ -66,6 +78,8 @@ return [
         ]
     ],
     'question_types' => [
+        'title' => 'Типы вопросов',
+        'create' => 'Новый тип',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -74,6 +88,8 @@ return [
         ]
     ],
     'jobopenings' => [
+        'title' => 'Вакансии',
+        'create' => 'Новая вакансия',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -86,6 +102,8 @@ return [
         ]
     ],
     'equipments' => [
+        'title' => 'Оборудование',
+        'create' => 'Новое оборудование',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -98,6 +116,8 @@ return [
         ]
     ],
     'antiviruses' => [
+        'title' => 'Антивирусная защита',
+        'create' => 'Новый антивирус',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -108,6 +128,8 @@ return [
         ]
     ],
     'antivirus_periods' => [
+        'title' => 'Антивирусная защита (периоды действия)',
+        'create' => 'Новый период',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
@@ -117,6 +139,17 @@ return [
             'period_type_id' => 'Тип периода',
             'price' => 'Стоимость',
             'antivirus_id' => 'Антивирус',
+        ]
+    ],
+    'antivirus_types' => [
+        'title' => 'Антивирусная защита (тип)',
+        'create' => 'Новый тип',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'preview_description' => 'Краткое описание',
+            'description' => 'Описание',
         ]
     ],
 

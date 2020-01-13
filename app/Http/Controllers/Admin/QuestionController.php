@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Question\{
 
 class QuestionController extends Controller
 {
-    protected $title = 'FAQ';
+    public function getTitle()
+    {
+        return trans('admin.questions.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class QuestionController extends Controller
         }
 
         return view('admin.questions.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.questions.create', [
-            'title' => "Новый вопрос",
+            'title' => trans('admin.questions.create'),
         ]);
     }
 

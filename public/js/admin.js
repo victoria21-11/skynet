@@ -83077,6 +83077,9 @@ Vue.component('antiviruses-create', __webpack_require__(/*! ./components/admin/a
 Vue.component('antivirus-periods-index', __webpack_require__(/*! ./components/admin/antivirus_periods/index.js */ "./resources/js/components/admin/antivirus_periods/index.js")["default"]);
 Vue.component('antivirus-periods-edit', __webpack_require__(/*! ./components/admin/antivirus_periods/edit.js */ "./resources/js/components/admin/antivirus_periods/edit.js")["default"]);
 Vue.component('antivirus-periods-create', __webpack_require__(/*! ./components/admin/antivirus_periods/create.js */ "./resources/js/components/admin/antivirus_periods/create.js")["default"]);
+Vue.component('antivirus-types-index', __webpack_require__(/*! ./components/admin/antivirus_types/index.js */ "./resources/js/components/admin/antivirus_types/index.js")["default"]);
+Vue.component('antivirus-types-edit', __webpack_require__(/*! ./components/admin/antivirus_types/edit.js */ "./resources/js/components/admin/antivirus_types/edit.js")["default"]);
+Vue.component('antivirus-types-create', __webpack_require__(/*! ./components/admin/antivirus_types/create.js */ "./resources/js/components/admin/antivirus_types/create.js")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -83176,6 +83179,72 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: '/admin/antivirus_periods'
+    };
+  },
+  mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antivirus_types/create.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/admin/antivirus_types/create.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_create_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/create.js */ "./resources/js/components/admin/crud/create.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antivirus_types'
+    };
+  },
+  mixins: [_crud_create_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antivirus_types/edit.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/admin/antivirus_types/edit.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_edit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/edit.js */ "./resources/js/components/admin/crud/edit.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antivirus_types'
+    };
+  },
+  mixins: [_crud_edit_js__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/antivirus_types/index.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/admin/antivirus_types/index.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _crud_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../crud/index.js */ "./resources/js/components/admin/crud/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      url: '/admin/antivirus_types'
     };
   },
   mixins: [_crud_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]]

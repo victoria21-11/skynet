@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\House\{
 
 class HouseController extends Controller
 {
-    protected $title = 'Дома';
+    public function getTitle()
+    {
+        return trans('admin.houses.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class HouseController extends Controller
         }
 
         return view('admin.houses.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.houses.create', [
-            'title' => "Новый дом",
+            'title' => trans('admin.houses.create'),
         ]);
     }
 

@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Jobopening\{
 
 class JobopeningController extends Controller
 {
-    protected $title = 'Вакансии';
+    public function getTitle()
+    {
+        return trans('admin.jobopenings.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,7 +34,7 @@ class JobopeningController extends Controller
         }
 
         return view('admin.jobopenings.index', [
-            'title' => $this->title,
+            'title' => trans('admin.jobopenings.create'),
         ]);
     }
 

@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Street\{
 
 class StreetController extends Controller
 {
-    protected $title = 'Улицы';
+    public function getTitle()
+    {
+        return trans('admin.streets.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class StreetController extends Controller
         }
 
         return view('admin.streets.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.streets.create', [
-            'title' => "Новая улица",
+            'title' => trans('admin.streets.create'),
         ]);
     }
 

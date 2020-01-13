@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Antivirus\{
 
 class AntivirusController extends Controller
 {
-    protected $title = 'Антивирусная защита';
+    public function getTitle()
+    {
+        return trans('admin.antiviruses.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class AntivirusController extends Controller
         }
 
         return view('admin.antiviruses.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.antiviruses.create', [
-            'title' => "Новый антивирус",
+            'title' => trans('admin.antiviruses.create'),
         ]);
     }
 

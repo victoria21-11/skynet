@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\Tariff\{
 
 class TariffController extends Controller
 {
-    protected $title = 'Тарифы';
+    public function getTitle()
+    {
+        return trans('admin.tariffs.title');
+    }
 
     public function index(Index $request)
     {
@@ -32,14 +35,14 @@ class TariffController extends Controller
         }
 
         return view('admin.tariffs.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.tariffs.create', [
-            'title' => "Новый тариф",
+            'title' => trans('admin.tariffs.create'),
         ]);
     }
 

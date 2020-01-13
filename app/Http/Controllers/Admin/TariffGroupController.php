@@ -14,7 +14,10 @@ use App\Http\Requests\Admin\TariffGroup\{
 
 class TariffGroupController extends Controller
 {
-    protected $title = 'Группы тарифов';
+    public function getTitle()
+    {
+        return trans('admin.tariff_groups.title');
+    }
 
     public function index(Index $request)
     {
@@ -31,14 +34,14 @@ class TariffGroupController extends Controller
         }
 
         return view('admin.tariff_groups.index', [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
         ]);
     }
 
     public function create()
     {
         return view('admin.tariff_groups.create', [
-            'title' => "Новая группа тарифов",
+            'title' => trans('admin.tariff_groups.create'),
         ]);
     }
 

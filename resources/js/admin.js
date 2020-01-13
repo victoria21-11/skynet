@@ -51,6 +51,10 @@ Vue.component('antivirus-periods-index', require('./components/admin/antivirus_p
 Vue.component('antivirus-periods-edit', require('./components/admin/antivirus_periods/edit.js').default);
 Vue.component('antivirus-periods-create', require('./components/admin/antivirus_periods/create.js').default);
 
+Vue.component('antivirus-types-index', require('./components/admin/antivirus_types/index.js').default);
+Vue.component('antivirus-types-edit', require('./components/admin/antivirus_types/edit.js').default);
+Vue.component('antivirus-types-create', require('./components/admin/antivirus_types/create.js').default);
+
 const app = new Vue({
     el: '#app'
 });
