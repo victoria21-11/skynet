@@ -214,5 +214,17 @@ return [
             'published' => 'Опубликовано',
         ]
     ],
+    'payment_methods' => [
+        'title' => 'Способы оплаты',
+        'create' => 'Новый способ оплаты',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'link' => 'Ссылка',
+            'alternative' => 'Другой',
+            'description' => 'Описание',
+            'published' => 'Опубликовано',
+        ]
+    ],
 
 ];

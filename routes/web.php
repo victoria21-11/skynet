@@ -74,6 +74,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('services', 'ServiceController');
         Route::resource('period_types', 'PeriodTypeController');
         Route::resource('posts', 'PostController');
+        Route::resource('payment_methods', 'PaymentMethodController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);

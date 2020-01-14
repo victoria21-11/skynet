@@ -79,6 +79,10 @@ Vue.component('posts-index', require('./components/admin/posts/index.js').defaul
 Vue.component('posts-edit', require('./components/admin/posts/edit.js').default);
 Vue.component('posts-create', require('./components/admin/posts/create.js').default);
 
+Vue.component('payment-methods-index', require('./components/admin/payment_methods/index.js').default);
+Vue.component('payment-methods-edit', require('./components/admin/payment_methods/edit.js').default);
+Vue.component('payment-methods-create', require('./components/admin/payment_methods/create.js').default);
+
 const app = new Vue({
     el: '#app',
     data() {
