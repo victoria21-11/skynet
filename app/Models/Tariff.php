@@ -6,15 +6,15 @@ class Tariff extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
+        'title' => 'ofLike',
         'tariff_type_id' => 'ofType',
-        'tariff_group_id' => 'ofGroup',
-        'period' => 'ofPeriod',
-        'period_type_id' => 'ofPeriodType',
-        'price' => 'ofPrice',
-        'bill_tariff_id' => 'ofBillTariff',
-        'rebate' => 'ofRebate',
-        'published' => 'ofPublished',
+        'tariff_group_id' => 'ofStrict',
+        'period' => 'ofStrict',
+        'period_type_id' => 'ofStrict',
+        'price' => 'ofStrict',
+        'bill_tariff_id' => 'ofStrict',
+        'rebate' => 'ofStrict',
+        'published' => 'ofStrict',
     ];
 
     public function group()
@@ -34,33 +34,4 @@ class Tariff extends Model
         });
     }
 
-    public function scopeOfGroup($query, $group)
-    {
-        return $query->where('tariff_group_id', $group);
-    }
-
-    public function scopeOfPeriod($query, $period)
-    {
-        return $query->where('period', $period);
-    }
-
-    public function scopeOfPeriodType($query, $periodType)
-    {
-        return $query->where('period_type_id', $periodType);
-    }
-
-    public function scopeOfPrice($query, $price)
-    {
-        return $query->where('price', $price);
-    }
-
-    public function scopeOfBillTariff($query, $billTariff)
-    {
-        return $query->where('bill_tariff_id', $billTariff);
-    }
-
-    public function scopeOfRebate($query, $rebate)
-    {
-        return $query->where('rebate', $rebate);
-    }
 }

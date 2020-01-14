@@ -6,7 +6,7 @@ class TariffType extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
+        'title' => 'ofLike',
     ];
 
     static function getOptions() {

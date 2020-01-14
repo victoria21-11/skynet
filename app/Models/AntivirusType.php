@@ -5,6 +5,12 @@ namespace App\Models;
 class AntivirusType extends Model
 {
 
+    protected $scopes = [
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
+        'preview_description' => 'ofLike',
+    ];
+
     public function antiviruses()
     {
         return $this->hasMany(Antivirus::class);

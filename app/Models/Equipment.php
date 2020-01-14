@@ -8,11 +8,11 @@ class Equipment extends Model
     protected $table = 'equipments';
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
-        'installment' => 'ofInstallment',
-        'installment_period' => 'ofInstallmentPeriod',
-        'price' => 'ofPrice',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
+        'installment' => 'ofStrict',
+        'installment_period' => 'ofStrict',
+        'price' => 'ofStrict',
     ];
 
     public function getClassName()
@@ -39,19 +39,5 @@ class Equipment extends Model
     {
         return intval($this->price / $this->installment_period);
     }
-
-    public function scopeOfPrice($query, $price)
-    {
-        return $query->where('price', $price);
-    }
-
-    public function scopeOfInstallment($query, $installment)
-    {
-        return $query->where('installment', $installment);
-    }
-
-    public function scopeOfInstallmentPeriod($query, $installmentPeriod)
-    {
-        return $query->where('installment_period', $installmentPeriod);
-    }
+    
 }

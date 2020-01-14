@@ -6,10 +6,10 @@ class Post extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
         'created_at' => 'ofCreatedAt',
-        'navigation_id' => 'ofNavigation',
+        'navigation_id' => 'ofStrict',
     ];
 
     public function navigation()
@@ -32,8 +32,4 @@ class Post extends Model
         return quotemeta(self::class);
     }
 
-    public function scopeOfNavigation($query, $navigation)
-    {
-        return $query->where('navigation_id', $navigation);
-    }
 }

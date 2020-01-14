@@ -6,11 +6,11 @@ class AntivirusPeriod extends Model
 {
 
     protected $scopes = [
-        'published' => 'ofPublished',
-        'price' => 'ofPrice',
-        'period' => 'ofPeriod',
-        'period_type_id' => 'ofPeriodType',
-        'antivirus_id' => 'ofAntivirus',
+        'published' => 'ofStrict',
+        'price' => 'ofStrict',
+        'period' => 'ofStrict',
+        'period_type_id' => 'ofStrict',
+        'antivirus_id' => 'ofStrict',
     ];
 
     public function periodType()
@@ -23,23 +23,4 @@ class AntivirusPeriod extends Model
         return $this->belongsTo(Antivirus::class);
     }
 
-    public function scopeOfPrice($query, $price)
-    {
-        return $query->where('price', $price);
-    }
-
-    public function scopeOfPeriod($query, $period)
-    {
-        return $query->where('period', $period);
-    }
-
-    public function scopeOfPeriodType($query, $periodType)
-    {
-        return $query->where('period_type_id', $periodType);
-    }
-
-    public function scopeOfAntivirus($query, $antivirus)
-    {
-        return $query->where('antivirus_id', $antivirus);
-    }
 }

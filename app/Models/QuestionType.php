@@ -6,8 +6,8 @@ class QuestionType extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
     ];
 
     public function scopePublished($query)

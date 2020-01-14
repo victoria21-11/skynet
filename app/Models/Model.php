@@ -20,16 +20,6 @@ class Model extends DefaultModel
         'published' => 'integer'
     ];
 
-    public function scopeOfTitle($query, $title)
-    {
-        return $query->where('title', 'like', "%$title%");
-    }
-
-    public function scopeOfPublished($query, $published)
-    {
-        return $query->where('published', $published);
-    }
-
     public function scopeOfStrict($query, $value, $key)
     {
         return $query->where($key, $value);

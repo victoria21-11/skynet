@@ -8,10 +8,10 @@ class TariffGroup extends Model
     protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
-        'title' => 'ofTitle',
+        'title' => 'ofLike',
         'tariff_type_id' => 'ofType',
-        'rebate' => 'ofRebate',
-        'published' => 'ofPublished',
+        'rebate' => 'ofStrict',
+        'published' => 'ofStrict',
     ];
 
     public function tariffs()
@@ -39,9 +39,9 @@ class TariffGroup extends Model
         return $this->tariffs()->with('group', 'periodType')->orderBy('period')->first();
     }
 
-    public function scopeOfType($query, $type)
+    public function scopeOfType($query, TariffType $type)
     {
-        return $query->where('tariff_type_id', $type);
+        return $query->where('tariff_type_id', $type->id);
     }
 
     public function scopeInternet($query)
@@ -72,11 +72,6 @@ class TariffGroup extends Model
     public function packages()
     {
         return $this->belongsToMany(Package::class);
-    }
-
-    public function scopeOfRebate($query, $rebate)
-    {
-        return $query->where('rebate', $rebate);
     }
 
 }

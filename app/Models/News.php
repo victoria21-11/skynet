@@ -8,8 +8,8 @@ class News extends Model
     protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
         'created_at' => 'ofCreatedAt',
     ];
 

@@ -6,7 +6,7 @@ class PeriodType extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
+        'title' => 'ofLike',
         'name' => 'ofName',
     ];
 

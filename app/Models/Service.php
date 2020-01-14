@@ -6,9 +6,9 @@ class Service extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
-        'url' => 'ofUrl',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
+        'url' => 'ofLike',
     ];
 
     public function getClassName()
@@ -31,8 +31,4 @@ class Service extends Model
         return url('/home/internet/services/' . $this->id);
     }
 
-    public function scopeOfUrl($query, $url)
-    {
-        return $query->where('url', 'like', "%$url%");
-    }
 }

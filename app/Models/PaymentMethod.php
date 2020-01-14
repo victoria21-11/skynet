@@ -6,10 +6,10 @@ class PaymentMethod extends Model
 {
 
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
         'alternative' => 'ofAlternative',
-        'link' => 'ofLink',
+        'link' => 'ofStrict',
     ];
 
     public function scopeAlternative($query)
@@ -27,8 +27,4 @@ class PaymentMethod extends Model
         return $query->where('alternative', $alternative);
     }
 
-    public function scopeOfLink($query, $link)
-    {
-        return $query->where('link', $link);
-    }
 }

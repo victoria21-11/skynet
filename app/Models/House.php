@@ -4,11 +4,11 @@ namespace App\Models;
 
 class House extends Model
 {
-    
+
     protected $scopes = [
-        'title' => 'ofTitle',
-        'published' => 'ofPublished',
-        'street_id' => 'ofStreet',
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
+        'street_id' => 'ofStrict',
     ];
 
     public function scopeOfStreet($query, $street)

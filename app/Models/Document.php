@@ -20,8 +20,4 @@ class Document extends Model
         return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
-    public function scopePublished($query)
-    {
-        return $query->where('published', true);
-    }
 }
