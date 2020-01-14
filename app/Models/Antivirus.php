@@ -5,7 +5,7 @@ namespace App\Models;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Antivirus extends Model
+class Antivirus extends Model implements HasMedia
 {
 
     use HasMediaTrait;

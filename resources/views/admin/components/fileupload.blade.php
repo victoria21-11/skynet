@@ -1,1 +1,1 @@
-<dropzone></dropzone>
+<dropzone v-model="{{ $model }}"></dropzone>

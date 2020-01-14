@@ -12,6 +12,14 @@ export default {
             dropzoneConf: {
                 url: '/admin/files',
                 autoProcessQueue: false,
+            },
+            path: []
+        }
+    },
+    props: {
+        input: {
+            default: () => {
+                return [];
             }
         }
     },
@@ -19,11 +27,18 @@ export default {
         vueDropzone: vue2Dropzone
     },
     methods: {
-        fileAdded() {
-            console.log(this.$refs.dropzone.getAcceptedFiles());
-            console.log(this.$refs.dropzone.getQueuedFiles());
-            console.log(this.$refs.dropzone.getUploadingFiles());
-            console.log(this.$refs.dropzone.getRejectedFiles());
+        fileAdded(file) {
+            var formData = new FormData();
+            formData.append('file', file)
+            axios.post('/admin/files', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+                .then(response => {
+                    this.path.push(response.data.path);
+                    this.$emit('input', this.path);
+                })
         }
     }
 }

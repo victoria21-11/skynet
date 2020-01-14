@@ -62,6 +62,9 @@ class AntivirusController extends Controller
     public function update(Update $request, Antivirus $antivirus)
     {
         $antivirus->update($request->validated());
+        foreach ($request->get('preview', []) as $value) {
+            $antivirus->addMedia(storage_path("app/$value"))->toMediaCollection('preview');
+        }
         return response([]);
     }
 
