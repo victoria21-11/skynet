@@ -54,28 +54,32 @@ Route::resource('likes', 'LikeController');
 Route::get('questions/{question}', 'QuestionController@show');
 Route::get('streets/{street}/houses', 'StreetController@searchHouses');
 Route::get('posts/{post}', 'PostController@index');
+
 Route::prefix('admin')->group(function () {
-    Route::namespace('Admin')->group(function () {
-        Route::get('/', 'HomeController@index');
-        Route::resource('tariffs', 'TariffController');
-        Route::resource('tariff_groups', 'TariffGroupController');
-        Route::resource('tariff_types', 'TariffTypeController');
-        Route::resource('streets', 'StreetController');
-        Route::resource('houses', 'HouseController');
-        Route::resource('questions', 'QuestionController');
-        Route::resource('question_types', 'QuestionTypeController');
-        Route::resource('jobopenings', 'JobOpeningController');
-        Route::resource('equipments', 'EquipmentController');
-        Route::resource('antiviruses', 'AntivirusController');
-        Route::resource('antivirus_periods', 'AntivirusPeriodController');
-        Route::resource('antivirus_types', 'AntivirusTypeController');
-        Route::resource('news', 'NewsController');
-        Route::resource('telephones', 'TelephoneController');
-        Route::resource('services', 'ServiceController');
-        Route::resource('period_types', 'PeriodTypeController');
-        Route::resource('posts', 'PostController');
-        Route::resource('payment_methods', 'PaymentMethodController');
-        Route::resource('packages', 'PackageController');
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::namespace('Admin')->group(function () {
+            Route::get('/', 'HomeController@index');
+            Route::resource('tariffs', 'TariffController');
+            Route::resource('tariff_groups', 'TariffGroupController');
+            Route::resource('tariff_types', 'TariffTypeController');
+            Route::resource('streets', 'StreetController');
+            Route::resource('houses', 'HouseController');
+            Route::resource('questions', 'QuestionController');
+            Route::resource('question_types', 'QuestionTypeController');
+            Route::resource('jobopenings', 'JobOpeningController');
+            Route::resource('equipments', 'EquipmentController');
+            Route::resource('antiviruses', 'AntivirusController');
+            Route::resource('antivirus_periods', 'AntivirusPeriodController');
+            Route::resource('antivirus_types', 'AntivirusTypeController');
+            Route::resource('news', 'NewsController');
+            Route::resource('telephones', 'TelephoneController');
+            Route::resource('services', 'ServiceController');
+            Route::resource('period_types', 'PeriodTypeController');
+            Route::resource('posts', 'PostController');
+            Route::resource('payment_methods', 'PaymentMethodController');
+            Route::resource('packages', 'PackageController');
+        });
     });
 });
+
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);
