@@ -11,6 +11,8 @@ Vue.use(BootstrapVue);
 Vue.use(VueFlatPickr);
 Vue.use(VueQuillEditor, {});
 
+Vue.component('dropzone', require('./components/admin/Dropzone.vue').default);
+
 Vue.component('tariffs-index', require('./components/admin/tariffs/index.js').default);
 Vue.component('tariffs-edit', require('./components/admin/tariffs/edit.js').default);
 Vue.component('tariffs-create', require('./components/admin/tariffs/create.js').default);
@@ -95,7 +97,6 @@ const app = new Vue({
                 mode: 'range',
                 dateFormat: 'd.m.Y',
             },
-            editorOption: {}
         }
-    }
+    },
 });

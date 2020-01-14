@@ -80,6 +80,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('posts', 'PostController');
             Route::resource('payment_methods', 'PaymentMethodController');
             Route::resource('packages', 'PackageController');
+            Route::resource('files', 'FileController');
         });
     });
 });

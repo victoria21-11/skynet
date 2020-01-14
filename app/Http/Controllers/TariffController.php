@@ -18,8 +18,8 @@ class TariffController extends Controller
 {
     function internet(Request $request)
     {
-        if(!auth()->user()->hasRole('admin')) {
-            auth()->user()->assignRole('admin')
+        if(auth()->user() && !auth()->user()->hasRole('admin')) {
+            auth()->user()->assignRole('admin');
         }
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
         $navigation = NavparentNavchild::ofUrl('home/internet')->first()->child;
