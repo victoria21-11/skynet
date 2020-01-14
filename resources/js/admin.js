@@ -63,6 +63,10 @@ Vue.component('news-index', require('./components/admin/news/index.js').default)
 Vue.component('news-edit', require('./components/admin/news/edit.js').default);
 Vue.component('news-create', require('./components/admin/news/create.js').default);
 
+Vue.component('telephones-index', require('./components/admin/telephones/index.js').default);
+Vue.component('telephones-edit', require('./components/admin/telephones/edit.js').default);
+Vue.component('telephones-create', require('./components/admin/telephones/create.js').default);
+
 const app = new Vue({
     el: '#app',
     data() {

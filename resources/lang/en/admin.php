@@ -163,5 +163,21 @@ return [
             'created_at' => 'Дата',
         ]
     ],
+    'telephones' => [
+        'title' => 'Телефония',
+        'create' => 'Новый тариф',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'created_at' => 'Дата',
+            'price' => 'Стоимость',
+            'price_urban' => 'Звонки на городские номера',
+            'price_mobile' => 'Звонки на мобильные номера',
+            'price_landline' => 'Городской номер',
+            'min_per_month' => 'Пакет минут',
+        ]
+    ],
 
 ];
