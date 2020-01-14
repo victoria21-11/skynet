@@ -2,8 +2,14 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+
 class Antivirus extends Model
 {
+
+    use HasMediaTrait;
+
     protected $table = 'antiviruses';
 
     protected $scopes = [
@@ -11,6 +17,13 @@ class Antivirus extends Model
         'published' => 'ofStrict',
         'antivirus_type_id' => 'ofStrict',
     ];
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('preview')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg']);
+    }
 
     public function periods()
     {
