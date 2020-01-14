@@ -13,7 +13,7 @@ class Index extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
