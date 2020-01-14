@@ -30,11 +30,21 @@ class Model extends DefaultModel
         return $query->where('published', $published);
     }
 
+    public function scopeOfStrict($query, $value, $key)
+    {
+        return $query->where($key, $value);
+    }
+
+    public function scopeOfLike($query, $value, $key)
+    {
+        return $query->where($key, 'like', "%$value%");
+    }
+
     public function scopeOfFilters($query, array $filters)
     {
         foreach ($filters as $key => $value) {
             if(isset($this->scopes[$key])) {
-                $query->{$this->scopes[$key]}($value);
+                $query->{$this->scopes[$key]}($value, $key);
             }
         }
         return $query;

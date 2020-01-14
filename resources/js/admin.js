@@ -83,6 +83,10 @@ Vue.component('payment-methods-index', require('./components/admin/payment_metho
 Vue.component('payment-methods-edit', require('./components/admin/payment_methods/edit.js').default);
 Vue.component('payment-methods-create', require('./components/admin/payment_methods/create.js').default);
 
+Vue.component('packages-index', require('./components/admin/packages/index.js').default);
+Vue.component('packages-edit', require('./components/admin/packages/edit.js').default);
+Vue.component('packages-create', require('./components/admin/packages/create.js').default);
+
 const app = new Vue({
     el: '#app',
     data() {

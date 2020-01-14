@@ -226,5 +226,20 @@ return [
             'published' => 'Опубликовано',
         ]
     ],
+    'packages' => [
+        'title' => 'Пакеты',
+        'create' => 'Новый пакет',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'name' => 'ID',
+            'hd_channels_count' => 'Кол-во HD каналов',
+            'channels_count' => 'Кол-во каналов',
+            'price' => 'Стоимость',
+            'extra' => 'Дополнительный',
+            'description' => 'Описание',
+            'published' => 'Опубликовано',
+        ]
+    ],
 
 ];

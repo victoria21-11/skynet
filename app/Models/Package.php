@@ -5,6 +5,16 @@ namespace App\Models;
 class Package extends Model
 {
 
+    protected $scopes = [
+        'title' => 'ofLike',
+        'published' => 'ofStrict',
+        'name' => 'ofLike',
+        'hd_channels_count' => 'ofStrict',
+        'channels_count' => 'ofStrict',
+        'price' => 'ofStrict',
+        'extra' => 'ofStrict',
+    ];
+
     public function scopeExtra($query)
     {
         return $query->where('extra', true);

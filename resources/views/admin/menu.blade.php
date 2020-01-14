@@ -53,4 +53,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/payment_methods') }}">@lang('admin.payment_methods.title')</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/packages') }}">@lang('admin.packages.title')</a>
+    </li>
 </ul>
