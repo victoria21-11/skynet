@@ -72,6 +72,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('news', 'NewsController');
         Route::resource('telephones', 'TelephoneController');
         Route::resource('services', 'ServiceController');
+        Route::resource('period_types', 'PeriodTypeController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);

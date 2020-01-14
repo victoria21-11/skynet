@@ -8,6 +8,13 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
+            @component('admin.components.text', [
+                'lang' => 'admin.streets.columns.name',
+                'model' => 'filters.name',
+            ])
+            @endcomponent
+        </div>
+        <div class="col-lg-4">
             @component('admin.components.boolean', [
                 'lang' => 'admin.streets.columns.published',
                 'model' => 'filters.published',

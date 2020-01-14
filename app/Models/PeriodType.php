@@ -5,6 +5,11 @@ namespace App\Models;
 class PeriodType extends Model
 {
 
+    protected $scopes = [
+        'title' => 'ofTitle',
+        'name' => 'ofName',
+    ];
+
     static function getOptions() {
         return self::all()->map(function ($value) {
             return [

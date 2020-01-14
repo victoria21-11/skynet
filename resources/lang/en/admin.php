@@ -191,5 +191,15 @@ return [
             'preview_description' => 'Краткое описание',
         ]
     ],
+    'period_types' => [
+        'title' => 'Типы периодов',
+        'create' => 'Новый тип',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'name' => 'Имя',
+            'description' => 'Описание',
+        ]
+    ],
 
 ];
