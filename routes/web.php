@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function() {
-    return redirect('home/internet');
-});
+Route::get('/', 'TariffController@internet');
 Route::get('/home/contacts/faq', 'QuestionController@index');
 Route::get('/about', 'NavigationController@about');
 Route::get('/home/payment', 'NavigationController@payment');
@@ -73,6 +71,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('antivirus_types', 'AntivirusTypeController');
         Route::resource('news', 'NewsController');
         Route::resource('telephones', 'TelephoneController');
+        Route::resource('services', 'ServiceController');
     });
 });
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);

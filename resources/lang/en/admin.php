@@ -179,5 +179,17 @@ return [
             'min_per_month' => 'Пакет минут',
         ]
     ],
+    'services' => [
+        'title' => 'Сервисы',
+        'create' => 'Новый сервис',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'published' => 'Опубликовано',
+            'description' => 'Описание',
+            'url' => 'Ссылка',
+            'preview_description' => 'Краткое описание',
+        ]
+    ],
 
 ];

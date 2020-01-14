@@ -9,6 +9,9 @@
         <a href="{{ url('admin/tariff_types') }}">@lang('admin.tariff_types.title')</a>
     </li>
     <li class="list-group-item">
+        <a href="{{ url('admin/telephones') }}">@lang('admin.telephones.title')</a>
+    </li>
+    <li class="list-group-item">
         <a href="{{ url('admin/streets') }}">@lang('admin.streets.title')</a>
     </li>
     <li class="list-group-item">
@@ -39,6 +42,6 @@
         <a href="{{ url('admin/news') }}">@lang('admin.news.title')</a>
     </li>
     <li class="list-group-item">
-        <a href="{{ url('admin/telephones') }}">@lang('admin.telephones.title')</a>
+        <a href="{{ url('admin/services') }}">@lang('admin.services.title')</a>
     </li>
 </ul>

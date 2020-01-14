@@ -11,6 +11,7 @@ use App\Models\{
     Service,
     Package,
     TariffType,
+    NavparentNavchild
 };
 
 class TariffController extends Controller
@@ -18,7 +19,7 @@ class TariffController extends Controller
     function internet(Request $request)
     {
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
-        $navigation = Navigation::ofParentsPivotUrl($request->path())->with('children')->first();
+        $navigation = NavparentNavchild::ofUrl('home/internet')->first()->child;
         $antiviruses = Antivirus::with('type')->get();
         $equipments = Equipment::get();
         $services = Service::get();

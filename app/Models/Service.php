@@ -5,6 +5,12 @@ namespace App\Models;
 class Service extends Model
 {
 
+    protected $scopes = [
+        'title' => 'ofTitle',
+        'published' => 'ofPublished',
+        'url' => 'ofUrl',
+    ];
+
     public function getClassName()
     {
         return quotemeta(self::class);
@@ -23,5 +29,10 @@ class Service extends Model
     public function getUrl()
     {
         return url('/home/internet/services/' . $this->id);
+    }
+
+    public function scopeOfUrl($query, $url)
+    {
+        return $query->where('url', 'like', "%$url%");
     }
 }
