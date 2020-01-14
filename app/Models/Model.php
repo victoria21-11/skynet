@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as DefaultModel;
+use Carbon\Carbon;
 
 class Model extends DefaultModel
 {
@@ -35,6 +36,18 @@ class Model extends DefaultModel
             if(isset($this->scopes[$key])) {
                 $query->{$this->scopes[$key]}($value);
             }
+        }
+        return $query;
+    }
+
+    public function scopeOfCreatedAt($query, $date)
+    {
+        $dates = explode('to', $date);
+        if(count($dates) == 2) {
+            return $query->whereDate('created_at', '>=', Carbon::parse($dates[0]))
+            ->whereDate('created_at', '<=', Carbon::parse($dates[1]));
+        } else {
+            return $query->whereDate('created_at', Carbon::parse($date));
         }
         return $query;
     }

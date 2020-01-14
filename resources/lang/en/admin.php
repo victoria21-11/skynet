@@ -201,5 +201,18 @@ return [
             'description' => 'Описание',
         ]
     ],
+    'posts' => [
+        'title' => 'Посты',
+        'create' => 'Новый пост',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'name' => 'Имя',
+            'description' => 'Описание',
+            'navigation_id' => 'Категория',
+            'created_at' => 'Дата',
+            'published' => 'Опубликовано',
+        ]
+    ],
 
 ];

@@ -75,6 +75,10 @@ Vue.component('period-types-index', require('./components/admin/period_types/ind
 Vue.component('period-types-edit', require('./components/admin/period_types/edit.js').default);
 Vue.component('period-types-create', require('./components/admin/period_types/create.js').default);
 
+Vue.component('posts-index', require('./components/admin/posts/index.js').default);
+Vue.component('posts-edit', require('./components/admin/posts/edit.js').default);
+Vue.component('posts-create', require('./components/admin/posts/create.js').default);
+
 const app = new Vue({
     el: '#app',
     data() {

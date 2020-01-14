@@ -47,4 +47,7 @@
     <li class="list-group-item">
         <a href="{{ url('admin/period_types') }}">@lang('admin.period_types.title')</a>
     </li>
+    <li class="list-group-item">
+        <a href="{{ url('admin/posts') }}">@lang('admin.posts.title')</a>
+    </li>
 </ul>

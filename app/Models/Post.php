@@ -5,6 +5,13 @@ namespace App\Models;
 class Post extends Model
 {
 
+    protected $scopes = [
+        'title' => 'ofTitle',
+        'published' => 'ofPublished',
+        'created_at' => 'ofCreatedAt',
+        'navigation_id' => 'ofNavigation',
+    ];
+
     public function navigation()
     {
         return $this->belongsTo(Navigation::class);
@@ -23,5 +30,10 @@ class Post extends Model
     public function getClassName()
     {
         return quotemeta(self::class);
+    }
+
+    public function scopeOfNavigation($query, $navigation)
+    {
+        return $query->where('navigation_id', $navigation);
     }
 }
