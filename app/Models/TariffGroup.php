@@ -46,12 +46,12 @@ class TariffGroup extends Model
 
     public function scopeInternet($query)
     {
-        return $query->ofType(TariffType::internet()->first()->id);
+        return $query->ofType(TariffType::internet()->first());
     }
 
     public function scopeTv($query)
     {
-        return $query->ofType(TariffType::tv()->first()->id);
+        return $query->ofType(TariffType::tv()->first());
     }
 
     public function getClassName()

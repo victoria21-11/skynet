@@ -30,6 +30,11 @@ class Model extends DefaultModel
         return $query->where($key, 'like', "%$value%");
     }
 
+    public function scopeOfTitle($query, $title)
+    {
+        return $query->ofStrict($title, 'title');
+    }
+
     public function scopeOfFilters($query, array $filters)
     {
         foreach ($filters as $key => $value) {

@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'TariffController@internet');
 Route::get('/home/contacts/faq', 'QuestionController@index');
 Route::get('/about', 'NavigationController@about');
@@ -83,3 +85,5 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/{url}', 'NavigationController@index')->where(['url' => '[A-Za-z-0-9]+[^-0-9.]+']);
+
+Route::get('/home', 'HomeController@index')->name('home');
