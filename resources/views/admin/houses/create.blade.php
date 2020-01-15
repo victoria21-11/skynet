@@ -18,6 +18,8 @@
                 'lang' => 'admin.houses.columns.street_id',
                 'model' => 'form.street_id',
                 'options' => App\Models\Street::get(),
+                'columnName' => 'title',
+                'url' => '/admin/streets',
             ])
             @endcomponent
 

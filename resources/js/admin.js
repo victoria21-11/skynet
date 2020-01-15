@@ -12,6 +12,7 @@ Vue.use(VueFlatPickr);
 Vue.use(VueQuillEditor, {});
 
 Vue.component('dropzone', require('./components/admin/Dropzone.vue').default);
+Vue.component('search-select', require('./components/admin/SearchSelect.vue').default);
 
 Vue.component('tariffs-index', require('./components/admin/tariffs/index.js').default);
 Vue.component('tariffs-edit', require('./components/admin/tariffs/edit.js').default);

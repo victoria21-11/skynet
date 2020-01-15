@@ -26,7 +26,7 @@ export default {
         }
     },
     props: {
-        input: {
+        value: {
             type: Array,
             default: () => {
                 return [];

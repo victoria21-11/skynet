@@ -12,3 +12,30 @@
 [v-cloak] {
     visibility: hidden;
 }
+
+
+.search-select_container {
+    position: relative;
+}
+
+.search-select_options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 50vh;
+    overflow: auto;
+    background-color: $white;
+}
+
+.search-select_item {
+    cursor: pointer;
+}
+
+.search-select_item.active {
+    background-color: red;
+}
+
+.search-select_item:hover {
+    background-color: $table-hover-bg;
+}

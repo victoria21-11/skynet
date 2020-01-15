@@ -5,4 +5,5 @@
         <option value="{{ $item->id }}">{{ $item->title }}</option>
         @endforeach
     </select>
+    <search-select url="{{ $url }}" @if(isset($columnName))column-name="{{ $columnName }}" @endif></search-select>
 </div>
