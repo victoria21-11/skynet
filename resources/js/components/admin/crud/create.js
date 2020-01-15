@@ -11,6 +11,12 @@ export default {
                 .then(response => {
                     window.location.replace(this.url);
                 })
+                .catch(error => {
+                    new Noty({
+                        type: 'error',
+                        text: 'Ошибка валидации!',
+                    }).show();
+                });
         }
     }
 }
