@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
 class Antivirus extends Model implements HasMedia
 {
@@ -23,6 +24,12 @@ class Antivirus extends Model implements HasMedia
         $this->addMediaCollection('preview')
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg']);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+       $this->addMediaConversion('thumb')
+          ->sharpen(10);
     }
 
     public function periods()

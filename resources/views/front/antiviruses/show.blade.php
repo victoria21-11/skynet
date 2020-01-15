@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-8">
-        @foreach($antivirusType->antiviruses as $antivirus)
+        @foreach($antiviruses as $antivirus)
         <div class="card mb-3">
             <div class="card-header">
                 {{ $antivirus->title }}
@@ -13,6 +13,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="">
+                            <div class="">
+                                <img src="{{ $antivirus->preview }}" class="img-fluid" alt="">
+                            </div>
                             tags
                         </div>
                     </div>

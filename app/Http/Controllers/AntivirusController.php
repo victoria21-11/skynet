@@ -25,8 +25,15 @@ class AntivirusController extends Controller
 
     public function show(AntivirusType $antivirusType)
     {
+        $antiviruses = $antivirusType->antiviruses->each(function($item) {
+            $firstMedia = $item->getFirstMedia('preview');
+            if($firstMedia) {
+                $item->preview = $firstMedia->getUrl('thumb');
+            }
+        });
         return view('front.antiviruses.show', [
-            'antivirusType' => $antivirusType->load('antiviruses.periods'),
+            'antivirusType' => $antivirusType,
+            'antiviruses' => $antiviruses,
         ]);
     }
 }
