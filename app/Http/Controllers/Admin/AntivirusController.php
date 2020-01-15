@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Antivirus;
-use App\Http\Traits\Media;
 use App\Http\Requests\Admin\Antivirus\{
     Store,
     Update,
@@ -15,8 +14,6 @@ use App\Http\Requests\Admin\Antivirus\{
 
 class AntivirusController extends Controller
 {
-
-    use Media;
 
     public function getTitle()
     {
@@ -52,7 +49,7 @@ class AntivirusController extends Controller
     public function store(Store $request, Antivirus $antivirus)
     {
         $antivirus = Antivirus::create($request->validated());
-        $this->syncMedia($antivirus, ['preview']);
+        $antivirus->syncMedia(['preview']);
         return response([]);
     }
 
@@ -61,14 +58,14 @@ class AntivirusController extends Controller
         return view('admin.antiviruses.edit', [
             'title' => "Редактировать $antivirus->title",
             'data' => $antivirus,
-            'media' => $this->getMedia($antivirus, ['preview'])
+            'media' => $antivirus->prepareMedia(['preview'])
         ]);
     }
 
     public function update(Update $request, Antivirus $antivirus)
     {
         $antivirus->update($request->validated());
-        $this->syncMedia($antivirus, ['preview']);
+        $antivirus->syncMedia(['preview']);
         return response([]);
     }
 
