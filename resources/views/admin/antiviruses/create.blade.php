@@ -8,6 +8,11 @@
             {{ $title }}
         </div>
         <div class="card-body">
+            @component('admin.components.fileupload', [
+                'model' => 'form.preview',
+            ])
+            @endcomponent
+
             @component('admin.components.text', [
                 'lang' => 'admin.antiviruses.columns.title',
                 'model' => 'form.title',

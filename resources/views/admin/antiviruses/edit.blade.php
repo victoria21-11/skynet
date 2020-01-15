@@ -9,7 +9,8 @@
         </div>
         <div class="card-body">
             @component('admin.components.fileupload', [
-                'model' => 'form.preview'
+                'model' => 'form.preview',
+                'media' => $media['preview']
             ])
             @endcomponent
 

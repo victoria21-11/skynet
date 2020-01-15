@@ -1,6 +1,11 @@
 <template>
     <div class="form-group">
-        <vue-dropzone ref="dropzone" id="dropzone" :options="dropzoneConf" v-on:vdropzone-file-added="fileAdded"></vue-dropzone>
+        <vue-dropzone ref="dropzone"
+            id="dropzone"
+            :options="dropzoneConf"
+            v-on:vdropzone-file-added="fileAdded"
+            v-on:vdropzone-removed-file="fileRemoved"
+        ></vue-dropzone>
     </div>
 </template>
 <script>
@@ -12,12 +17,23 @@ export default {
             dropzoneConf: {
                 url: '/admin/files',
                 autoProcessQueue: false,
+                addRemoveLinks: true,
             },
-            path: []
+            files: {
+                added: [],
+                removed: [],
+            }
         }
     },
     props: {
         input: {
+            type: Array,
+            default: () => {
+                return [];
+            }
+        },
+        media: {
+            type: Array,
             default: () => {
                 return [];
             }
@@ -26,8 +42,17 @@ export default {
     components: {
         vueDropzone: vue2Dropzone
     },
+    mounted() {
+        if(this.media.length) {
+            this.media.forEach(item => {
+                this.$refs.dropzone.manuallyAddFile(item, item.full_url);
+            });
+        }
+    },
     methods: {
         fileAdded(file) {
+            if(file.id) return;
+
             var formData = new FormData();
             formData.append('file', file)
             axios.post('/admin/files', formData, {
@@ -36,9 +61,20 @@ export default {
                 }
             })
                 .then(response => {
-                    this.path.push(response.data.path);
-                    this.$emit('input', this.path);
+                    this.updateInput(response.data.path, file);
                 })
+        },
+        updateInput(path, file) {
+            this.files.added.push(path);
+            file.path = path;
+            this.$emit('input', this.files);
+        },
+        fileRemoved(file) {
+            if(file.id) {
+                this.files.removed.push(file.id);
+            }
+            this.files.added = this.files.added.filter(path => path != file.path);
+            this.$emit('input', this.files);
         }
     }
 }
