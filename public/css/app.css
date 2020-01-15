@@ -18463,6 +18463,7 @@ a.text-dark:focus {
 
 .card {
   padding: 0 0.75rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn {
@@ -18480,6 +18481,10 @@ a.text-dark:focus {
 
 .navigation__children a {
   color: #fff;
+}
+
+body {
+  background-color: #f2f2f2;
 }
 
 html,

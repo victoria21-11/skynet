@@ -41,7 +41,7 @@
                         </div>
                         @endforeach
                         <div class="">
-                            {{ $antivirus->description }}
+                            {!! $antivirus->description !!}
                         </div>
                     </div>
                 </div>

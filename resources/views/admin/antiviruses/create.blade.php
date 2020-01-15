@@ -19,7 +19,7 @@
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('admin.components.editor', [
                 'lang' => 'admin.antiviruses.columns.description',
                 'model' => 'form.description',
             ])

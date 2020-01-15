@@ -10,7 +10,7 @@ class CreateAntivirusesTables extends Migration
         Schema::create('antiviruses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 255)->nullable();
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable();
             $table->unsignedBigInteger('antivirus_type_id');
             $table->text('text')->nullable();
             $table->text('extra')->nullable();

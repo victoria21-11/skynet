@@ -69,6 +69,7 @@
 
 .card {
     padding: 0 $card-spacer-y;
+    box-shadow: 0 0.25rem 0.25rem 0 rgba(0,0,0,.2);
 }
 
 .btn {
@@ -90,6 +91,10 @@
         color: $white;
     }
 
+}
+
+body {
+    background-color: $secondary;
 }
 
 html, body, #app {
