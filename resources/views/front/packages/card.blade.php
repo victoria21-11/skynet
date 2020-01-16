@@ -11,6 +11,7 @@
         </div>
     </div>
     <div class="card-body">
+        <img src="{{ $item->preview }}" class="img-fluid" alt="">
         @foreach($item->tariffGroups ?? [] as $group)
         <span class="badge badge-primary">{{ $group->title }}</span>
         @endforeach

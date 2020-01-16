@@ -27,7 +27,7 @@ export default {
     },
     props: {
         value: {
-            type: Array,
+            type: Object,
             default: () => {
                 return [];
             }

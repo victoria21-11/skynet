@@ -2,8 +2,14 @@
 
 namespace App\Models;
 
-class Package extends Model
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
+
+class Package extends Model implements HasMedia
 {
+
+    use HasMediaTrait;
 
     protected $scopes = [
         'title' => 'ofLike',
@@ -15,6 +21,18 @@ class Package extends Model
         'extra' => 'ofStrict',
     ];
 
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('preview')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/svg+xml', 'image/svg']);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+       $this->addMediaConversion('thumb')
+          ->sharpen(10);
+    }
     public function scopeExtra($query)
     {
         return $query->where('extra', true);

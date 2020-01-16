@@ -23,7 +23,7 @@ class Antivirus extends Model implements HasMedia
     {
         $this->addMediaCollection('preview')
             ->singleFile()
-            ->acceptsMimeTypes(['image/jpeg']);
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/svg+xml', 'image/svg']);
     }
 
     public function registerMediaConversions(Media $media = null)

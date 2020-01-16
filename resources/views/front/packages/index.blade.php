@@ -29,7 +29,7 @@
     @endforeach
 </div>
 
-<div class="card">
+<div class="card bg-transparent">
     <div class="card-header">
         Дополнительные пакеты
     </div>

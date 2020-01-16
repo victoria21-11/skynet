@@ -49,6 +49,7 @@ class PackageController extends Controller
     public function store(Store $request, Package $package)
     {
         $package = Package::create($request->validated());
+        $package->syncMedia(['preview']);
         return response([]);
     }
 
@@ -57,12 +58,14 @@ class PackageController extends Controller
         return view('admin.packages.edit', [
             'title' => "Редактировать $package->title",
             'data' => $package,
+            'media' => $package->prepareMedia(['preview'])
         ]);
     }
 
     public function update(Update $request, Package $package)
     {
         $package->update($request->validated());
+        $package->syncMedia(['preview']);
         return response([]);
     }
 
