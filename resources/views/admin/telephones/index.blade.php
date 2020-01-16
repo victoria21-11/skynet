@@ -41,7 +41,7 @@
                             <td>@{{ item.min_per_month }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" v-model="item.published">
+                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" @change="update(item)" v-model="item.published">
                                     <label class="custom-control-label" :for="'published_' + item.id"></label>
                                 </div>
                             </td>

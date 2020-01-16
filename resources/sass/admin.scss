@@ -54,3 +54,15 @@ th.asc::before {
 th.desc::before {
     content: "\f0dd";
 }
+
+.list-group.bg-transparent .list-group-item {
+    background-color: transparent;
+}
+
+.list-group-item a {
+    color: $gray-900;
+}
+
+.list-group-item.active a {
+    color: $primary;
+}

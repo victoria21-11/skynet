@@ -14,7 +14,7 @@ export default {
                 .catch(error => {
                     new Noty({
                         type: 'error',
-                        text: 'Ошибка валидации!',
+                        text: error.response.data.message,
                     }).show();
                 });
         }

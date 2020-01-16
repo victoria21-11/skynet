@@ -35,14 +35,14 @@
                             <td>@{{ item.price }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'installment_' + item.id" v-model="item.published">
+                                    <input type="checkbox" class="custom-control-input" :id="'installment_' + item.id" @change="update(item)" v-model="item.published">
                                     <label class="custom-control-label" :for="'installment_' + item.id"></label>
                                 </div>
                             </td>
                             <td>@{{ item.installment_period }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" v-model="item.published">
+                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" @change="update(item)" v-model="item.published">
                                     <label class="custom-control-label" :for="'published_' + item.id"></label>
                                 </div>
                             </td>

@@ -54,6 +54,22 @@ export default {
             this.sortDirection = this.toggleSortDirection();
             $event.target.classList.add(this.sortDirection);
             this.getData();
+        },
+        update(item) {
+            axios.put(this.url + '/' + item.id, item)
+                .then(response => {
+                    new Noty({
+                        type: 'success',
+                        text: 'Данные сохранены!',
+                    }).show();
+                })
+                .catch(error => {
+                    console.log(error.response.data);
+                    new Noty({
+                        type: 'error',
+                        text: error.response.data.message,
+                    }).show();
+                });
         }
     }
 }

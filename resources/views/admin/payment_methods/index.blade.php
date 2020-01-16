@@ -34,13 +34,13 @@
                             <td>@{{ item.link }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'alternative_' + item.id" v-model="item.alternative">
+                                    <input type="checkbox" class="custom-control-input" :id="'alternative_' + item.id" @change="update(item)" v-model="item.alternative">
                                     <label class="custom-control-label" :for="'alternative_' + item.id"></label>
                                 </div>
                             </td>
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" v-model="item.published">
+                                    <input type="checkbox" class="custom-control-input" :id="'published_' + item.id" @change="update(item)" v-model="item.published">
                                     <label class="custom-control-label" :for="'published_' + item.id"></label>
                                 </div>
                             </td>

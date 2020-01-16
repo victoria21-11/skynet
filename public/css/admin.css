@@ -21503,3 +21503,15 @@ th.desc::before {
   content: "\F0DD";
 }
 
+.list-group.bg-transparent .list-group-item {
+  background-color: transparent;
+}
+
+.list-group-item a {
+  color: #212529;
+}
+
+.list-group-item.active a {
+  color: #007bff;
+}
+

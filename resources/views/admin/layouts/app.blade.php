@@ -47,8 +47,15 @@
         <main class="py-4">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3">
-                        @include('admin.menu')
+                    <div class="col-lg-3 mb-3">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                @include('admin.menu')
+                            </div>
+                        </nav>
                     </div>
                     <div class="col-lg-9">
                         @yield('content')
