@@ -53,7 +53,7 @@
                 <div class="container">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            {{ config('app.name', 'Laravel') }}
+                            <img src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
                         </div>
                         <div class="navigation__container__menu">
                             @foreach(App\Models\Navigation::buildHeader() as $key => $value)

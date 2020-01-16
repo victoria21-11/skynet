@@ -90,6 +90,10 @@ Vue.component('packages-index', require('./components/admin/packages/index.js').
 Vue.component('packages-edit', require('./components/admin/packages/edit.js').default);
 Vue.component('packages-create', require('./components/admin/packages/create.js').default);
 
+Vue.component('global-settings-index', require('./components/admin/global_settings/index.js').default);
+Vue.component('global-settings-edit', require('./components/admin/global_settings/edit.js').default);
+Vue.component('global-settings-create', require('./components/admin/global_settings/create.js').default);
+
 const app = new Vue({
     el: '#app',
     data() {

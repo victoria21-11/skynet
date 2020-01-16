@@ -232,13 +232,25 @@ return [
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
-            'name' => 'ID',
+            'name' => 'Имя',
             'hd_channels_count' => 'Кол-во HD каналов',
             'channels_count' => 'Кол-во каналов',
             'price' => 'Стоимость',
             'extra' => 'Дополнительный',
             'description' => 'Описание',
             'published' => 'Опубликовано',
+        ]
+    ],
+    'global_settings' => [
+        'title' => 'Глобальные настройки',
+        'create' => 'Новая настройка',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'name' => 'Имя',
+            'description' => 'Описание',
+            'published' => 'Опубликовано',
+            'value' => 'Значение',
         ]
     ],
 

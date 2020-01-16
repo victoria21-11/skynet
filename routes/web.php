@@ -81,6 +81,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('payment_methods', 'PaymentMethodController');
             Route::resource('packages', 'PackageController');
             Route::resource('files', 'FileController');
+            Route::resource('global_settings', 'GlobalSettingController');
         });
     });
 });

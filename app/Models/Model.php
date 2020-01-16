@@ -58,10 +58,15 @@ class Model extends DefaultModel
         return $query;
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
+
     public function syncMedia(array $collections) {
         foreach ($collections as $collection) {
             foreach (request()->input($collection . '.added', []) as $value) {
-                $this->addMedia(storage_path('app/' . $value))->toMediaCollection('preview');
+                $this->addMedia(storage_path('app/' . $value))->toMediaCollection($collection);
             }
             foreach (request()->input($collection . '.removed', []) as $value) {
                 Media::findOrFail($value)->delete();

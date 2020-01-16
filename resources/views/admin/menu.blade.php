@@ -1,5 +1,8 @@
 <ul class="list-group">
     <li class="list-group-item">
+        <a href="{{ url('admin/global_settings') }}">@lang('admin.global_settings.title')</a>
+    </li>
+    <li class="list-group-item">
         <a href="{{ url('admin/tariffs') }}">@lang('admin.tariffs.title')</a>
     </li>
     <li class="list-group-item">
