@@ -7,7 +7,7 @@ class Street extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
     ];
 
     public function houses()

@@ -18,6 +18,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.payment_methods.columns.alternative',
                 'model' => 'filters.alternative',
+                'filter' => true,
             ])
             @endcomponent
         </div>
@@ -25,6 +26,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.payment_methods.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

@@ -39,6 +39,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.packages.columns.extra',
                 'model' => 'filters.extra',
+                'filter' => true,
             ])
             @endcomponent
         </div>
@@ -46,6 +47,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.packages.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

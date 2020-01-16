@@ -6,7 +6,7 @@ class AntivirusPeriod extends Model
 {
 
     protected $scopes = [
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'price' => 'ofStrict',
         'period' => 'ofStrict',
         'period_type_id' => 'ofStrict',

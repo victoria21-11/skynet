@@ -26,6 +26,14 @@ class Model extends DefaultModel
         return $query->where($key, $value);
     }
 
+    public function scopeOfBoolean($query, $value, $key)
+    {
+        if(is_null($value)) {
+            return $query;
+        }
+        return $query->where($key, $value);
+    }
+
     public function scopeOfLike($query, $value, $key)
     {
         return $query->where($key, 'like', "%$value%");

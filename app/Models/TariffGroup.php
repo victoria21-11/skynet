@@ -11,7 +11,7 @@ class TariffGroup extends Model
         'title' => 'ofLike',
         'tariff_type_id' => 'ofType',
         'rebate' => 'ofStrict',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
     ];
 
     public function tariffs()

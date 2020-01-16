@@ -15,7 +15,7 @@ class Antivirus extends Model implements HasMedia
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'antivirus_type_id' => 'ofStrict',
     ];
 

@@ -46,6 +46,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.telephones.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

@@ -56,6 +56,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.tariffs.columns.rebate',
                 'model' => 'filters.rebate',
+                'filter' => true,
             ])
             @endcomponent
         </div>
@@ -63,6 +64,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.tariffs.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

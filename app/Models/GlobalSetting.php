@@ -21,7 +21,7 @@ class GlobalSetting extends Model implements HasMedia
         'title' => 'ofLike',
         'value' => 'ofLike',
         'name' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
     ];
 
     public function scopeOfName($query, $name)

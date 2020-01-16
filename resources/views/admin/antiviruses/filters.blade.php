@@ -19,6 +19,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.antiviruses.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

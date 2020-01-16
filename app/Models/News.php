@@ -9,7 +9,7 @@ class News extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'created_at' => 'ofCreatedAt',
     ];
 

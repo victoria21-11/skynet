@@ -7,7 +7,7 @@ class Telephone extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'price' => 'ofStrict',
         'price_urban' => 'ofStrict',
         'price_mobile' => 'ofStrict',

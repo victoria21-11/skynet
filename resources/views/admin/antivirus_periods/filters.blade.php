@@ -34,6 +34,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.antivirus_periods.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

@@ -11,6 +11,7 @@
             @component('admin.components.boolean', [
                 'lang' => 'admin.questions.columns.published',
                 'model' => 'filters.published',
+                'filter' => true,
             ])
             @endcomponent
         </div>

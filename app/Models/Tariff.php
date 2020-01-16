@@ -14,7 +14,7 @@ class Tariff extends Model
         'price' => 'ofStrict',
         'bill_tariff_id' => 'ofStrict',
         'rebate' => 'ofStrict',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
     ];
 
     public function group()

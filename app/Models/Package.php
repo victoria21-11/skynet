@@ -7,7 +7,7 @@ class Package extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'name' => 'ofLike',
         'hd_channels_count' => 'ofStrict',
         'channels_count' => 'ofStrict',

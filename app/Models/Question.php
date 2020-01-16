@@ -7,7 +7,7 @@ class Question extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'general' => 'ofGeneral',
         'question_type_id' => 'ofStrict',
     ];

@@ -7,7 +7,7 @@ class AntivirusType extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'preview_description' => 'ofLike',
     ];
 

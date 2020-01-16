@@ -7,7 +7,7 @@ class Service extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'url' => 'ofLike',
     ];
 

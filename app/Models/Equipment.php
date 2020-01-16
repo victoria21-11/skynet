@@ -9,7 +9,7 @@ class Equipment extends Model
 
     protected $scopes = [
         'title' => 'ofLike',
-        'published' => 'ofStrict',
+        'published' => 'ofBoolean',
         'installment' => 'ofStrict',
         'installment_period' => 'ofStrict',
         'price' => 'ofStrict',
