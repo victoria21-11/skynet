@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.antivirus_types.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.antivirus_types.columns.id')</th>
                             <th>@lang('admin.antivirus_types.columns.title')</th>
                             <th>@lang('admin.antivirus_types.columns.preview_description')</th>
                             <th>@lang('admin.antivirus_types.columns.published')</th>

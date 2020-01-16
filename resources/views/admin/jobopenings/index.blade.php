@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.jobopenings.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.jobopenings.columns.id')</th>
                             <th>@lang('admin.jobopenings.columns.title')</th>
                             <th>@lang('admin.jobopenings.columns.published')</th>
                             <th></th>

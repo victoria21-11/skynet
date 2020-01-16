@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.payment_methods.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.payment_methods.columns.id')</th>
                             <th>@lang('admin.payment_methods.columns.title')</th>
                             <th>@lang('admin.payment_methods.columns.link')</th>
                             <th>@lang('admin.payment_methods.columns.alternative')</th>

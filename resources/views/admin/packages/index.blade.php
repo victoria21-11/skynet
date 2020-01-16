@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.packages.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.packages.columns.id')</th>
                             <th>@lang('admin.packages.columns.title')</th>
                             <th>@lang('admin.packages.columns.name')</th>
                             <th>@lang('admin.packages.columns.hd_channels_count')</th>

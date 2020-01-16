@@ -19,7 +19,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.tariff_groups.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.tariff_groups.columns.id')</th>
                             <th>@lang('admin.tariff_groups.columns.tariff_type_id')</th>
                             <th>@lang('admin.tariff_groups.columns.title')</th>
                             <th>@lang('admin.tariff_groups.columns.rebate')</th>
