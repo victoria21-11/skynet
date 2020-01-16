@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Like;
-use App\Http\Requests\StoreLike;
+use App\Http\Requests\Front\Like\Store;
 
 class LikeController extends Controller
 {
@@ -34,7 +34,7 @@ class LikeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLike $request)
+    public function store(Store $request)
     {
         if(Like::isExists($request->ip(), $request->likeable_id, $request->likeable_type)) {
             return response([], 403);

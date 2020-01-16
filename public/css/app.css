@@ -18492,3 +18492,7 @@ body,
   height: 100%;
 }
 
+.btn.like:disabled {
+  color: #e3342f;
+}
+

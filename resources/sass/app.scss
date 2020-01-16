@@ -103,3 +103,7 @@ html, body, #app {
 
 footer {
 }
+
+.btn.like:disabled {
+    color: $danger;
+}
