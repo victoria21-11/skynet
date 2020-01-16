@@ -3,7 +3,9 @@ export default {
         return {
             paginatedData: {},
             filters: {},
-            url: '/'
+            url: '/',
+            sortDirection: 'desc',
+            sortColumn: 'id',
         }
     },
     props: {
@@ -16,7 +18,9 @@ export default {
         getData(page = 1) {
             axios.get(window.location.href, {
                 params: Object.assign(this.filters, {
-                    page: page
+                    page: page,
+                    sort_column: this.sortColumn,
+                    sort_direction: this.sortDirection,
                 })
             })
                 .then(response => {
@@ -35,6 +39,21 @@ export default {
                 .then(response => {
                     this.getData();
                 })
+        },
+        toggleSortDirection() {
+            if(this.sortDirection == 'desc') {
+                return 'asc';
+            }
+            return 'desc';
+        },
+        sort($event, columnName) {
+            this.sortColumn = columnName;
+            document.querySelectorAll('th.sort')
+                .forEach(({classList}) => classList.remove('asc', 'desc'));
+            $event.target.classList.remove(this.sortDirection)
+            this.sortDirection = this.toggleSortDirection();
+            $event.target.classList.add(this.sortDirection);
+            this.getData();
         }
     }
 }

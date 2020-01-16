@@ -24,7 +24,8 @@ class AntivirusController extends Controller
     {
         $filters = $request->validated();
         $paginatedData = Antivirus::with('type')->ofFilters($filters)
-        ->paginate(env('ADMIN_PAGINATION'));
+            ->orderBy($request->get('sort_column', 'id'), $request->get('sort_direction', 'desc'))
+            ->paginate(env('ADMIN_PAGINATION'));
 
         if($request->ajax()) {
             return response([

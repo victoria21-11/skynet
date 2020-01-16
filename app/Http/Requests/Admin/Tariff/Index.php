@@ -24,6 +24,8 @@ class Index extends FormRequest
     public function rules()
     {
         return [
+            'sort_column' => ['nullable', 'string'],
+            'sort_direction' => ['nullable', 'string'],
             'bill_tariff_id' => [],
             'period' => [],
             'period_type_id' => [],

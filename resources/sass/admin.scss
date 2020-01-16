@@ -39,3 +39,18 @@
 .search-select_item:hover {
     background-color: $table-hover-bg;
 }
+
+th.sort::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0dc";
+    color: $secondary;
+    padding-right: $btn-padding-x;
+}
+
+th.asc::before {
+    content: "\f0de";
+}
+
+th.desc::before {
+    content: "\f0dd";
+}

@@ -21488,3 +21488,18 @@ a.text-dark:focus {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
+th.sort::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F0DC";
+  color: #6c757d;
+  padding-right: 0.75rem;
+}
+
+th.asc::before {
+  content: "\F0DE";
+}
+
+th.desc::before {
+  content: "\F0DD";
+}
+

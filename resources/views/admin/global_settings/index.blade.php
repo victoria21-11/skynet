@@ -19,8 +19,8 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>@lang('admin.global_settings.columns.id')</th>
-                            <th>@lang('admin.global_settings.columns.title')</th>
+                            <th class="sort" @click="sort($event, 'id')">@lang('admin.global_settings.columns.id')</th>
+                            <th class="sort" @click="sort($event, 'title')">@lang('admin.global_settings.columns.title')</th>
                             <th>@lang('admin.global_settings.columns.name')</th>
                             <th>@lang('admin.global_settings.columns.value')</th>
                             <th>@lang('admin.global_settings.columns.published')</th>
