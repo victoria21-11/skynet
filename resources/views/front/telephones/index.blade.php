@@ -21,20 +21,21 @@
     @endforeach
 </div>
 
-<div class="card mb-3">
+<div class="card bg-transparent mb-3">
     <div class="card-header">
         Дополнительные сервисы
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($services as $item)
-            <swiper-slide>
+            <div class="px-2">
                 @include('front.services.card', [
                     'item' => $item
                 ])
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 

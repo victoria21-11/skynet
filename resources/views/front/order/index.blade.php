@@ -27,14 +27,14 @@
                 </div>
             </div>
         </div>
-        <div class="card mb-3">
-            <div class="card-body">
-                <swiper :options="swiperOptions">
-                    <swiper-slide v-for="group in tariffGroups">
-                        <tariff-card :show-modal="showModal" :group="group" :tariff="group.max_period_tariff" />
-                    </swiper-slide>
-                </swiper>
-            </div>
+        <div class="mb-3">
+            <slick
+              ref="slick"
+              :options="{ slidesToShow: 3, arrows: false }">
+                <div class="px-2" v-for="group in tariffGroups">
+                    <tariff-card :show-modal="showModal" :group="group" :tariff="group.max_period_tariff" />
+                </div>
+            </slick>
         </div>
         <div class="text-center">
             <button class="btn btn-primary">Готово</button>

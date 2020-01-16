@@ -19,15 +19,16 @@
         Дополнительные сервисы
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($services as $item)
-            <swiper-slide>
+            <div class="px-2">
                 @include('front.services.card', [
                     'item' => $item
                 ])
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 @elseif($child->url == 'antiviruses')
@@ -36,15 +37,16 @@
         Антивирусная защита
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($antiviruses as $item)
-            <swiper-slide>
+            <div class="px-2">
                 @include('front.antiviruses.card', [
                     'antivirus' => $item
                 ])
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 @elseif($child->url == 'equipments')
@@ -54,17 +56,19 @@
         {{ $child->title }}
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($child->posts as $post)
-            <swiper-slide>
+            <div class="px-2">
                 @include('front.posts.card', [
-                    'post' => $post
+                  'post' => $post
                 ])
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 @endif
 @endforeach
+
 @endsection

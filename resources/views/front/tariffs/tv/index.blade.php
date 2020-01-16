@@ -14,15 +14,16 @@
     @endforeach
 </div>
 @elseif($child->url == 'packages')
-<div class="card mb-3">
+<div class="card bg-transparent mb-3">
     <div class="card-header">
         Дополнительные пакеты
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($packages as $item)
-            <swiper-slide>
-                <div class="card">
+            <div class="px-2">
+                <div class="card card_default-item">
                     <div class="card-header">
                         {{ $item->title }}
                     </div>
@@ -37,26 +38,27 @@
                         @endslot
                     @endcomponent
                 </div>
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 @else
-<div class="card mb-3">
+<div class="card bg-transparent mb-3">
     <div class="card-header">
         {{ $child->title }}
     </div>
     <div class="card-body">
-        <swiper :options="{ slidesPerView: 3, spaceBetween: 30, loop: true }">
+        <slick ref="slick"
+            :options="{ slidesToShow: 3, arrows: false }">
             @foreach($child->posts as $post)
-            <swiper-slide>
+            <div class="px-2">
                 @include('front.posts.card', [
                     'post' => $post
                 ])
-            </swiper-slide>
+            </div>
             @endforeach
-        </swiper>
+        </slick>
     </div>
 </div>
 @endif

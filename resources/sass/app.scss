@@ -9,6 +9,7 @@
 @import '~bootstrap-vue/dist/bootstrap-vue.css';
 @import '~swiper/dist/css/swiper.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~slick-carousel/slick/slick.css';
 
 .navbar-laravel {
   background-color: #fff;
@@ -58,6 +59,11 @@
 
 }
 
+.card.bg-transparent > .card-body {
+    margin-left: -$card-spacer-y;
+    margin-right: -$card-spacer-y;
+}
+
 .card-body {
     padding: $card-spacer-x 0;
 }
@@ -69,7 +75,12 @@
 
 .card {
     padding: 0 $card-spacer-y;
-    // box-shadow: 0 0.25rem 0.25rem 0 rgba(0,0,0,.2);
+}
+
+.card_default-item {
+    height: 300px;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.25rem 0 rgba(0,0,0,.2);
 }
 
 .btn {
