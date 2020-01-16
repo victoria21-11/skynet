@@ -1,0 +1,9 @@
+body {
+  background-image: url("/images/new-year.png");
+}
+
+#snow_canvas {
+  display: block;
+  position: absolute;
+}
+

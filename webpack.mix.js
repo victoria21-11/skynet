@@ -16,3 +16,6 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/js/admin.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css');
+
+mix.js('resources/js/new_year.js', 'public/js')
+    .sass('resources/sass/new_year.scss', 'public/css');

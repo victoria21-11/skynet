@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @if(globalSetting('new_year'))
+    <link href="{{ asset('css/new_year.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/new_year.js') }}" defer></script>
+    @endif
 </head>
 <body>
     <div id="app" class="d-flex flex-column" v-cloak>
@@ -78,6 +82,7 @@
                 </div>
             </main>
         </div>
+        <canvas id="snow_canvas"></canvas>
         <footer class="bg-dark py-3 mt-auto">
             <div class="container">
                 <div class="row">
