@@ -133,6 +133,46 @@ footer {
     right: 0;
 }
 
+.slide_ratio {
+    width: 100%;
+    padding-top: 25%;
+    position: relative;
+}
+
+.slide_ratio .slide_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
 .test_editor {
     background-color: red;
+}
+
+#snow_canvas {
+    display: none;
+}
+
+.slide_container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.slide_container .container {
+    display: flex;
+}
+
+.slide_text {
+    background-color: rgba(0,0,0,.6);
+    color: $white;
+    flex: 0 100%;
+}
+
+@include media-breakpoint-up(lg) {
+    .slide_text {
+        flex: 0 25%;
+    }
 }

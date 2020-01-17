@@ -91,9 +91,37 @@ Vue.component('packages-index', require('./components/admin/packages/index.js').
 Vue.component('packages-edit', require('./components/admin/packages/edit.js').default);
 Vue.component('packages-create', require('./components/admin/packages/create.js').default);
 
+Vue.component('slides-index', require('./components/admin/slides/index.js').default);
+Vue.component('slides-edit', require('./components/admin/slides/edit.js').default);
+Vue.component('slides-create', require('./components/admin/slides/create.js').default);
+
 Vue.component('global-settings-index', require('./components/admin/global_settings/index.js').default);
 Vue.component('global-settings-edit', require('./components/admin/global_settings/edit.js').default);
 Vue.component('global-settings-create', require('./components/admin/global_settings/create.js').default);
+
+Vue.mixin({
+    methods: {
+        confirm() {
+            return new Promise((resolve, reject) => {
+                const noty = new Noty({
+                    type: 'warning',
+                    text: 'Подтверждаете действие?',
+                    buttons: [
+                        Noty.button('Да', 'btn btn-success', () => {
+                            noty.close();
+                            resolve();
+                        }),
+                        Noty.button('Нет', 'btn btn-danger', () => {
+                            noty.close();
+                            // reject();
+                        }),
+                    ]
+                });
+                noty.show();
+            });
+        }
+    }
+});
 
 const app = new Vue({
     el: '#app',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Slide;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $slides = Slide::published()->orderBy('order', 'asc')->get();
+        return view('front.home', [
+            'slides' => $slides
+        ]);
     }
 }

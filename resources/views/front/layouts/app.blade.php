@@ -77,6 +77,7 @@
                 'children' => App\Models\Navigation::buildChildren()
             ])
             <main class="py-4">
+                @yield('banner')
                 <div class="container">
                     @yield('content')
                 </div>

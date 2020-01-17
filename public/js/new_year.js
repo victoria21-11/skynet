@@ -178,7 +178,7 @@ window.onload = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/sknt/resources/js/new_year.js */"./resources/js/new_year.js");
+module.exports = __webpack_require__(/*! /home/dev/projects/sknt/resources/js/new_year.js */"./resources/js/new_year.js");
 
 
 /***/ })

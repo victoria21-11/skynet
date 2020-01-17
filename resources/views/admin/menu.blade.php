@@ -2,6 +2,9 @@
     <li class="list-group-item @if(request()->url() == url('admin/global_settings'))active @endif">
         <a href="{{ url('admin/global_settings') }}">@lang('admin.global_settings.title')</a>
     </li>
+    <li class="list-group-item @if(request()->url() == url('admin/slides'))active @endif">
+        <a href="{{ url('admin/slides') }}">@lang('admin.slides.title')</a>
+    </li>
     <li class="list-group-item @if(request()->url() == url('admin/tariffs'))active @endif">
         <a href="{{ url('admin/tariffs') }}">@lang('admin.tariffs.title')</a>
     </li>

@@ -35,10 +35,13 @@ export default {
             this.getData();
         },
         remove(id) {
-            axios.delete(this.url + '/' + id)
+            this.confirm()
                 .then(response => {
-                    this.getData();
-                })
+                    axios.delete(this.url + '/' + id)
+                        .then(response => {
+                            this.getData();
+                        })
+                });
         },
         toggleSortDirection() {
             if(this.sortDirection == 'desc') {

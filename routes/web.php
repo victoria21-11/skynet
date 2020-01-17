@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'TariffController@internet');
+Route::get('/', 'HomeController@index');
 Route::get('/home/contacts/faq', 'QuestionController@index');
 Route::get('/about', 'NavigationController@about');
 Route::get('/home/payment', 'NavigationController@payment');
@@ -83,6 +83,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('files', 'FileController');
             Route::resource('global_settings', 'GlobalSettingController');
             Route::resource('editor_images', 'EditorImageController');
+            Route::resource('slides', 'SlideController');
         });
     });
 });

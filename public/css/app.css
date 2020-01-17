@@ -18637,7 +18637,50 @@ body,
   right: 0;
 }
 
+.slide_ratio {
+  width: 100%;
+  padding-top: 25%;
+  position: relative;
+}
+
+.slide_ratio .slide_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .test_editor {
   background-color: red;
+}
+
+#snow_canvas {
+  display: none;
+}
+
+.slide_container {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.slide_container .container {
+  display: -webkit-box;
+  display: flex;
+}
+
+.slide_text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  -webkit-box-flex: 0;
+          flex: 0 100%;
+}
+
+@media (min-width: 992px) {
+  .slide_text {
+    -webkit-box-flex: 0;
+            flex: 0 25%;
+  }
 }
 
