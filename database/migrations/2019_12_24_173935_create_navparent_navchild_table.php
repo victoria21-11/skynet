@@ -14,9 +14,11 @@ class CreateNavparentNavchildTable extends Migration
     public function up()
     {
         Schema::create('navparent_navchild', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedInteger('parent_id');
             $table->unsignedInteger('child_id');
             $table->string('url');
+            $table->integer('order')->default(-1);
             $table->unique(['parent_id', 'child_id']);
         });
     }

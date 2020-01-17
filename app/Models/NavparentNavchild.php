@@ -6,6 +6,8 @@ class NavparentNavchild extends Model
 {
     protected $table = 'navparent_navchild';
 
+    public $timestamps = false;
+
     public function scopeOfUrl($query, $url)
     {
         return $query->where('url', $url);

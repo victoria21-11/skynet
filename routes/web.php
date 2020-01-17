@@ -84,6 +84,8 @@ Route::prefix('admin')->group(function () {
             Route::resource('global_settings', 'GlobalSettingController');
             Route::resource('editor_images', 'EditorImageController');
             Route::resource('slides', 'SlideController');
+            Route::put('navigations/order', 'NavigationController@order');
+            Route::resource('navigations', 'NavigationController');
         });
     });
 });

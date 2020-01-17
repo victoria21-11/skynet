@@ -269,5 +269,15 @@ return [
             'order' => 'Порядок',
         ]
     ],
+    'navigations' => [
+        'title' => 'Навигация',
+        'create' => 'Новый раздел',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'description' => 'Описание',
+            'published' => 'Опубликовано',
+        ]
+    ],
 
 ];
