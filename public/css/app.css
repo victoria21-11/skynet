@@ -7773,7 +7773,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1366px;
   }
 }
 
@@ -7819,7 +7819,7 @@ pre code {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1140px;
+    max-width: 1366px;
   }
 }
 
@@ -18563,7 +18563,8 @@ a.text-dark:focus {
   padding: 1.25rem 0;
 }
 
-.card.bg-transparent .card-header {
+.card.bg-transparent .card-header,
+.card.bg-transparent .card-footer {
   background-color: transparent;
 }
 
@@ -18574,6 +18575,7 @@ a.text-dark:focus {
 
 .card-body {
   padding: 1.25rem 0;
+  overflow: hidden;
 }
 
 .card-footer {
@@ -18586,7 +18588,6 @@ a.text-dark:focus {
 }
 
 .card_default-item {
-  height: 300px;
   overflow: hidden;
   box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.2);
 }
@@ -18620,5 +18621,23 @@ body,
 
 .btn.like:disabled {
   color: #e3342f;
+}
+
+.ratio_container {
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+}
+
+.ratio_container .card_default-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.test_editor {
+  background-color: red;
 }
 

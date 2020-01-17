@@ -11,6 +11,7 @@ Vue.use(BootstrapVue);
 Vue.use(VueFlatPickr);
 Vue.use(VueQuillEditor, {});
 
+Vue.component('editor', require('./components/admin/Editor.vue').default);
 Vue.component('dropzone', require('./components/admin/Dropzone.vue').default);
 Vue.component('search-select', require('./components/admin/SearchSelect.vue').default);
 

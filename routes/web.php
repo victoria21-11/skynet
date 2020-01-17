@@ -82,6 +82,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('packages', 'PackageController');
             Route::resource('files', 'FileController');
             Route::resource('global_settings', 'GlobalSettingController');
+            Route::resource('editor_images', 'EditorImageController');
         });
     });
 });

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card card_default-item">
     <div class="card-header">
         {{ $item->title }}
     </div>

@@ -15,6 +15,7 @@
                 </a>
             </div>
             @include('admin.global_settings.filters')
+            
             <div class="table-responsive table-hover mb-3">
                 <table class="table">
                     <thead>

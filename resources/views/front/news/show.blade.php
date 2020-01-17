@@ -7,7 +7,7 @@
         {{ $news->title }}
     </div>
     <div class="card-body">
-        {{ $news->description }}
+        {!! html_entity_decode($news->description) !!}
     </div>
     @component('front.components.likes', [
         'item' => $news

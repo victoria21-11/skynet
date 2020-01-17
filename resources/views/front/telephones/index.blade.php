@@ -5,18 +5,22 @@
 <div class="row mb-3">
     @foreach($telephones->slice(0, 2) as $item)
     <div class="col-lg-4">
-        @include('front.telephones.card', [
-            'item' => $item
-        ])
+        <div class="ratio_container">
+            @include('front.telephones.card', [
+                'item' => $item
+            ])
+        </div>
     </div>
     @endforeach
     <div class="col-lg-4">
     </div>
     @foreach($telephones->slice(2) as $item)
     <div class="col-lg-4">
-        @include('front.telephones.card', [
-            'item' => $item
-        ])
+        <div class="ratio_container">
+            @include('front.telephones.card', [
+                'item' => $item
+            ])
+        </div>
     </div>
     @endforeach
 </div>
@@ -30,9 +34,11 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($services as $item)
             <div class="px-2">
-                @include('front.services.card', [
-                    'item' => $item
-                ])
+                <div class="ratio_container">
+                    @include('front.services.card', [
+                        'item' => $item
+                    ])
+                </div>
             </div>
             @endforeach
         </slick>

@@ -7,9 +7,13 @@
 <div class="row">
     @foreach($tariffs as $group)
     <div class="col-lg-4">
-        @include('front.tariffs.card', [
-            'group' => $group
-        ])
+        <div class="ratio_container">
+            <div class="text">
+                @include('front.tariffs.card', [
+                    'group' => $group
+                ])
+            </div>
+        </div>
     </div>
     @endforeach
 </div>
@@ -23,9 +27,11 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($services as $item)
             <div class="px-2">
-                @include('front.services.card', [
-                    'item' => $item
-                ])
+                <div class="ratio_container">
+                    @include('front.services.card', [
+                        'item' => $item
+                    ])
+                </div>
             </div>
             @endforeach
         </slick>
@@ -41,9 +47,11 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($antiviruses as $item)
             <div class="px-2">
-                @include('front.antiviruses.card', [
-                    'antivirus' => $item
-                ])
+                <div class="ratio_container">
+                    @include('front.antiviruses.card', [
+                        'antivirus' => $item
+                    ])
+                </div>
             </div>
             @endforeach
         </slick>
@@ -60,9 +68,11 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($child->posts as $post)
             <div class="px-2">
-                @include('front.posts.card', [
-                  'post' => $post
-                ])
+                <div class="ratio_container">
+                    @include('front.posts.card', [
+                        'post' => $post
+                    ])
+                </div>
             </div>
             @endforeach
         </slick>

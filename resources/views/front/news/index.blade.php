@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card">
+<div class="card bg-transparent">
     <div class="card-header">
         Новости
     </div>
@@ -10,9 +10,11 @@
         <div class="row">
             @foreach($news as $value)
             <div class="col-lg-4">
-                @include('front.news.card', [
-                    'news' => $value
-                ])
+                <div class="ratio_container">
+                    @include('front.news.card', [
+                        'news' => $value
+                    ])
+                </div>
             </div>
             @endforeach
         </div>

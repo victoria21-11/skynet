@@ -15,12 +15,9 @@ class NavigationController extends Controller
 {
     public function index(string $url = null)
     {
-        $navigation = Navigation::ofUrl($url)->firstOrFail();
+        $navigation = Navigation::ofUrl($url)->first();
         if(is_null($navigation)) {
-            $navigation = NavparentNavchild::ofUrl($url)->first()->child;
-        }
-        if(is_null($navigation)) {
-            abort(404);
+            $navigation = NavparentNavchild::ofUrl($url)->firstOrFail()->child;
         }
         return view($navigation->view, [
             'navigation' => $navigation

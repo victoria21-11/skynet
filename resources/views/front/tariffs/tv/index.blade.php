@@ -7,9 +7,11 @@
 <div class="row">
     @foreach($tariffs as $group)
     <div class="col-lg-4">
-        @include('front.tariffs.card', [
-            'group' => $group
-        ])
+        <div class="ratio_container">
+            @include('front.tariffs.card', [
+                'group' => $group
+            ])
+        </div>
     </div>
     @endforeach
 </div>
@@ -23,20 +25,22 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($packages as $item)
             <div class="px-2">
-                <div class="card card_default-item">
-                    <div class="card-header">
-                        {{ $item->title }}
+                <div class="ratio_container">
+                    <div class="card card_default-item">
+                        <div class="card-header">
+                            {{ $item->title }}
+                        </div>
+                        <div class="card-body">
+                            {{ $item->description }}
+                        </div>
+                        @component('front.components.likes', [
+                            'item' => $item
+                        ])
+                            @slot('url')
+                                {{ url('packages/' . $item->id) }}
+                            @endslot
+                        @endcomponent
                     </div>
-                    <div class="card-body">
-                        {{ $item->description }}
-                    </div>
-                    @component('front.components.likes', [
-                        'item' => $item
-                    ])
-                        @slot('url')
-                            {{ url('packages/' . $item->id) }}
-                        @endslot
-                    @endcomponent
                 </div>
             </div>
             @endforeach
@@ -53,9 +57,11 @@
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($child->posts as $post)
             <div class="px-2">
-                @include('front.posts.card', [
-                    'post' => $post
-                ])
+                <div class="ratio_container">
+                    @include('front.posts.card', [
+                        'post' => $post
+                    ])
+                </div>
             </div>
             @endforeach
         </slick>
