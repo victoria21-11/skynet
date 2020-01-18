@@ -5,8 +5,11 @@
     <li class="list-group-item @if(request()->url() == url('admin/slides'))active @endif">
         <a href="{{ url('admin/slides') }}">@lang('admin.slides.title')</a>
     </li>
-    <li class="list-group-item @if(request()->url() == url('admin/navigations'))active @endif">
-        <a href="{{ url('admin/navigations') }}">@lang('admin.navigations.title')</a>
+    <li class="list-group-item @if(request()->url() == url('admin/trees'))active @endif">
+        <a href="{{ url('admin/trees') }}">@lang('admin.trees.title')</a>
+    </li>
+    <li class="list-group-item @if(request()->url() == url('admin/sections'))active @endif">
+        <a href="{{ url('admin/sections') }}">@lang('admin.sections.title')</a>
     </li>
     <li class="list-group-item @if(request()->url() == url('admin/tariffs'))active @endif">
         <a href="{{ url('admin/tariffs') }}">@lang('admin.tariffs.title')</a>

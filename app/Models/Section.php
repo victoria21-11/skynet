@@ -9,4 +9,11 @@ class Section extends Model
 
     use LikeTrait;
 
+    protected $scopes = [
+        'title' => 'ofLike',
+        'published' => 'ofBoolean',
+        'url' => 'ofLike',
+        'view' => 'ofLike',
+    ];
+
 }

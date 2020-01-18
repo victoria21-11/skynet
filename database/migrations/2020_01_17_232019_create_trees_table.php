@@ -17,6 +17,7 @@ class CreateTreesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tree_id')->nullable();
             $table->unsignedBigInteger('section_id');
+            $table->unsignedInteger('order')->default(1);
             $table->string('url');
             $table->timestamps();
         });

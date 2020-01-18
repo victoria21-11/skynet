@@ -15,6 +15,7 @@ Vue.component('editor', require('./components/admin/Editor.vue').default);
 Vue.component('dropzone', require('./components/admin/Dropzone.vue').default);
 Vue.component('search-select', require('./components/admin/SearchSelect.vue').default);
 Vue.component('navigation', require('./components/admin/Navigation.vue').default);
+Vue.component('tree', require('./components/admin/Tree.vue').default);
 
 Vue.component('tariffs-index', require('./components/admin/tariffs/index.js').default);
 Vue.component('tariffs-edit', require('./components/admin/tariffs/edit.js').default);
@@ -31,6 +32,10 @@ Vue.component('tariff-types-create', require('./components/admin/tariff_types/cr
 Vue.component('streets-index', require('./components/admin/streets/index.js').default);
 Vue.component('streets-edit', require('./components/admin/streets/edit.js').default);
 Vue.component('streets-create', require('./components/admin/streets/create.js').default);
+
+Vue.component('sections-index', require('./components/admin/sections/index.js').default);
+Vue.component('sections-edit', require('./components/admin/sections/edit.js').default);
+Vue.component('sections-create', require('./components/admin/sections/create.js').default);
 
 Vue.component('houses-index', require('./components/admin/houses/index.js').default);
 Vue.component('houses-edit', require('./components/admin/houses/edit.js').default);
@@ -75,10 +80,6 @@ Vue.component('telephones-create', require('./components/admin/telephones/create
 Vue.component('services-index', require('./components/admin/services/index.js').default);
 Vue.component('services-edit', require('./components/admin/services/edit.js').default);
 Vue.component('services-create', require('./components/admin/services/create.js').default);
-
-Vue.component('navigations-index', require('./components/admin/navigations/index.js').default);
-Vue.component('navigations-edit', require('./components/admin/navigations/edit.js').default);
-Vue.component('navigations-create', require('./components/admin/navigations/create.js').default);
 
 Vue.component('period-types-index', require('./components/admin/period_types/index.js').default);
 Vue.component('period-types-edit', require('./components/admin/period_types/edit.js').default);

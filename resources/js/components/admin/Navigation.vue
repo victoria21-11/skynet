@@ -1,51 +1,54 @@
 <template>
-    <div class="">
-        <div class="card mb-3">
-            <div class="card-header">
-                {{ data[0].parent.title }}
-            </div>
-            <div class="card-body">
-                <draggable v-model="localData" @end="onEnd">
-                    <transition-group>
-                        <div class="d-flex justify-content-between py-1 border-bottom" v-for="item in localData" :key="item.id">
-                            <div>{{ item.child.title }}</div>
-                            <div>
-                                <button class="btn btn-primary mx-1">
-                                    <i class="fas fa-pen-square"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </transition-group>
-                </draggable>
-            </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            {{ data.section.title }}
+        </div>
+        <div class="card-body">
+            <draggable v-model="localData.all_children_trees" @end="onEnd">
+                <transition-group>
+                    <template v-for="item in localData.all_children_trees">
+                        <tree :key="item.id" :data="item"></tree>
+                    </template>
+                </transition-group>
+            </draggable>
         </div>
     </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable';
+import Tree from './Tree.vue';
 
 export default {
     components: {
         draggable,
+        Tree
     },
     data() {
         return {
             localData: this.data,
+            showChildren: false
         }
     },
     props: {
         data: {
             required: true,
-            type: Array,
+            type: Object,
             default: () => {
-                return []
+                return {}
             }
+        },
+        border: {
+            type: Boolean,
+            default: true
         }
     },
     methods: {
+        toggleChildren() {
+            this.showChildren = !this.showChildren;
+        },
         onEnd($event) {
-            const order = this.localData
+            const order = this.localData.all_children_trees
                 .map(({id}, index) => {
                     return {
                         id,

@@ -269,13 +269,25 @@ return [
             'order' => 'Порядок',
         ]
     ],
-    'navigations' => [
+    'trees' => [
         'title' => 'Навигация',
         'create' => 'Новый раздел',
         'columns' => [
             'title' => 'Название',
             'id' => 'ID',
             'description' => 'Описание',
+            'published' => 'Опубликовано',
+        ]
+    ],
+    'sections' => [
+        'title' => 'Разделы',
+        'create' => 'Новый раздел',
+        'columns' => [
+            'title' => 'Название',
+            'id' => 'ID',
+            'description' => 'Описание',
+            'url' => 'URL',
+            'view' => 'Шаблон',
             'published' => 'Опубликовано',
         ]
     ],

@@ -33,4 +33,9 @@ class Tree extends Model
     {
         return $query->whereNull('tree_id');
     }
+
+    public function allChildrenTrees()
+    {
+        return $this->childrenTrees()->orderBy('order')->with('childrenTrees.section');
+    }
 }
