@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class Equipment extends Model
 {
+
+    use LikeTrait;
 
     protected $table = 'equipments';
 
@@ -15,21 +19,6 @@ class Equipment extends Model
         'price' => 'ofStrict',
     ];
 
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
-    }
-
     public function getUrl()
     {
         return url('/home/internet/equipments/' . $this->id);
@@ -39,5 +28,5 @@ class Equipment extends Model
     {
         return intval($this->price / $this->installment_period);
     }
-    
+
 }

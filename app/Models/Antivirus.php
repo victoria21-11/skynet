@@ -5,11 +5,12 @@ namespace App\Models;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
+use App\Traits\LikeTrait;
 
 class Antivirus extends Model implements HasMedia
 {
 
-    use HasMediaTrait;
+    use HasMediaTrait, LikeTrait;
 
     protected $table = 'antiviruses';
 
@@ -40,21 +41,6 @@ class Antivirus extends Model implements HasMedia
     public function type()
     {
         return $this->belongsTo(AntivirusType::class, 'antivirus_type_id', 'id');
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
     public function getMinPrice()

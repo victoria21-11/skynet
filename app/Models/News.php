@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class News extends Model
 {
 
+    use LikeTrait;
+    
     protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
@@ -12,20 +16,5 @@ class News extends Model
         'published' => 'ofBoolean',
         'created_at' => 'ofCreatedAt',
     ];
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
-    }
 
 }

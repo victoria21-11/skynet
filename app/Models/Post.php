@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class Post extends Model
 {
 
+    use LikeTrait;
+    
     protected $scopes = [
         'title' => 'ofLike',
         'published' => 'ofBoolean',
@@ -15,21 +19,6 @@ class Post extends Model
     public function navigation()
     {
         return $this->belongsTo(Navigation::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
     }
 
 }

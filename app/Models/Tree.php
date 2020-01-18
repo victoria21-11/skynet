@@ -6,7 +6,7 @@ class Tree extends Model
 {
     public function parentTree()
     {
-        return $this->belongsTo(Tree::class);
+        return $this->belongsTo(Tree::class, 'tree_id', 'id');
     }
 
     public function childrenTrees()

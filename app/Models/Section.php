@@ -2,20 +2,11 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class Section extends Model
 {
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
 
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
+    use LikeTrait;
 
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
-    }
 }

@@ -5,11 +5,12 @@ namespace App\Models;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
+use App\Traits\LikeTrait;
 
 class Package extends Model implements HasMedia
 {
 
-    use HasMediaTrait;
+    use HasMediaTrait, LikeTrait;
 
     protected $scopes = [
         'title' => 'ofLike',
@@ -41,21 +42,6 @@ class Package extends Model implements HasMedia
     public function scopeNotExtra($query)
     {
         return $query->where('extra', false);
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
     public function tariffGroups()

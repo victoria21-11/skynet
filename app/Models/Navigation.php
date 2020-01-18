@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\LikeTrait;
 
 class Navigation extends Model
 {
 
+    use LikeTrait;
+    
     public function children()
     {
         return $this->belongsToMany(Navigation::class, 'navparent_navchild', 'parent_id', 'child_id')
@@ -76,21 +79,6 @@ class Navigation extends Model
         return self::whereHas('parents', function($query) use ($url) {
             $query->where('navparent_navchild.url', $url);
         });
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
     static function buildChildren()

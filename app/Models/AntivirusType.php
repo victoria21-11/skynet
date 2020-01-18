@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class AntivirusType extends Model
 {
+
+    use LikeTrait;
 
     protected $scopes = [
         'title' => 'ofLike',
@@ -14,21 +18,6 @@ class AntivirusType extends Model
     public function antiviruses()
     {
         return $this->hasMany(Antivirus::class);
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
     public function getUrl()

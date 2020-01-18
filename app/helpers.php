@@ -37,11 +37,11 @@
                 'parentTree'
             ])
             ->first();
-        if($tree) {
+        if($tree && $tree->tree_id) {
             if($tree->childrenTrees->isNotEmpty()) {
                 return $tree->childrenTrees;
             }
-            if($tree->parentTree) {
+            if($tree->parentTree && $tree->parentTree->tree_id) {
                 return $tree->parentTree->childrenTrees;
             }
         }

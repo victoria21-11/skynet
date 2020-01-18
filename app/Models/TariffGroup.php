@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\LikeTrait;
+
 class TariffGroup extends Model
 {
 
+    use LikeTrait;
+    
     protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
@@ -52,21 +56,6 @@ class TariffGroup extends Model
     public function scopeTv($query)
     {
         return $query->ofType(TariffType::tv()->first());
-    }
-
-    public function getClassName()
-    {
-        return quotemeta(self::class);
-    }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function getIsMyLikeExistsAttribute()
-    {
-        return Like::isExists(request()->ip(), $this->id, self::class);
     }
 
     public function packages()

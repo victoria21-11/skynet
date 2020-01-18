@@ -43,7 +43,7 @@ Route::get('/about/job_openings', function() {
     return redirect(url('/about/job_openings/get_job'));
 });
 Route::get('/about/job_openings/get_job', 'JobOpeningController@index');
-Route::get('/about/job_openings/{jobopening}', 'JobOpeningController@show');
+Route::get('/about/job_openings/{jobopening}', 'JobOpeningController@show')->where('jobopening', '[0-9]+');;
 Route::get('/news/{news}', 'NewsController@show');
 
 Route::resource('orders', 'OrderController');
