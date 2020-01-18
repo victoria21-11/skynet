@@ -3,21 +3,21 @@
 @section('content')
 
 <div class="row">
-    @foreach($navigation->children as $child)
+    @foreach($tree->childrenTrees as $item)
     <div class="col-lg-4">
         <div class="ratio_container">
             <div class="card card_default-item mb-3">
                 <div class="card-header">
-                    {{ $child->title }}
+                    {{ $item->section->title }}
                 </div>
                 <div class="card-body">
 
                 </div>
                 @component('front.components.likes', [
-                    'item' => $child
+                    'item' => $item->section
                 ])
                     @slot('url')
-                        {{ url($child->pivot->url) }}
+                        {{ url($item->url) }}
                     @endslot
                 @endcomponent
             </div>

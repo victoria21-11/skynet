@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\{
     AntivirusType,
     Navigation,
-    NavparentNavchild
+    Tree,
 };
 
 class AntivirusController extends Controller
@@ -14,12 +14,10 @@ class AntivirusController extends Controller
     public function index(Request $request)
     {
         $antiviruses = AntivirusType::with('antiviruses.periods')->get();
-        $navigation = NavparentNavchild::ofUrl($request->path())->first()->child;
-        $parent = $navigation->parents()->ofUrl('internet')->first();
+        $section = Tree::ofUrl($request->path())->first()->section;
         return view('front.antiviruses.index', [
             'antiviruses' => $antiviruses,
-            'navigation' => $navigation,
-            'parent' => $parent,
+            'section' => $section,
         ]);
     }
 

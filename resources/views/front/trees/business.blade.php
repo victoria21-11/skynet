@@ -6,10 +6,10 @@
     <div class="col-lg-8">
         <div class="card mb-3">
             <div class="card-header">
-                {{ $navigation->title }}
+                {{ $tree->section->title }}
             </div>
             <div class="card-body">
-                {{ $navigation->description }}
+                {{ $tree->section->description }}
             </div>
         </div>
     </div>

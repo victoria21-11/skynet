@@ -1,11 +1,11 @@
-@if($children->isNotEmpty())
+@if($tree)
 <div class="navigation__children bg-success">
     <div class="container">
         <div class="p-3 mb-3 bg-success">
             <div class="row">
-            @foreach($children as $child)
+            @foreach($tree as $item)
             <div class="col-auto">
-                <a href="{{ url($child->pivot->url) }}">{{ $child->title }}</a>
+                <a href="{{ url($item->url) }}">{{ $item->section->title }}</a>
             </div>
             @endforeach
             </div>

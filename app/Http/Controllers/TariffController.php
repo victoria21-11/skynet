@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     TariffGroup,
-    Navigation,
     Antivirus,
     Equipment,
     Service,
     Package,
     TariffType,
-    NavparentNavchild
+    Tree
 };
 
 class TariffController extends Controller
@@ -22,13 +21,13 @@ class TariffController extends Controller
             auth()->user()->assignRole('admin');
         }
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
-        $navigation = NavparentNavchild::ofUrl('home/internet')->first()->child;
+        $tree = Tree::ofUrl($request->path())->with('childrenTrees.section')->first();
         $antiviruses = Antivirus::with('type')->get();
         $equipments = Equipment::get();
         $services = Service::get();
         return view('front.tariffs.internet.index', [
             'tariffs' => $tariffs,
-            'navigation' => $navigation,
+            'tree' => $tree,
             'antiviruses' => $antiviruses,
             'equipments' => $equipments,
             'services' => $services,
@@ -38,21 +37,21 @@ class TariffController extends Controller
     function internetTariffs(Request $request)
     {
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
-        $navigation = Navigation::ofParentsPivotUrl($request->path())->with('children')->first();
+        $section = Tree::ofUrl($request->path())->with('section')->first()->section;
         return view('front.tariffs.internet.tariffs', [
             'tariffs' => $tariffs,
-            'navigation' => $navigation,
+            'section' => $section,
         ]);
     }
 
     function tv(Request $request)
     {
         $tariffs = TariffGroup::tv()->with('tariffs')->withCount('likes')->get();
-        $navigation = Navigation::ofParentsPivotUrl($request->path())->with('children')->first();
+        $tree = Tree::ofUrl($request->path())->with('childrenTrees')->first();
         $packages = Package::extra()->get();
         return view('front.tariffs.tv.index', [
             'tariffs' => $tariffs,
-            'navigation' => $navigation,
+            'tree' => $tree,
             'packages' => $packages,
         ]);
     }
@@ -60,10 +59,8 @@ class TariffController extends Controller
     function tvTariffs(Request $request)
     {
         $tariffs = TariffGroup::tv()->with('tariffs')->withCount('likes')->get();
-        $navigation = Navigation::ofParentsPivotUrl($request->path())->with('children')->first();
         return view('front.tariffs.tv.tariffs', [
             'tariffs' => $tariffs,
-            'navigation' => $navigation,
         ]);
     }
 }

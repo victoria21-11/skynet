@@ -37,9 +37,9 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
-                            @foreach(App\Models\Navigation::buildHeader() as $value)
+                            @foreach(buildNavigation() as $tree)
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url($value->url) }}">{{ $value->title }}</a>
+                                <a class="nav-link" href="{{ url($tree->section->url) }}">{{ $tree->section->title }}</a>
                             </li>
                             @endforeach
                         </ul>
@@ -60,12 +60,12 @@
                             <img src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
                         </div>
                         <div class="navigation__container__menu">
-                            @foreach(App\Models\Navigation::buildHeader() as $key => $value)
-                            <div class="row" @if(strpos(request()->path(), $value->url) === false)hidden @endif>
-                                @foreach($value->children as $child)
-                                <div class="col-auto">
-                                    <a class="py-3" href="{{ url($child->pivot->url) }}">{{ $child->title }}</a>
-                                </div>
+                            @foreach(buildNavigation() as $tree)
+                            <div class="row" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
+                                @foreach($tree->childrenTrees as $item)
+                                    <div class="col-auto">
+                                        <a class="py-3" href="{{ url($item->url) }}">{{ $item->section->title }}</a>
+                                    </div>
                                 @endforeach
                             </div>
                             @endforeach
@@ -73,8 +73,8 @@
                     </div>
                 </div>
             </div>
-            @include('front.navigations.children', [
-                'children' => App\Models\Navigation::buildChildren()
+            @include('front.trees.tree', [
+                'tree' => currenCategory()
             ])
             <main class="py-4">
                 @yield('banner')
@@ -87,14 +87,14 @@
         <footer class="bg-dark py-3 mt-auto">
             <div class="container">
                 <div class="row">
-                    @foreach(App\Models\Navigation::buildHeader() as $value)
+                    @foreach(buildNavigation() as $tree)
                     <div class="col">
                         <div>
-                            <a href="{{ url($value->url) }}" class="font-weight-bold text-white">{{ $value->title }}</a>
+                            <a href="{{ url($tree->section->url) }}" class="font-weight-bold text-white">{{ $tree->section->title }}</a>
                         </div>
-                        @foreach($value->children as $child)
+                        @foreach($tree->childrenTrees as $item)
                         <div class="">
-                            <a href="{{ url($child->url) }}" class="text-white">{{ $child->title }}</a>
+                            <a href="{{ url($item->url) }}" class="text-white">{{ $item->section->title }}</a>
                         </div>
                         @endforeach
                     </div>

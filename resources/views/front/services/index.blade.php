@@ -17,10 +17,10 @@
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                {{ $navigation->title }}
+                {{ $section->title }}
             </div>
             <div class="card-body">
-                {!! $navigation->description !!}
+                {!! $section->description !!}
             </div>
         </div>
     </div>

@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     Package,
-    Navigation
+    Tree
 };
 
 class PackageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $extra = Package::extra()->with('tariffGroups')->get();
         $extra = $this->getPreview($extra);
@@ -18,11 +18,11 @@ class PackageController extends Controller
         $packages = Package::notExtra()->with('tariffGroups')->get();
         $packages = $this->getPreview($packages);
 
-        $navigation = Navigation::ofUrl('packages')->with('children')->first();
+        $section = Tree::ofUrl($request->path())->with('section')->first()->section;
         return view('front.packages.index', [
             'extra' => $extra,
             'packages' => $packages,
-            'navigation' => $navigation
+            'section' => $section
         ]);
     }
 

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\{
     Navigation,
-    NavparentNavchild
 };
 use App\Http\Requests\Admin\Navigation\{
     Store,
@@ -20,7 +19,7 @@ class NavigationController extends Controller
 {
     public function getTitle()
     {
-        return trans('admin.navigations.title');
+        return trans('admin.trees.title');
     }
 
     public function index(Index $request)
@@ -43,7 +42,7 @@ class NavigationController extends Controller
             ]);
         }
 
-        return view('admin.navigations.index', [
+        return view('admin.trees.index', [
             'title' => $this->getTitle(),
             'tree' => $tree
         ]);
@@ -51,8 +50,8 @@ class NavigationController extends Controller
 
     public function create()
     {
-        return view('admin.navigations.create', [
-            'title' => trans('admin.navigations.create'),
+        return view('admin.trees.create', [
+            'title' => trans('admin.trees.create'),
         ]);
     }
 
@@ -64,7 +63,7 @@ class NavigationController extends Controller
 
     public function edit(Navigation $navigation)
     {
-        return view('admin.navigations.edit', [
+        return view('admin.trees.edit', [
             'title' => "Редактировать $navigation->title",
             'data' => $navigation,
         ]);

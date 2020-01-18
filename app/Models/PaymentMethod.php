@@ -14,17 +14,18 @@ class PaymentMethod extends Model
 
     public function scopeAlternative($query)
     {
-        return $query->ofAlternvative(true);
-    }
-
-    public function scopeNotAlternative($query)
-    {
-        return $query->ofAlternvative(false);
+        return $query->ofAlternative(true);
     }
 
     public function scopeOfAlternative($query, $alternative)
     {
         return $query->where('alternative', $alternative);
     }
+
+    public function scopeNotAlternative($query)
+    {
+        return $query->ofAlternative(false);
+    }
+
 
 }

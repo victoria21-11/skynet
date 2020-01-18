@@ -11,7 +11,7 @@
     </div>
     @endforeach
     <div class="col-lg-4">
-        {!! $navigation->description !!}
+        {!! $section->description !!}
     </div>
     @foreach($tariffs->slice(2) as $group)
     <div class="col-lg-4">

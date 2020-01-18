@@ -5,21 +5,21 @@
 <div class="row">
     <div class="col-lg-8">
         <div class="row">
-            @foreach($navigation->children as $child)
+            @foreach($tree->childrenTrees as $child)
             <div class="col-lg-6">
                 <div class="ratio_container">
                     <div class="card card_default-item mb-3">
                         <div class="card-header">
-                            {{ $child->title }}
+                            {{ $child->section->title }}
                         </div>
                         <div class="card-body">
-                            {{ $child->description }}
+                            {{ $child->section->description }}
                         </div>
                         @component('front.components.likes', [
-                            'item' => $child
+                            'item' => $child->section
                         ])
                             @slot('url')
-                                {{ url($child->pivot->url) }}
+                                {{ url($child->url) }}
                             @endslot
                         @endcomponent
                     </div>
@@ -31,10 +31,10 @@
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                {{ $navigation->title }}
+                {{ $tree->section->title }}
             </div>
             <div class="card-body">
-                {!! $navigation->description !!}
+                {!! $tree->section->description !!}
             </div>
         </div>
     </div>

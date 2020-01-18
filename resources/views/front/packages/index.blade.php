@@ -16,7 +16,7 @@
                 Основные пакеты
             </div>
             <div class="card-body">
-                {!! $navigation->description !!}
+                {!! $section->description !!}
             </div>
         </div>
     </div>

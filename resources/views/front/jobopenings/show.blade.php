@@ -177,20 +177,20 @@
 <div class="row mb-3">
     <div class="col-lg-8">
         <div class="row">
-            @foreach($navigation->children as $child)
+            @foreach($tree->childrenTrees as $child)
             <div class="col-lg-6">
                 <div class="card mb-3">
                     <div class="card-header">
-                        {{ $child->title }}
+                        {{ $child->section->title }}
                     </div>
                     <div class="card-body">
 
                     </div>
                     @component('front.components.likes', [
-                        'item' => $child
+                        'item' => $child->section
                     ])
                         @slot('url')
-                            {{ url($child->pivot->url) }}
+                            {{ url($child->url) }}
                         @endslot
                     @endcomponent
                 </div>

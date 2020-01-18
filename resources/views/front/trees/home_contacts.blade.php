@@ -21,10 +21,10 @@
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                {{ $navigation->title }}
+                {{ $section->title }}
             </div>
             <div class="card-body">
-                {{ $navigation->description }}
+                {{ $section->description }}
                 <div class="">
                     <p class="mb-0">
                         У вас есть вопрос или вы хотите что-то уточнить?

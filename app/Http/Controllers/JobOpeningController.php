@@ -5,27 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{
     Jobopening,
-    Navigation
+    Tree
 };
 
 class JobOpeningController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $navigation = Navigation::ofUrl('job_openings')->first();
+        $section = Tree::ofUrl($request->path())->with('section')->first()->section;
         $jobopenings = Jobopening::get();
         return view('front.jobopenings.index', [
             'jobopenings' => $jobopenings,
-            'navigation' => $navigation,
+            'section' => $section,
         ]);
     }
 
-    public function show(Jobopening $jobopening)
+    public function show(Request $request, Jobopening $jobopening)
     {
-        $navigation = Navigation::ofUrl('job_openings')->first();
+        $tree = Tree::ofUrl('about/job_openings')->with('childrenTrees.section')->first();
         return view('front.jobopenings.show', [
             'jobopening' => $jobopening,
-            'navigation' => $navigation,
+            'tree' => $tree,
         ]);
     }
 }
