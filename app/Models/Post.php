@@ -12,7 +12,7 @@ class Post extends Model
     protected $scopes = [
         'title' => 'ofLike',
         'published' => 'ofBoolean',
-        'created_at' => 'ofCreatedAt',
+        'created_at' => 'ofDate',
         'navigation_id' => 'ofStrict',
     ];
 

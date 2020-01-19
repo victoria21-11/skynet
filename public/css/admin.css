@@ -21515,3 +21515,7 @@ th.desc::before {
   color: #007bff;
 }
 
+.tree {
+  cursor: pointer;
+}
+

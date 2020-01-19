@@ -66,3 +66,7 @@ th.desc::before {
 .list-group-item.active a {
     color: $primary;
 }
+
+.tree {
+    cursor: pointer;
+}

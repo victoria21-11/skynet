@@ -54,7 +54,7 @@ class Model extends DefaultModel
         return $query;
     }
 
-    public function scopeOfCreatedAt($query, $date)
+    public function scopeOfDate($query, $date)
     {
         $dates = explode('to', $date);
         if(count($dates) == 2) {

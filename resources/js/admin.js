@@ -14,8 +14,8 @@ Vue.use(VueQuillEditor, {});
 Vue.component('editor', require('./components/admin/Editor.vue').default);
 Vue.component('dropzone', require('./components/admin/Dropzone.vue').default);
 Vue.component('search-select', require('./components/admin/SearchSelect.vue').default);
-Vue.component('navigation', require('./components/admin/Navigation.vue').default);
-Vue.component('tree', require('./components/admin/Tree.vue').default);
+Vue.component('navigation', require('./components/admin/trees/Navigation.vue').default);
+Vue.component('tree', require('./components/admin/trees/Tree.vue').default);
 
 Vue.component('tariffs-index', require('./components/admin/tariffs/index.js').default);
 Vue.component('tariffs-edit', require('./components/admin/tariffs/edit.js').default);

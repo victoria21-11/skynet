@@ -16,4 +16,9 @@ class Section extends Model
         'view' => 'ofLike',
     ];
 
+    public function trees()
+    {
+        return $this->hasMany(Tree::class);
+    }
+
 }

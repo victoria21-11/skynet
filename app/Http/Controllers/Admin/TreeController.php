@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\{
     Tree,
+    Section,
 };
 use App\Http\Requests\Admin\Tree\{
     Index,
-    Order
+    Order,
+    Store,
+    Delete,
 };
 
 class TreeController extends Controller
@@ -29,6 +32,21 @@ class TreeController extends Controller
         ]);
     }
 
+    public function store(Store $request)
+    {
+        $tree = Tree::create($request->validated());
+        return response([
+            'tree' => $tree->load('section')
+        ]);
+    }
+
+    public function destroy(Delete $request, Tree $tree)
+    {
+        $tree->childrenTrees()->delete();
+        $tree->delete();
+        return response([]);
+    }
+
     public function order(Order $request)
     {
         foreach ($request->get('order', []) as $value) {
@@ -37,5 +55,13 @@ class TreeController extends Controller
             ]);
         }
         return response([]);
+    }
+
+    public function sections(Request $request)
+    {
+        $sections = Section::get();
+        return response([
+            'sections' => $sections
+        ]);
     }
 }

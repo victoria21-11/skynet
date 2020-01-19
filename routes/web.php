@@ -80,7 +80,8 @@ Route::prefix('admin')->group(function () {
             Route::resource('global_settings', 'GlobalSettingController');
             Route::resource('editor_images', 'EditorImageController');
             Route::resource('slides', 'SlideController');
-            Route::put('navigations/order', 'TreeController@order');
+            Route::get('trees/sections', 'TreeController@sections');
+            Route::put('trees/order', 'TreeController@order');
             Route::resource('trees', 'TreeController');
             Route::resource('sections', 'SectionController');
         });
