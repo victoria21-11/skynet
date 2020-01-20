@@ -23,8 +23,8 @@ footer {
 }
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 [v-cloak] {
@@ -33,13 +33,17 @@ footer {
 
 
 .navbar-nav {
-  .show > .nav-link,
-  .active > .nav-link,
-  .nav-link.show,
-  .nav-link.active {
-    color: $navbar-dark-active-color;
-    background-color: $secondary;
-  }
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+        color: $navbar-dark-active-color;
+        background-color: $secondary;
+    }
+}
+
+.navbar {
+    font-size: 1.2rem;
 }
 
 .navigation__container {
@@ -96,6 +100,11 @@ footer {
 .card_default-item {
     overflow: hidden;
     box-shadow: 0 0.25rem 0.25rem 0 rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.card_default-item:hover {
+    box-shadow: 0 0.3125rem 0.875rem 0 rgba(0,0,0,.2)
 }
 
 .btn {
@@ -124,9 +133,12 @@ footer {
 }
 
 .navigation__children {
+    box-shadow: inset 0 0.125rem 0.5rem 0 rgba(0,0,0,.2);
 
     a {
         color: $white;
+        font-weight: 300;
+        font-size: 1.2rem;
     }
 
 }
@@ -194,15 +206,12 @@ footer {
 }
 
 .tree_item {
-    padding-left: 40px;
-    padding-right: 40px;
     text-align: center;
     cursor: pointer;
 }
 
 .logo_img {
     width: 140px;
-    margin-right: 40px;
 }
 
 .social_network_icon {
@@ -222,4 +231,15 @@ footer {
 .-mx-2 {
     margin-left: -.5rem;
     margin-right: -.5rem;
+}
+
+.content_rating_system {
+    color: $white;
+    transform: translateX(-100%);
+    position: absolute;
+}
+
+.navbar-brand {
+    font-size: .8rem;
+    line-height: 1;
 }

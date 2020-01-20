@@ -26,42 +26,52 @@
 <body>
     <div id="app" class="d-flex flex-column" v-cloak>
         <div class="content">
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <div class="content_rating_system">
+                        18+
+                    </div>
+                    <div class="row align-items-center w-100">
+                        <div class="col-lg-2">
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                СКАЙНЕТ.РУ
+                                <div>
+                                    (SKNT.RU)
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    @foreach(buildNavigation() as $tree)
+                                    <li class="nav-item">
+                                        <a class="nav-link @if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
+                                            {{ $tree->section->title }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            @foreach(buildNavigation() as $tree)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url($tree->section->url) }}">{{ $tree->section->title }}</a>
-                            </li>
-                            @endforeach
-                        </ul>
-
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{{ env('PHONE') }}</a>
-                            </li>
-                        </ul>
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">{{ env('PHONE') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
 
             <div class="navigation__container">
                 <div class="container">
-                    <div class="d-flex align-items-center">
-                        <div class="">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
                             <img class="logo_img" src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
                         </div>
-                        <div class="navigation__container__menu">
+                        <div class="col-lg-10 navigation__container__menu">
                             @foreach(buildNavigation() as $tree)
-                            <div class="row" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
+                            <div class="row justify-content-between" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
                                 @foreach($tree->childrenTrees as $item)
                                     <div class="col-auto tree_item">
                                         <a href="{{ url($item->url) }}">

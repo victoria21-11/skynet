@@ -1,7 +1,7 @@
 @if($tree)
 <div class="navigation__children bg-success">
     <div class="container">
-        <div class="p-3 mb-3 bg-success">
+        <div class="py-2 mb-3">
             <div class="row">
             @foreach($tree as $item)
             <div class="col-auto">
