@@ -8,6 +8,12 @@
             {{ $title }}
         </div>
         <div class="card-body">
+            @component('admin.components.fileupload', [
+                'model' => 'form.tree_icon',
+                'media' => $media['tree_icon']
+            ])
+            @endcomponent
+
             @component('admin.components.text', [
                 'lang' => 'admin.sections.columns.title',
                 'model' => 'form.title',

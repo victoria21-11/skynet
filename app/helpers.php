@@ -4,6 +4,7 @@
         GlobalSetting,
         Category,
         Tree,
+        SocialNetwork,
     };
 
     function globalSetting($name)
@@ -46,4 +47,8 @@
             }
         }
         return null;
+    }
+
+    function socialNetworks() {
+        return SocialNetwork::published()->get();
     }

@@ -18,7 +18,7 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('title');
             $table->string('name');
             $table->string('value')->nullable();
-            $table->boolean('published');
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

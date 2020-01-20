@@ -2,11 +2,6 @@
 
 @section('content')
 
-@include('admin.components.breadcrumbs', [
-    'name' => 'global_settings',
-    'route' => 'create',
-])
-
 <global-settings-create inline-template>
     <div class="card">
         <div class="card-header">

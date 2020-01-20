@@ -11,6 +11,43 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~slick-carousel/slick/slick.css';
 
+@font-face {
+	font-family: "Samplino";
+	src: url("../fonts/SF-UI-Display-Black.otf") format("otf"),
+		 url("../fonts/SF-UI-Display-Bold.otf") format("otf"),
+		 url("../fonts/SF-UI-Display-Heavy.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Light.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Medium.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Regular.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Semibold.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Thin.otf") format("otf")
+		 url("../fonts/SF-UI-Display-Ultralight.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Bold.otf") format("otf")
+		 url("../fonts/SF-UI-Text-BoldItalic.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Heavy.otf") format("otf")
+		 url("../fonts/SF-UI-Text-HeavyItalic.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Italic.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Light.otf") format("otf")
+		 url("../fonts/SF-UI-Text-LightItalic.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Medium.otf") format("otf")
+		 url("../fonts/SF-UI-Text-MediumItalic.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Regular.otf") format("otf")
+		 url("../fonts/SF-UI-Text-Semibold.otf") format("otf")
+		 url("../fonts/SF-UI-Text-SemiboldItalic.otf") format("otf");
+}
+
+body {
+    background-color: $secondary;
+    font-family: 'Samplino';
+}
+
+html, body, #app {
+    height: 100%;
+}
+
+footer {
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -36,6 +73,8 @@
 
     .navigation__container__menu {
         background-color: $secondary;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         a {
             color: $dark;
@@ -49,6 +88,8 @@
 .card-header {
     border-bottom: $border-width solid $card-border-color;
     padding: $card-spacer-x 0;
+    color: $success;
+    font-size: 1.5rem;
 }
 
 .card.bg-transparent {
@@ -102,17 +143,6 @@
         color: $white;
     }
 
-}
-
-body {
-    background-color: $secondary;
-}
-
-html, body, #app {
-    height: 100%;
-}
-
-footer {
 }
 
 .btn.like:disabled {
@@ -175,4 +205,20 @@ footer {
     .slide_text {
         flex: 0 25%;
     }
+}
+
+.tree_item {
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logo_img {
+    width: 140px;
+    margin-right: 40px;
+}
+
+.social_network_icon {
+    width: 50px;
 }

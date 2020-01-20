@@ -84,6 +84,7 @@ Route::prefix('admin')->group(function () {
             Route::put('trees/order', 'TreeController@order');
             Route::resource('trees', 'TreeController');
             Route::resource('sections', 'SectionController');
+            Route::resource('social_networks', 'SocialNetworkController');
         });
     });
 });

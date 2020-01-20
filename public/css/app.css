@@ -18527,6 +18527,22 @@ a.text-dark:focus {
   }
 }
 
+@font-face {
+  font-family: "Samplino";
+  src: url(/fonts/SF-UI-Display-Black.otf?c76879fd632e4ec8f93ab74e259d1c87) format("otf"), url(/fonts/SF-UI-Display-Bold.otf?6991c865641a45a62e9c3eff7c58ec68) format("otf"), url(/fonts/SF-UI-Display-Heavy.otf?990ed89741ccf013b3444a005e5e1ab6) format("otf") url(/fonts/SF-UI-Display-Light.otf?e7dd4618689ef9cc9c31093360cc2030) format("otf") url(/fonts/SF-UI-Display-Medium.otf?4123a8a94268c6d26b454812201b87c8) format("otf") url(/fonts/SF-UI-Display-Regular.otf?3f37c5de154bb3ccd811f2f92854139b) format("otf") url(/fonts/SF-UI-Display-Semibold.otf?c06be4eaf06c3be19c69fe2679a4fea3) format("otf") url(/fonts/SF-UI-Display-Thin.otf?851826326fab2864d5088a29baf24a85) format("otf") url(/fonts/SF-UI-Display-Ultralight.otf?86502e5d7fd771800755ed1ce86dfac8) format("otf") url(/fonts/SF-UI-Text-Bold.otf?587003e2fae39b7174a5afa58d46c770) format("otf") url(/fonts/SF-UI-Text-BoldItalic.otf?fc8e653985fed422c6dd2ec213cbf8e4) format("otf") url(/fonts/SF-UI-Text-Heavy.otf?464593e43088a83f1f07049329b6ffb3) format("otf") url(/fonts/SF-UI-Text-HeavyItalic.otf?f5c6a7f9029ffd8750da10245cd6fc0a) format("otf") url(/fonts/SF-UI-Text-Italic.otf?4b254f794885cbd51a1592fa1698a6ff) format("otf") url(/fonts/SF-UI-Text-Light.otf?2425d3ea04f837d4ec6112eb35cd64c6) format("otf") url(/fonts/SF-UI-Text-LightItalic.otf?6d06c0b58c7c70a679f4c42d63b3baa3) format("otf") url(/fonts/SF-UI-Text-Medium.otf?19d736109aa8294b6bfb4b97fd93ba50) format("otf") url(/fonts/SF-UI-Text-MediumItalic.otf?812339b994cb4cc18e0872a8b5a4bc62) format("otf") url(/fonts/SF-UI-Text-Regular.otf?5b838b00736ea2f7108a8479a6ea6a6a) format("otf") url(/fonts/SF-UI-Text-Semibold.otf?f7e513bb15567a1a34c2ff8448c00723) format("otf") url(/fonts/SF-UI-Text-SemiboldItalic.otf?8fcb8beeb3492b4151cfb4bdf0753930) format("otf");
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: "Samplino";
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -18551,6 +18567,8 @@ a.text-dark:focus {
 
 .navigation__container .navigation__container__menu {
   background-color: #f2f2f2;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .navigation__container .navigation__container__menu a {
@@ -18561,6 +18579,8 @@ a.text-dark:focus {
 .card-header {
   border-bottom: 1px solid #abb0b2;
   padding: 1.25rem 0;
+  color: #6fb316;
+  font-size: 1.5rem;
 }
 
 .card.bg-transparent .card-header,
@@ -18607,16 +18627,6 @@ a.text-dark:focus {
 
 .navigation__children a {
   color: #fff;
-}
-
-body {
-  background-color: #f2f2f2;
-}
-
-html,
-body,
-#app {
-  height: 100%;
 }
 
 .btn.like:disabled {
@@ -18682,5 +18692,21 @@ body,
     -webkit-box-flex: 0;
             flex: 0 25%;
   }
+}
+
+.tree_item {
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logo_img {
+  width: 140px;
+  margin-right: 40px;
+}
+
+.social_network_icon {
+  width: 50px;
 }
 

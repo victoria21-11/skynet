@@ -105,6 +105,10 @@ Vue.component('global-settings-index', require('./components/admin/global_settin
 Vue.component('global-settings-edit', require('./components/admin/global_settings/edit.js').default);
 Vue.component('global-settings-create', require('./components/admin/global_settings/create.js').default);
 
+Vue.component('social-networks-index', require('./components/admin/social_networks/index.js').default);
+Vue.component('social-networks-edit', require('./components/admin/social_networks/edit.js').default);
+Vue.component('social-networks-create', require('./components/admin/social_networks/create.js').default);
+
 Vue.mixin({
     methods: {
         confirm() {

@@ -57,14 +57,19 @@
                 <div class="container">
                     <div class="d-flex align-items-center">
                         <div class="">
-                            <img src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
+                            <img class="logo_img" src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
                         </div>
                         <div class="navigation__container__menu">
                             @foreach(buildNavigation() as $tree)
                             <div class="row" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
                                 @foreach($tree->childrenTrees as $item)
-                                    <div class="col-auto">
-                                        <a class="py-3" href="{{ url($item->url) }}">{{ $item->section->title }}</a>
+                                    <div class="col-auto tree_item">
+                                        <a href="{{ url($item->url) }}">
+                                            <div class="">
+                                                <img src="{{ $item->section->getFirstMediaUrl('tree_icon') }}" alt="">
+                                            </div>
+                                            {{ $item->section->title }}
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>
@@ -88,7 +93,7 @@
             <div class="container">
                 <div class="row">
                     @foreach(buildNavigation() as $tree)
-                    <div class="col">
+                    <div class="col-auto px-5">
                         <div>
                             <a href="{{ url($tree->section->url) }}" class="font-weight-bold text-white">{{ $tree->section->title }}</a>
                         </div>
@@ -99,8 +104,14 @@
                         @endforeach
                     </div>
                     @endforeach
+                    <div class="col d-flex justify-content-between flex-nowrap">
+                        @foreach(socialNetworks() as $item)
+                        <a href="{{ $item->link }}" target="_blank">
+                            <img class="social_network_icon" src="{{ $item->getFirstMediaUrl('icon') }}" alt="">
+                        </a>
+                        @endforeach
+                    </div>
                 </div>
-
             </div>
         </footer>
     </div>

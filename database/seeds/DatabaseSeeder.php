@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionsTableSeeder::class);
         $this->call(DocumentsTableSeeder::class);
         $this->call(PaymentMethodsTableSeeder::class);
+        $this->call(GlobalSettingsTableSeeder::class);
+        $this->call(GlobalSettingsTableSeeder::class);
     }
 }

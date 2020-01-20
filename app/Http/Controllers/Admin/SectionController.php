@@ -49,6 +49,7 @@ class SectionController extends Controller
     public function store(Store $request, Section $section)
     {
         $section = Section::create($request->validated());
+        $section->syncMedia(['tree_icon']);
         return response([]);
     }
 
@@ -57,12 +58,14 @@ class SectionController extends Controller
         return view('admin.sections.edit', [
             'title' => "Редактировать $section->title",
             'data' => $section,
+            'media' => $section->prepareMedia(['tree_icon'])
         ]);
     }
 
     public function update(Update $request, Section $section)
     {
         $section->update($request->validated());
+        $section->syncMedia(['tree_icon']);
         return response([]);
     }
 
