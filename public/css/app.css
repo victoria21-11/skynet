@@ -18527,13 +18527,6 @@ a.text-dark:focus {
   }
 }
 
-@font-face {
-  font-family: "SF-UI-Display";
-  font-style: normal;
-  font-weight: 400;
-  src: local("SF-UI-Display-Black"), local("SF-UI-Display-Black"), url(/fonts/SF-UI-Display-Black.otf?c76879fd632e4ec8f93ab74e259d1c87) format("otf");
-}
-
 body {
   background-color: #f2f2f2;
 }

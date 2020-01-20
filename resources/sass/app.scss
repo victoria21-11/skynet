@@ -11,13 +11,6 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~slick-carousel/slick/slick.css';
 
-@font-face {
-  font-family: 'SF-UI-Display';
-  font-style: normal;
-  font-weight: 400;
-  src: local('SF-UI-Display-Black'), local('SF-UI-Display-Black'), url(../fonts/SF-UI-Display-Black.otf) format('otf');
-}
-
 body {
     background-color: $secondary;
 }
