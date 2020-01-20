@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 // Variables
 @import 'variables';
@@ -12,33 +12,14 @@
 @import '~slick-carousel/slick/slick.css';
 
 @font-face {
-	font-family: "Samplino";
-	src: url("../fonts/SF-UI-Display-Black.otf") format("otf"),
-		 url("../fonts/SF-UI-Display-Bold.otf") format("otf"),
-		 url("../fonts/SF-UI-Display-Heavy.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Light.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Medium.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Regular.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Semibold.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Thin.otf") format("otf")
-		 url("../fonts/SF-UI-Display-Ultralight.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Bold.otf") format("otf")
-		 url("../fonts/SF-UI-Text-BoldItalic.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Heavy.otf") format("otf")
-		 url("../fonts/SF-UI-Text-HeavyItalic.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Italic.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Light.otf") format("otf")
-		 url("../fonts/SF-UI-Text-LightItalic.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Medium.otf") format("otf")
-		 url("../fonts/SF-UI-Text-MediumItalic.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Regular.otf") format("otf")
-		 url("../fonts/SF-UI-Text-Semibold.otf") format("otf")
-		 url("../fonts/SF-UI-Text-SemiboldItalic.otf") format("otf");
+  font-family: 'SF-UI-Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF-UI-Display-Black'), local('SF-UI-Display-Black'), url(../fonts/SF-UI-Display-Black.otf) format('otf');
 }
 
 body {
     background-color: $secondary;
-    font-family: 'Samplino';
 }
 
 html, body, #app {
