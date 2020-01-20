@@ -18,11 +18,11 @@
         @endforeach
     </div>
     @elseif($item->section->url == 'services')
-        <div class="card mb-3 bg-transparent">
-            <div class="card-header">
+        <div class="section mb-3">
+            <div class="section-header">
                 Дополнительные сервисы
             </div>
-            <div class="card-body">
+            <div class="section-body -mx-2">
                 <slick ref="slick"
                     :options="{ slidesToShow: 3, arrows: false }">
                     @foreach($services as $item)
@@ -38,11 +38,11 @@
             </div>
         </div>
     @elseif($item->section->url == 'antiviruses')
-        <div class="card mb-3 bg-transparent">
-            <div class="card-header">
+        <div class="section mb-3">
+            <div class="section-header">
                 Антивирусная защита
             </div>
-            <div class="card-body">
+            <div class="section-body -mx-2">
                 <slick ref="slick"
                     :options="{ slidesToShow: 3, arrows: false }">
                     @foreach($antiviruses as $item)
@@ -59,11 +59,11 @@
         </div>
     @elseif($item->section->url == 'equipments')
     @else
-        <div class="card mb-3 bg-transparent">
-            <div class="card-header">
+        <div class="section mb-3">
+            <div class="section-header">
                 {{ $item->section->title }}
             </div>
-            <div class="card-body">
+            <div class="section-body -mx-2">
                 <slick ref="slick"
                     :options="{ slidesToShow: 3, arrows: false }">
                     {{-- @foreach($item->section->posts as $post)

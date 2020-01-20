@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);/*!
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic);/*!
  * BootstrapVue Custom CSS (https://bootstrap-vue.js.org)
  */
 @media (max-width: 575.98px) {
@@ -12437,11 +12437,11 @@ input[type=button].btn-block {
 }
 
 .card-title {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-subtitle {
-  margin-top: -0.375rem;
+  margin-top: -0.25rem;
   margin-bottom: 0;
 }
 
@@ -12458,7 +12458,7 @@ input[type=button].btn-block {
 }
 
 .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   margin-bottom: 0;
   background-color: #fff;
   border-bottom: 0 solid #abb0b2;
@@ -12473,7 +12473,7 @@ input[type=button].btn-block {
 }
 
 .card-footer {
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   background-color: #fff;
   border-top: 0 solid #abb0b2;
 }
@@ -12484,7 +12484,7 @@ input[type=button].btn-block {
 
 .card-header-tabs {
   margin-right: -0.625rem;
-  margin-bottom: -0.75rem;
+  margin-bottom: -0.5rem;
   margin-left: -0.625rem;
   border-bottom: 0;
 }
@@ -12602,7 +12602,7 @@ input[type=button].btn-block {
 }
 
 .card-columns .card {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 576px) {
@@ -18572,7 +18572,7 @@ body,
 
 .card-header {
   border-bottom: 1px solid #abb0b2;
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   color: #6fb316;
   font-size: 1.5rem;
 }
@@ -18583,22 +18583,22 @@ body,
 }
 
 .card.bg-transparent > .card-body {
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
 }
 
 .card-body {
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   overflow: hidden;
 }
 
 .card-footer {
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   border-top: 1px dashed #abb0b2;
 }
 
 .card {
-  padding: 0 0.75rem;
+  padding: 0 1.25rem;
 }
 
 .card_default-item {
@@ -18612,11 +18612,23 @@ body,
 
 .like {
   color: #4a585a;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .like:hover {
   text-decoration: none;
   color: #4a585a;
+}
+
+.more {
+  color: #273035;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.more:hover {
+  color: #273035;
 }
 
 .navigation__children a {
@@ -18702,5 +18714,20 @@ body,
 
 .social_network_icon {
   width: 50px;
+}
+
+.section-header {
+  font-size: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid #abb0b2;
+}
+
+.section-body {
+  padding: 0.5rem 0;
+}
+
+.-mx-2 {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 

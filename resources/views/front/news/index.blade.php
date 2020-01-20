@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="card bg-transparent">
-    <div class="card-header">
+<div class="section">
+    <div class="section-header">
         Новости
     </div>
-    <div class="card-body">
+    <div class="section-body">
         <div class="row">
             @foreach($news as $value)
             <div class="col-lg-4">

@@ -7,7 +7,7 @@
                 count="{{ $item->likes()->count() }}" />
         </div>
         <div class="">
-            <a href="{{ $url }}">Подробнее</a>
+            <a href="{{ $url }}" class="more">Подробнее</a>
         </div>
     </div>
 </div>

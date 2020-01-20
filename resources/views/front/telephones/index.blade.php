@@ -25,11 +25,11 @@
     @endforeach
 </div>
 
-<div class="card bg-transparent mb-3">
-    <div class="card-header">
+<div class="section mb-3">
+    <div class="section-header">
         Дополнительные сервисы
     </div>
-    <div class="card-body">
+    <div class="section-body -mx-2">
         <slick ref="slick"
             :options="{ slidesToShow: 3, arrows: false }">
             @foreach($services as $item)

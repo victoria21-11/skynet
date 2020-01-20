@@ -29,11 +29,11 @@
     @endforeach
 </div>
 
-<div class="card bg-transparent">
-    <div class="card-header">
+<div class="section">
+    <div class="section-header">
         Дополнительные пакеты
     </div>
-    <div class="card-body">
+    <div class="section-body">
         <p>К основным пакетам вы можете выбрать и подключить дополнительные тематические каналы.</p>
         <div class="row">
             @foreach($extra as $item)

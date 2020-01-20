@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic');
 
 // Variables
 @import 'variables';
@@ -61,7 +61,7 @@ footer {
 
 .card-header {
     border-bottom: $border-width solid $card-border-color;
-    padding: $card-spacer-x 0;
+    padding: $card-spacer-y 0;
     color: $success;
     font-size: 1.5rem;
 }
@@ -75,22 +75,22 @@ footer {
 }
 
 .card.bg-transparent > .card-body {
-    margin-left: -$card-spacer-y;
-    margin-right: -$card-spacer-y;
+    margin-left: -$card-spacer-x;
+    margin-right: -$card-spacer-x;
 }
 
 .card-body {
-    padding: $card-spacer-x 0;
+    padding: $card-spacer-y 0;
     overflow: hidden;
 }
 
 .card-footer {
-    padding: $card-spacer-x 0;
+    padding: $card-spacer-y 0;
     border-top: $border-width dashed $card-border-color;
 }
 
 .card {
-    padding: 0 $card-spacer-y;
+    padding: 0 $card-spacer-x;
 }
 
 .card_default-item {
@@ -104,11 +104,23 @@ footer {
 
 .like {
     color: $like-color;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .like:hover {
     text-decoration: none;
     color: $like-color;
+}
+
+.more {
+    color: $dark;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.more:hover {
+    color: $dark;
 }
 
 .navigation__children {
@@ -195,4 +207,19 @@ footer {
 
 .social_network_icon {
     width: 50px;
+}
+
+.section-header {
+    font-size: 1.5rem;
+    padding: $card-spacer-y $card-spacer-x;
+    border-bottom: $border-width solid $card-border-color;
+}
+
+.section-body {
+    padding: $card-spacer-y 0;
+}
+
+.-mx-2 {
+    margin-left: -.5rem;
+    margin-right: -.5rem;
 }
