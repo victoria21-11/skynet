@@ -7,7 +7,7 @@
         {{ $tree->section->title }}
     </div>
     <div class="card-body">
-        {{ $tree->section->description }}
+        {!! html_entity_decode($tree->section->description) !!}
     </div>
 </div>
 

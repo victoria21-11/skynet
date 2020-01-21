@@ -26,7 +26,76 @@
 <body>
     <div id="app" class="d-flex flex-column" v-cloak>
         <div class="content">
-            <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <nav>
+                <div class="nav_main">
+                    <div class="container">
+                        <div class="content_rating_system">
+                            18+
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-lg-2">
+                                <a href="{{ url('/') }}" class="nav_logo">
+                                    СКАЙНЕТ.РУ
+                                    <br>
+                                    (SKNT.RU)
+                                </a>
+                            </div>
+                            <div class="col-lg-10 pl-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="row align-items-center no-gutters">
+                                        @foreach(buildNavigation() as $tree)
+                                        <div class="col-auto">
+                                            <a class="nav_item @if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
+                                                {{ $tree->section->title }}
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto nav_item">
+                                                <i class="fas fa-phone-alt"></i>
+                                                {{ env('PHONE') }}
+                                            </div>
+                                            <div class="col-auto nav_item profile">
+                                                <a href="#">
+                                                    Личный кабинет
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subnav">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-2">
+                                <img class="logo_img" src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
+                            </div>
+                            <div class="col-lg-10 subnav_items">
+                                @foreach(buildNavigation() as $tree)
+                                <div class="row justify-content-between" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
+                                    @foreach($tree->childrenTrees as $item)
+                                        <div class="col-auto tree_item">
+                                            <a href="{{ url($item->url) }}">
+                                                <div class="">
+                                                    <img src="{{ $item->section->getFirstMediaUrl('tree_icon') }}" alt="">
+                                                </div>
+                                                {{ $item->section->title }}
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- <nav class="navbar navbar-dark bg-dark">
                 <div class="container">
                     <div class="content_rating_system">
                         18+
@@ -41,22 +110,14 @@
                             </a>
                         </div>
                         <div class="col-lg-10">
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                    @foreach(buildNavigation() as $tree)
-                                    <li class="nav-item">
-                                        <a class="nav-link @if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
-                                            {{ $tree->section->title }}
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">{{ env('PHONE') }}</a>
-                                    </li>
-                                </ul>
+                            <div class="row justify-content-between">
+                                @foreach(buildNavigation() as $tree)
+                                <div class="col-auto nav_item">
+                                    <a class="@if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
+                                        {{ $tree->section->title }}
+                                    </a>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -87,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             @include('front.trees.tree', [
                 'tree' => currenCategory()
             ])

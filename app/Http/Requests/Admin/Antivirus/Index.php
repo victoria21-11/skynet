@@ -26,7 +26,7 @@ class Index extends FormRequest
         return [
             'sort_column' => ['nullable', 'string'],
             'sort_direction' => ['nullable', 'string'],
-            'title' => [],
+            'title' => ['nullable', 'string'],
             'published' => [],
             'antivirus_type_id' => [],
         ];

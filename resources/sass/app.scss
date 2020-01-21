@@ -4,6 +4,9 @@
 // Variables
 @import 'variables';
 
+// Fonts
+@import './fonts';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-vue/dist/bootstrap-vue.css';
@@ -22,52 +25,15 @@ html, body, #app {
 footer {
 }
 
-.navbar-laravel {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
 [v-cloak] {
     display: none;
-}
-
-
-.navbar-nav {
-    .show > .nav-link,
-    .active > .nav-link,
-    .nav-link.show,
-    .nav-link.active {
-        color: $navbar-dark-active-color;
-        background-color: $secondary;
-    }
-}
-
-.navbar {
-    font-size: 1.2rem;
-}
-
-.navigation__container {
-    background: linear-gradient(90deg, $white 50%, $secondary 50%);
-
-    .navigation__container__menu {
-        background-color: $secondary;
-        padding-top: 20px;
-        padding-bottom: 20px;
-
-        a {
-            color: $dark;
-            display: inline-block;
-        }
-
-    }
-
 }
 
 .card-header {
     border-bottom: $border-width solid $card-border-color;
     padding: $card-spacer-y 0;
     color: $success;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .card.bg-transparent {
@@ -237,9 +203,67 @@ footer {
     color: $white;
     transform: translateX(-100%);
     position: absolute;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.navbar-brand {
-    font-size: .8rem;
+.nav_main {
+    background-color: $dark;
+    color: $white;
+    font-size: 1.4rem;
+    position: relative;
+
+    a {
+        color: $white;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+}
+
+.subnav {
+    background: linear-gradient(90deg, $white 50%, $secondary 50%);
+    font-size: 1.4rem;
+
+    a {
+        color: $black;
+    }
+
+}
+
+a.nav_logo {
+    color: $navbar-dark-brand-color;
+    font-size: 1rem;
     line-height: 1;
+    display: block;
+}
+
+.nav_item {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    display: block;
+    height: 100%;
+}
+
+.nav_item.active {
+    background-color: $secondary;
+    color: $dark;
+}
+
+.subnav_items {
+    background-color: $secondary;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.profile {
+    background-color: $success;
+    text-transform: uppercase;
 }
