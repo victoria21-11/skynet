@@ -14,6 +14,15 @@ class Antivirus extends Model implements HasMedia
 
     protected $table = 'antiviruses';
 
+    protected $fillable = [
+        'title',
+        'description',
+        'antivirus_type_id',
+        'text',
+        'extra',
+        'published',
+    ];
+
     protected $scopes = [
         'title' => 'ofLike',
         'published' => 'ofBoolean',
@@ -46,5 +55,10 @@ class Antivirus extends Model implements HasMedia
     public function getMinPrice()
     {
         return $this->periods()->orderBy('price', 'ASC')->first()->price;
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }

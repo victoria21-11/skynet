@@ -58,7 +58,7 @@ class AntivirusController extends Controller
     {
         return view('admin.antiviruses.edit', [
             'title' => "Редактировать $antivirus->title",
-            'data' => $antivirus,
+            'data' => $antivirus->load('tags'),
             'media' => $antivirus->prepareMedia(['preview'])
         ]);
     }
@@ -67,6 +67,9 @@ class AntivirusController extends Controller
     {
         $antivirus->update($request->validated());
         $antivirus->syncMedia(['preview']);
+        $tags = collect($request->get('tags', []));
+        $tags = $tags->pluck('id')->toArray();
+        $antivirus->tags()->sync($tags);
         return response([]);
     }
 

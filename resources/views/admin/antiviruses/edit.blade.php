@@ -39,6 +39,14 @@
             ])
             @endcomponent
 
+            @component('admin.components.search_select', [
+                'lang' => 'admin.tags.title',
+                'model' => 'form.tags',
+                'url' => '/admin/tags/search',
+                'tags' => true,
+            ])
+            @endcomponent
+
             @component('admin.components.boolean', [
                 'lang' => 'admin.antiviruses.columns.published',
                 'model' => 'form.published',

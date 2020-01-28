@@ -29,6 +29,7 @@ class Update extends FormRequest
             'extra' => [],
             'antivirus_type_id' => [],
             'published' => [],
+            'tags' => ['nullable', 'array'],
         ];
     }
 }

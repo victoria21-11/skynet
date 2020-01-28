@@ -85,6 +85,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('trees', 'TreeController');
             Route::resource('sections', 'SectionController');
             Route::resource('social_networks', 'SocialNetworkController');
+            Route::get('tags/search', 'TagController@search');
         });
     });
 });

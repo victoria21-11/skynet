@@ -25,8 +25,11 @@
 </head>
 <body>
     <div id="app" class="d-flex flex-column" v-cloak>
+        @php
+        $navigation = buildNavigation();
+        @endphp
         <div class="content">
-            <nav>
+            <nav class="d-none d-lg-block">
                 <div class="nav_main">
                     <div class="container">
                         <div class="content_rating_system">
@@ -43,7 +46,7 @@
                             <div class="col-lg-10 pl-0">
                                 <div class="d-flex align-items-center">
                                     <div class="row align-items-center no-gutters">
-                                        @foreach(buildNavigation() as $tree)
+                                        @foreach($navigation as $tree)
                                         <div class="col-auto">
                                             <a class="nav_item @if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
                                                 {{ $tree->section->title }}
@@ -76,7 +79,7 @@
                                 <img class="logo_img" src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
                             </div>
                             <div class="col-lg-10 subnav_items">
-                                @foreach(buildNavigation() as $tree)
+                                @foreach($navigation as $tree)
                                 <div class="row justify-content-between" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
                                     @foreach($tree->childrenTrees as $item)
                                         <div class="col-auto tree_item">
@@ -95,60 +98,6 @@
                     </div>
                 </div>
             </nav>
-            <!-- <nav class="navbar navbar-dark bg-dark">
-                <div class="container">
-                    <div class="content_rating_system">
-                        18+
-                    </div>
-                    <div class="row align-items-center w-100">
-                        <div class="col-lg-2">
-                            <a class="navbar-brand" href="{{ url('/') }}">
-                                СКАЙНЕТ.РУ
-                                <div>
-                                    (SKNT.RU)
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-10">
-                            <div class="row justify-content-between">
-                                @foreach(buildNavigation() as $tree)
-                                <div class="col-auto nav_item">
-                                    <a class="@if(strpos(request()->path(), $tree->section->url) > -1)active @endif" href="{{ url($tree->section->url) }}">
-                                        {{ $tree->section->title }}
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="navigation__container">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-2">
-                            <img class="logo_img" src="{{ globalSetting('logo') }}" alt="{{ config('app.name', 'Laravel') }}">
-                        </div>
-                        <div class="col-lg-10 navigation__container__menu">
-                            @foreach(buildNavigation() as $tree)
-                            <div class="row justify-content-between" @if(strpos(request()->path(), $tree->section->url) === false)hidden @endif>
-                                @foreach($tree->childrenTrees as $item)
-                                    <div class="col-auto tree_item">
-                                        <a href="{{ url($item->url) }}">
-                                            <div class="">
-                                                <img src="{{ $item->section->getFirstMediaUrl('tree_icon') }}" alt="">
-                                            </div>
-                                            {{ $item->section->title }}
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             @include('front.trees.tree', [
                 'tree' => currenCategory()
             ])
@@ -158,33 +107,48 @@
                     @yield('content')
                 </div>
             </main>
+
         </div>
         <canvas id="snow_canvas"></canvas>
         <footer class="bg-dark py-3 mt-auto">
             <div class="container">
                 <div class="row">
-                    @foreach(buildNavigation() as $tree)
+                    @foreach($navigation as $tree)
                     <div class="col-auto px-5">
                         <div>
-                            <a href="{{ url($tree->section->url) }}" class="font-weight-bold text-white">{{ $tree->section->title }}</a>
+                            <a href="{{ url($tree->section->url) }}" class="font-weight-bold">{{ $tree->section->title }}</a>
                         </div>
                         @foreach($tree->childrenTrees as $item)
                         <div class="">
-                            <a href="{{ url($item->url) }}" class="text-white">{{ $item->section->title }}</a>
+                            <a href="{{ url($item->url) }}">{{ $item->section->title }}</a>
                         </div>
                         @endforeach
                     </div>
                     @endforeach
-                    <div class="col d-flex justify-content-between flex-nowrap">
-                        @foreach(socialNetworks() as $item)
-                        <a href="{{ $item->link }}" target="_blank">
-                            <img class="social_network_icon" src="{{ $item->getFirstMediaUrl('icon') }}" alt="">
-                        </a>
-                        @endforeach
+                    <div class="col">
+                        <div class="row justify-content-between">
+                            @foreach(socialNetworks() as $item)
+                            <a href="{{ $item->link }}" class="col-auto" target="_blank">
+                                <img class="social_network_icon" src="{{ $item->getFirstMediaUrl('icon') }}" alt="">
+                            </a>
+                            @endforeach
+                        </div>
+                        <div class="license pt-3">
+                            <p>
+                                &copy; Разработка и поддержка сайта - SkyNet, 2019
+                            </p>
+                            <p>
+                                Лицензия №167294 "Телематические услуги связи" от 18.08.18
+                            </p>
+                            <p>
+                                Свидетельство о регистрации средства массовой информации Эл №ФС77-56599 от 26 декабря 2013г. Зарегистрирован в Федеральной службе по надзору в сфере связи, информационных технологий и массовых коммуникаций. Статьи
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </footer>
+        <!-- @include('front.components.mobile_menu') -->
     </div>
 </body>
 </html>

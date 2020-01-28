@@ -1,7 +1,12 @@
 <template>
-    <div class="form-group">
-        <label for=""></label>
-        <input type="text" class="form-control" v-model="query" @input="search" @click="toggleOptions">
+    <div>
+        <div v-if="tags">
+            <span class="badge badge-primary m-1" v-for="(item, index) in selected">
+                {{ item.title }}
+                <span class="tag_close" @click="removeItem(index)">&#x2715;</span>
+            </span>
+        </div>
+        <div class="form-control" contenteditable v-model="query" @input="search" @click="toggleOptions"></div>
         <div class="search-select_container">
             <div class="search-select_options border rounded" v-if="showOptions">
                 <div class="search-select_item p-3" :class="{ active: item == selected }" @click="select(item)" v-for="item, key in options">
@@ -20,12 +25,11 @@ export default {
             query: null,
             options: [],
             showOptions: false,
-            selected: null
+            selected: this.value
         }
     },
     props: {
         value: {
-            type: [String, Number],
             default: () => {
                 return '';
             }
@@ -38,13 +42,14 @@ export default {
         columnName: {
             type: String,
             default: 'title',
+        },
+        tags: {
+            type: [Boolean, Number],
+            default: false,
         }
     },
     components: {
         vueDropzone: vue2Dropzone
-    },
-    mounted() {
-
     },
     methods: {
         search() {
@@ -54,18 +59,25 @@ export default {
                 params: params
             })
                 .then(response => {
-                    this.options = response.data.paginatedData.data
+                    this.options = response.data;
                     this.showOptions = true;
                 });
         },
         select(item) {
-            this.selected = item;
+            const exists = this.selected.find(({id}) => id == item.id);
+            if(exists) {
+                return;
+            }
+            this.selected.push(item);
             this.query = item[this.columnName];
-            this.$emit('input', item.id);
+            this.$emit('input', this.selected);
             this.showOptions = false;
         },
         toggleOptions() {
             this.showOptions = !this.showOptions;
+        },
+        removeItem(index) {
+            this.$delete(this.selected, index);
         }
     }
 }

@@ -18875,6 +18875,20 @@ body,
   height: 100%;
 }
 
+.content {
+  position: relative;
+}
+
+footer {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+footer a,
+footer a:hover {
+  color: #a3aaae;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -19117,5 +19131,28 @@ a.nav_logo {
 .profile {
   background-color: #6fb316;
   text-transform: uppercase;
+}
+
+.license {
+  font-size: 1rem;
+}
+
+.mobile_menu {
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mobile_menu_item {
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 1.1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.mobile_menu_item::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\F107";
 }
 
