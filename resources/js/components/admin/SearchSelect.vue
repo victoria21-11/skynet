@@ -2,7 +2,7 @@
     <div>
         <div v-if="tags">
             <span class="badge badge-primary m-1" v-for="(item, index) in selected">
-                {{ item.title }}
+                {{ item[columnName] }}
                 <span class="tag_close" @click="removeItem(index)">&#x2715;</span>
             </span>
         </div>
@@ -17,7 +17,6 @@
     </div>
 </template>
 <script>
-import vue2Dropzone from 'vue2-dropzone';
 
 export default {
     data() {
@@ -47,9 +46,6 @@ export default {
             type: [Boolean, Number],
             default: false,
         }
-    },
-    components: {
-        vueDropzone: vue2Dropzone
     },
     methods: {
         search() {
