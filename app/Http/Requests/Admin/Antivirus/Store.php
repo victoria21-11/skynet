@@ -24,11 +24,12 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'title' => [],
+            'title' => ['required', 'string'],
             'description' => [],
             'extra' => [],
-            'antivirus_type_id' => [],
-            'published' => [],
+            'antivirus_type_id' => ['required', 'integer', 'exists:antivirus_types'],
+            'published' => ['required', 'boolean'],
+            'tags' => ['nullable', 'array'],
         ];
     }
 }

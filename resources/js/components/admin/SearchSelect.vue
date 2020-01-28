@@ -60,6 +60,9 @@ export default {
                 });
         },
         select(item) {
+            if(!this.selected) {
+                this.selected = [];
+            }
             const exists = this.selected.find(({id}) => id == item.id);
             if(exists) {
                 return;

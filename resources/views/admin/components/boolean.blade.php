@@ -8,3 +8,6 @@
         <option value="0">@lang('admin.no')</option>
     </select>
 </div>
+@include('admin.components.error', [
+    'model' => str_replace('form.', '', $model)
+])

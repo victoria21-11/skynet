@@ -51,6 +51,7 @@ class AntivirusController extends Controller
     {
         $antivirus = Antivirus::create($request->validated());
         $antivirus->syncMedia(['preview']);
+        $this->syncTags($antivirus, $request);
         return response([]);
     }
 
@@ -67,9 +68,7 @@ class AntivirusController extends Controller
     {
         $antivirus->update($request->validated());
         $antivirus->syncMedia(['preview']);
-        $tags = collect($request->get('tags', []));
-        $tags = $tags->pluck('id')->toArray();
-        $antivirus->tags()->sync($tags);
+        $this->syncTags($antivirus, $request);
         return response([]);
     }
 
@@ -77,5 +76,11 @@ class AntivirusController extends Controller
     {
         $antivirus->delete();
         return response([]);
+    }
+
+    public function syncTags(Antivirus $antivirus, Request $request) {
+        $tags = collect($request->get('tags', []));
+        $tags = $tags->pluck('id')->toArray();
+        $antivirus->tags()->sync($tags);
     }
 }
