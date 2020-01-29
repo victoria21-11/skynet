@@ -3,7 +3,7 @@
     <input type="text" class="form-control" v-model="{{ $model }}" @if($readonly ?? false)readonly @endif>
 </div>
 @include('admin.components.error', [
-    'model' => str_replace('form.', '', $model)
+    'model' => str_replace('form.', '', str_replace('filters.', '', $model))
 ])
 @if($readonly ?? false)
 <div class="alert alert-warning">

@@ -26,5 +26,21 @@ Vue.mixin({
 });
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data() {
+        return {
+            slickOptions: {
+                slidesToShow: 3,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                ]
+            }
+        }
+    }
 });

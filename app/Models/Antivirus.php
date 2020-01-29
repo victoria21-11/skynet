@@ -54,7 +54,7 @@ class Antivirus extends Model implements HasMedia
 
     public function getMinPrice()
     {
-        return $this->periods()->orderBy('price', 'ASC')->first()->price;
+        return $this->periods()->orderBy('price', 'ASC')->first()->price ?? null;
     }
 
     public function tags()

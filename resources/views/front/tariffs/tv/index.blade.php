@@ -22,7 +22,7 @@
             </div>
             <div class="section-body -mx-2">
                 <slick ref="slick"
-                    :options="{ slidesToShow: 3, arrows: false }">
+                    :options="$root.slickOptions">>
                     @foreach($packages as $item)
                     <div class="px-2">
                         <div class="ratio_container">
@@ -54,7 +54,7 @@
             </div>
             <div class="section-body -mx-2">
                 <slick ref="slick"
-                    :options="{ slidesToShow: 3, arrows: false }">
+                    :options="$root.slickOptions">>
                     {{-- @foreach($item->posts as $post)
                     <div class="px-2">
                         <div class="ratio_container">

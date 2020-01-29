@@ -3,6 +3,8 @@ require('@fortawesome/fontawesome-free/js/all.js');
 
 window.Vue = require('vue');
 
+Object.defineProperty(Vue.prototype, '$_', { value: _ });
+
 import BootstrapVue from 'bootstrap-vue';
 import VueFlatPickr from 'vue-flatpickr-component';
 import VueQuillEditor from 'vue-quill-editor';

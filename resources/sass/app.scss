@@ -176,9 +176,17 @@ footer {
     flex: 0 100%;
 }
 
+.social_network_icon {
+    width: 32px;
+}
+
 @include media-breakpoint-up(lg) {
     .slide_text {
         flex: 0 25%;
+    }
+
+    .social_network_icon {
+        width: 50px;
     }
 }
 
@@ -189,10 +197,6 @@ footer {
 
 .logo_img {
     width: 140px;
-}
-
-.social_network_icon {
-    width: 50px;
 }
 
 .section-header {
@@ -269,9 +273,13 @@ a.nav_logo {
 }
 
 .subnav_items {
-    background-color: $secondary;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-left: 4rem;
+    background-color: $secondary;
+    background-image: url(/images/arr_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .profile {

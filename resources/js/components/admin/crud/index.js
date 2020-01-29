@@ -6,6 +6,7 @@ export default {
             url: '/',
             sortDirection: 'desc',
             sortColumn: 'id',
+            errors: {},
         }
     },
     props: {

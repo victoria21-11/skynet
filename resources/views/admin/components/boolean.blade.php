@@ -9,5 +9,5 @@
     </select>
 </div>
 @include('admin.components.error', [
-    'model' => str_replace('form.', '', $model)
+    'model' => str_replace('form.', '', str_replace('filters.', '', $model))
 ])

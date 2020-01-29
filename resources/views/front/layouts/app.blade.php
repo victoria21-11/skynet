@@ -114,7 +114,7 @@
             <div class="container">
                 <div class="row">
                     @foreach($navigation as $tree)
-                    <div class="col-auto px-5">
+                    <div class="col-auto px-5 d-none d-lg-block">
                         <div>
                             <a href="{{ url($tree->section->url) }}" class="font-weight-bold">{{ $tree->section->title }}</a>
                         </div>
@@ -126,7 +126,7 @@
                     </div>
                     @endforeach
                     <div class="col">
-                        <div class="row justify-content-between">
+                        <div class="row justify-content-between no-gutters">
                             @foreach(socialNetworks() as $item)
                             <a href="{{ $item->link }}" class="col-auto" target="_blank">
                                 <img class="social_network_icon" src="{{ $item->getFirstMediaUrl('icon') }}" alt="">
