@@ -9,7 +9,8 @@ class CreateTariffGroupsTables extends Migration
     {
         Schema::create('tariff_groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 255)->nullable();
+            $table->string('title')->nullable();
+            $table->string('preview_price')->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('tariff_type_id');
             $table->boolean('rebate')->default(false);

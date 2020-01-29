@@ -2,21 +2,31 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 use App\Traits\LikeTrait;
 
-class TariffGroup extends Model
+class TariffGroup extends Model implements HasMedia
 {
 
-    use LikeTrait;
-    
+    use LikeTrait, HasMediaTrait;
+
     protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
         'title' => 'ofLike',
-        'tariff_type_id' => 'ofType',
+        'tariff_type_id' => 'ofStrict',
         'rebate' => 'ofStrict',
         'published' => 'ofBoolean',
     ];
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('icon')
+            ->singleFile()
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/svg+xml', 'image/svg']);
+    }
 
     public function tariffs()
     {

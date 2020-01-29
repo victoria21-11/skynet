@@ -37,6 +37,7 @@ return [
             'rebate' => 'Акция',
             'published' => 'Опубликовано',
             'description' => 'Описание',
+            'preview_price' => 'Стоимость',
         ]
     ],
     'tariff_types' => [

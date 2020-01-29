@@ -8,9 +8,22 @@
             {{ $title }}
         </div>
         <div class="card-body">
+
+            @component('admin.components.fileupload', [
+                'model' => 'form.icon',
+                'media' => $media['icon']
+            ])
+            @endcomponent
+
             @component('admin.components.text', [
                 'lang' => 'admin.tariff_groups.columns.title',
                 'model' => 'form.title',
+            ])
+            @endcomponent
+
+            @component('admin.components.text', [
+                'lang' => 'admin.tariff_groups.columns.preview_price',
+                'model' => 'form.preview_price',
             ])
             @endcomponent
 

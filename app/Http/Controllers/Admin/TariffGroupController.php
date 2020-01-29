@@ -49,6 +49,7 @@ class TariffGroupController extends Controller
     public function store(Store $request, TariffGroup $tariffGroup)
     {
         $tariffGroup = TariffGroup::create($request->validated());
+        $tariffGroup->syncMedia(['icon']);
         return response([]);
     }
 
@@ -57,12 +58,14 @@ class TariffGroupController extends Controller
         return view('admin.tariff_groups.edit', [
             'title' => "Редактировать $tariffGroup->title",
             'data' => $tariffGroup,
+            'media' => $tariffGroup->prepareMedia(['icon'])
         ]);
     }
 
     public function update(Update $request, TariffGroup $tariffGroup)
     {
         $tariffGroup->update($request->validated());
+        $tariffGroup->syncMedia(['icon']);
         return response([]);
     }
 

@@ -309,3 +309,53 @@ a.nav_logo {
     font-family: "Font Awesome 5 Free";
     content: "\f107";
 }
+
+.rebate {}
+
+.rebate svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rebate_content {
+    position: relative;
+    left: 1rem;
+    height: 40px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    line-height: 40px;
+    color: $white;
+    background-color: $danger;
+}
+
+.rebate_icon {
+    z-index: 1;
+    width: 48px;
+}
+
+.unit_grid {
+    grid-template-columns: 0fr 0fr;
+    align-items: center;
+    display: grid;
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.unit_grid.speed {
+    color: $white;
+    background-color: $success;
+}
+
+.unit_container {
+    font-size: 1.5rem;
+}
+
+.unit {
+    border-bottom: 1px solid $dark;
+}
+
+.speed .unit {
+    border-bottom: 1px solid $white;
+}

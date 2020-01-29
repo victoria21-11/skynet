@@ -28,6 +28,7 @@ class Update extends FormRequest
             'published' => [],
             'rebate' => [],
             'title' => [],
+            'preview_price' => [],
             'tariff_type_id' => [],
         ];
     }
