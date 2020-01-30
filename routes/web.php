@@ -86,6 +86,9 @@ Route::prefix('admin')->group(function () {
             Route::resource('sections', 'SectionController');
             Route::resource('social_networks', 'SocialNetworkController');
             Route::get('tags/search', 'TagController@search');
+            Route::get('profile', 'ProfileController@index');
+            Route::put('profile', 'ProfileController@update');
+            Route::put('password/reset', 'ProfileController@resetPassword');
         });
     });
 });

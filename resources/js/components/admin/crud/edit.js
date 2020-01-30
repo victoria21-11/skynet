@@ -3,6 +3,7 @@ export default {
         return {
             form: this.data,
             url: '/',
+            modifiedURL: null,
             errors: {}
         }
     },
@@ -15,17 +16,26 @@ export default {
     methods: {
         update() {
             this.errors = {};
-            axios.put(this.url + '/' + this.data.id, this.form)
+            if(!this.modifiedURL) {
+                this.modifiedURL = this.url + '/' + this.data.id;
+            }
+            axios.put(this.modifiedURL, this.form)
                 .then(response => {
-                    window.location.replace(this.url);
+                    this.onSuccess();
                 })
                 .catch(error => {
-                    this.errors = error.response.data.errors
-                    new Noty({
-                        type: 'error',
-                        text: error.response.data.message,
-                    }).show();
+                    this.onError();
                 });
+        },
+        onSuccess() {
+            window.location.replace(this.url);
+        },
+        onError() {
+            this.errors = error.response.data.errors
+            new Noty({
+                type: 'error',
+                text: error.response.data.message,
+            }).show();
         }
     }
 }

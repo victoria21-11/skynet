@@ -53,6 +53,13 @@
                                             </a>
                                         </div>
                                         @endforeach
+                                        @auth
+                                            @if(auth()->user()->hasRole('admin'))
+                                                <div class="col-auto">
+                                                    <a class="nav_item" href="{{ url('admin') }}">Админ-панель</a>
+                                                </div>
+                                            @endif
+                                        @endauth
                                     </div>
                                     <div class="ml-auto">
                                         <div class="row align-items-center">

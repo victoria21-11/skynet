@@ -3,6 +3,8 @@
 return [
 
     'save' => 'Сохранить',
+    'logout' => 'Выйти',
+    'profile' => 'Профиль',
     'clear' => 'Очистить',
     'search' => 'Искать',
     'create' => 'Создать',
@@ -300,6 +302,20 @@ return [
             'id' => 'ID',
             'link' => 'Ссылка',
             'published' => 'Опубликовано',
+        ]
+    ],
+    'users' => [
+        'title' => 'Пользователи',
+        'create' => 'Новый пользователь',
+        'columns' => [
+            'name' => 'Логин',
+            'last_name' => 'Фамилия',
+            'first_name' => 'Имя',
+            'email' => 'E-Mail',
+            'id' => 'ID',
+            'old_password' => 'Старый пароль',
+            'password' => 'Пароль',
+            'password_confirmation' => 'Подтверждение пароля',
         ]
     ],
     'tags' => [
