@@ -13,7 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', function() {
+    return redirect(url('home'));
+});
 Route::get('/home/contacts/faq', 'QuestionController@index');
 Route::get('/about', 'TreeController@about');
 Route::get('/home/payment', 'TreeController@payment');
