@@ -7,4 +7,10 @@ export default {
         }
     },
     mixins: [CRUDMixins],
+    methods: {
+        getFormData() {
+            this.form.street_id = this.form.street.id;
+            return this.form;
+        }
+    }
 }

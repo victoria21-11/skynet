@@ -19,7 +19,7 @@ export default {
             if(!this.modifiedURL) {
                 this.modifiedURL = this.url + '/' + this.data.id;
             }
-            axios.put(this.modifiedURL, this.form)
+            axios.put(this.modifiedURL, this.getFormData())
                 .then(response => {
                     this.onSuccess();
                 })
@@ -36,6 +36,9 @@ export default {
                 type: 'error',
                 text: error.response.data.message,
             }).show();
+        },
+        getFormData() {
+            return this.form;
         }
     }
 }

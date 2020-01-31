@@ -56,7 +56,7 @@ class HouseController extends Controller
     {
         return view('admin.houses.edit', [
             'title' => "Редактировать $house->title",
-            'data' => $house,
+            'data' => $house->load('street'),
         ]);
     }
 

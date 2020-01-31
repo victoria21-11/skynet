@@ -60,6 +60,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('tariffs', 'TariffController');
             Route::resource('tariff_groups', 'TariffGroupController');
             Route::resource('tariff_types', 'TariffTypeController');
+            Route::get('streets/search', 'StreetController@search');
             Route::resource('streets', 'StreetController');
             Route::resource('houses', 'HouseController');
             Route::resource('questions', 'QuestionController');

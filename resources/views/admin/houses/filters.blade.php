@@ -10,8 +10,8 @@
         <div class="col-lg-4">
             @component('admin.components.search_select', [
                 'lang' => 'admin.houses.columns.street_id',
-                'model' => 'filters.street_id',
-                'options' => App\Models\Street::get()
+                'model' => 'filters.street',
+                'url' => '/admin/streets/search',
             ])
             @endcomponent
         </div>

@@ -9,7 +9,7 @@ export default {
     methods: {
         store() {
             this.errors = {};
-            axios.post(this.url, this.form)
+            axios.post(this.url, this.getFormData())
                 .then(response => {
                     window.location.replace(this.url);
                 })
@@ -20,6 +20,9 @@ export default {
                         text: error.response.data.message,
                     }).show();
                 });
+        },
+        getFormData() {
+            return this.form;
         }
     }
 }

@@ -71,4 +71,12 @@ class StreetController extends Controller
         $street->delete();
         return response([]);
     }
+
+    public function search(Index $request)
+    {
+        $filters = $request->validated();
+        $filters['published'] = true;
+        $data = Street::ofFilters($filters)->get();
+        return response($data);
+    }
 }

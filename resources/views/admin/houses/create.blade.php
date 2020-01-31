@@ -16,10 +16,9 @@
 
             @component('admin.components.search_select', [
                 'lang' => 'admin.houses.columns.street_id',
-                'model' => 'form.street_id',
-                'options' => App\Models\Street::get(),
+                'model' => 'form.street',
                 'columnName' => 'title',
-                'url' => '/admin/streets',
+                'url' => '/admin/streets/search',
             ])
             @endcomponent
 
