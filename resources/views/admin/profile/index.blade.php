@@ -9,6 +9,12 @@
                 @lang('admin.profile')
             </div>
             <div class="card-body">
+                @component('admin.components.fileupload', [
+                    'model' => 'form.avatar',
+                    'media' => $media['avatar']
+                ])
+                @endcomponent
+
                 @component('admin.components.text', [
                     'lang' => 'admin.users.columns.name',
                     'model' => 'form.name',

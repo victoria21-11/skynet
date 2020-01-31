@@ -19,13 +19,15 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         return view('admin.profile.index', [
-            'user' => $user
+            'user' => $user,
+            'media' => $user->prepareMedia(['avatar'])
         ]);
     }
 
     public function update(Update $request)
     {
         auth()->user()->update($request->validated());
+        auth()->user()->syncMedia(['avatar']);
         return response([]);
     }
 

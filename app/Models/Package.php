@@ -31,8 +31,8 @@ class Package extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-       $this->addMediaConversion('thumb')
-          ->sharpen(10);
+        $this->addMediaConversion('thumb')
+            ->sharpen(10);
     }
     public function scopeExtra($query)
     {

@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model as DefaultModel;
 use Carbon\Carbon;
 use Spatie\MediaLibrary\Models\Media;
+use App\Traits\MediaTrait;
 
 class Model extends DefaultModel
 {
+
+    use MediaTrait;
 
     protected $guarded = [
         'id',
@@ -69,30 +72,6 @@ class Model extends DefaultModel
     public function scopePublished($query)
     {
         return $query->where('published', true);
-    }
-
-    public function syncMedia(array $collections) {
-        foreach ($collections as $collection) {
-            foreach (request()->input($collection . '.added', []) as $value) {
-                $this->addMedia(storage_path('app/' . $value))->toMediaCollection($collection);
-            }
-            foreach (request()->input($collection . '.removed', []) as $value) {
-                Media::findOrFail($value)->delete();
-            }
-        }
-    }
-
-    public function prepareMedia(array $collections)
-    {
-        $result = [];
-        foreach ($collections as $collection) {
-            $result[$collection] = $this->getMedia($collection)
-                ->map(function ($item) {
-                    $item->full_url = $item->getFullUrl();
-                    return $item;
-                });
-        }
-        return $result;
     }
 
 }
