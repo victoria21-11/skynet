@@ -21527,3 +21527,11 @@ th.desc::before {
   cursor: pointer;
 }
 
+.avatar {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+

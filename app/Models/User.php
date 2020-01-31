@@ -58,7 +58,8 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(200)
             ->height(200)
-            ->sharpen(10);
+            ->sharpen(10)
+            ->performOnCollections('avatar');
     }
-    
+
 }

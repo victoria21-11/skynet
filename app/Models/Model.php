@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as DefaultModel;
 use Carbon\Carbon;
-use Spatie\MediaLibrary\Models\Media;
 use App\Traits\MediaTrait;
 
 class Model extends DefaultModel

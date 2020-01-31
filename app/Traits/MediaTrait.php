@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Spatie\MediaLibrary\Models\Media;
+
 trait MediaTrait
 {
     public function syncMedia(array $collections) {

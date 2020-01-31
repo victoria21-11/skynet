@@ -38,7 +38,14 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ auth()->user()->name }}
+                                @php
+                                    $media = $user->getFirstMedia('avatar');
+                                @endphp
+                                @if($media)
+                                    <img class="avatar" src="{{ $media->getUrl('thumb') }}">
+                                @else
+                                    {{ auth()->user()->name }}
+                                @endif
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{{ url('admin/profile') }}">
