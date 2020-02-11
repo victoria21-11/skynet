@@ -103,6 +103,10 @@ Vue.component('slides-index', require('./components/admin/slides/index.js').defa
 Vue.component('slides-edit', require('./components/admin/slides/edit.js').default);
 Vue.component('slides-create', require('./components/admin/slides/create.js').default);
 
+Vue.component('orders-index', require('./components/admin/orders/index.js').default);
+Vue.component('orders-edit', require('./components/admin/orders/edit.js').default);
+Vue.component('orders-create', require('./components/admin/orders/create.js').default);
+
 Vue.component('global-settings-index', require('./components/admin/global_settings/index.js').default);
 Vue.component('global-settings-edit', require('./components/admin/global_settings/edit.js').default);
 Vue.component('global-settings-create', require('./components/admin/global_settings/create.js').default);

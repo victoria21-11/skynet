@@ -62,6 +62,7 @@ class AdminModule extends Command
         $singularUppercaseName = ucfirst(Str::singular($this->table));
         $path = app_path("Models/{$singularUppercaseName}.php");
         $result = $this->makeTemplate([
+            '{{PluralName}}' => $this->table,
             '{{SingularUppercaseName}}' => $singularUppercaseName,
             '{{Fillable}}' => $this->fillable(),
             '{{Scopes}}' => $this->scopes(),
@@ -273,14 +274,14 @@ class AdminModule extends Command
     {
         $path = resource_path("views/admin/{$this->table}/filters.blade.php");
         $result = $this->makeTemplate([
-            '{{Fields}}' => $this->fields(true),
+            '{{Fields}}' => $this->fields(true, 'filters'),
         ], "views/filters.blade");
         $this->save($path, $result);
         $this->info("{$path} saved!");
         return;
     }
 
-    protected function fields(bool $covered = false): string
+    protected function fields(bool $covered = false, string $model = 'form'): string
     {
         $result = '';
         foreach ($this->columns as $column) {
@@ -288,6 +289,7 @@ class AdminModule extends Command
                 '{{PluralName}}' => $this->table,
                 '{{Column}}' => $column,
                 '{{FieldType}}' => $this->getFieldType($column),
+                '{{Model}}' => $model,
             ], 'views/Fields');
             if($covered) {
                 $field = "<div class=\"col-lg-4\">\n{$field}</div>\n";
