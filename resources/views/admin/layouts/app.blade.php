@@ -39,7 +39,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @php
-                                    $media = $user->getFirstMedia('avatar');
+                                    $media = auth()->user()->getFirstMedia('avatar');
                                 @endphp
                                 @if($media)
                                     <img class="avatar" src="{{ $media->getUrl('thumb') }}">

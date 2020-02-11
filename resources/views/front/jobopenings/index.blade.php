@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-8">
-        <div class="card">
+        <div class="card mb-3">
             <div class="card-header">
                 Требуются
             </div>
@@ -14,6 +14,7 @@
                 @endforeach
             </div>
         </div>
+        @include('front.jobopenings.form')
     </div>
     <div class="col-lg-4">
         <div class="card">
