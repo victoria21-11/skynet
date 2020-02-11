@@ -1,0 +1,1 @@
+<th>@lang('admin.{{PluralName}}.columns.{{Column}}')</th>

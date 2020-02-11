@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\{{SingularUppercaseName}};
+use App\Http\Requests\Admin\{{SingularUppercaseName}}\{
+    Store,
+    Update,
+    Index,
+    Delete
+};
+
+class {{SingularUppercaseName}}Controller extends Controller
+{
+
+    public function getTitle()
+    {
+        return trans('admin.{{PluralName}}.title');
+    }
+
+    public function index(Index $request)
+    {
+        $filters = $request->validated();
+        $paginatedData = {{SingularUppercaseName}}::ofFilters($filters)
+            ->orderBy($request->get('sort_column', 'id'), $request->get('sort_direction', 'desc'))
+            ->paginate(env('ADMIN_PAGINATION'));
+
+        if($request->ajax()) {
+            return response([
+                'paginatedData' => $paginatedData,
+                'filters' => $filters,
+                'request' => http_build_query($filters),
+            ]);
+        }
+
+        return view('admin.{{PluralName}}.index', [
+            'title' => $this->getTitle(),
+        ]);
+    }
+
+    public function create()
+    {
+        return view('admin.{{PluralName}}.create', [
+            'title' => trans('admin.{{PluralName}}.create'),
+        ]);
+    }
+
+    public function store(Store $request, {{SingularUppercaseName}} ${{SingularLowercaseName}})
+    {
+        ${{SingularLowercaseName}} = {{SingularUppercaseName}}::create($request->validated());
+        return response([]);
+    }
+
+    public function edit({{SingularUppercaseName}} ${{SingularLowercaseName}})
+    {
+        return view('admin.{{PluralName}}.edit', [
+            'title' => "Редактировать ${{SingularLowercaseName}}->title",
+            'data' => ${{SingularLowercaseName}},
+        ]);
+    }
+
+    public function update(Update $request, {{SingularUppercaseName}} ${{SingularLowercaseName}})
+    {
+        ${{SingularLowercaseName}}->update($request->validated());
+        return response([]);
+    }
+
+    public function destroy(Delete $request, {{SingularUppercaseName}} ${{SingularLowercaseName}})
+    {
+        ${{SingularLowercaseName}}->delete();
+        return response([]);
+    }
+}

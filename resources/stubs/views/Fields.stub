@@ -1,0 +1,5 @@
+@component('admin.components.{{FieldType}}', [
+    'lang' => 'admin.{{PluralName}}.columns.{{Column}}',
+    'model' => 'form.{{Column}}',
+])
+@endcomponent

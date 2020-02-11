@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+class {{SingularUppercaseName}} extends Model
+{
+
+    protected $table = '{{PluralName}}';
+
+    protected $fillable = [
+        {{Fillable}}
+    ];
+
+    protected $scopes = [
+        {{Scopes}}
+    ];
+
+}
