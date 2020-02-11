@@ -88,7 +88,7 @@ class AdminModule extends Command
 
     protected function views()
     {
-        $path = resource_path("views/admin/{$this->table}/index.blade.php");
+        $path = resource_path("views/admin/{$this->table}");
         if($this->makeDir($path)) {
             $this->index();
             $this->filters();
