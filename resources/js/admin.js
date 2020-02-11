@@ -111,6 +111,10 @@ Vue.component('social-networks-index', require('./components/admin/social_networ
 Vue.component('social-networks-edit', require('./components/admin/social_networks/edit.js').default);
 Vue.component('social-networks-create', require('./components/admin/social_networks/create.js').default);
 
+Vue.component('success-stories-index', require('./components/admin/success_stories/index.js').default);
+Vue.component('success-stories-edit', require('./components/admin/success_stories/edit.js').default);
+Vue.component('success-stories-create', require('./components/admin/success_stories/create.js').default);
+
 Vue.component('profile-index', require('./components/admin/profile/index.js').default);
 
 Vue.mixin({

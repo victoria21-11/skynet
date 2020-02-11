@@ -71,4 +71,7 @@
     <li class="list-group-item @if(request()->url() == url('admin/social_networks'))active @endif">
         <a href="{{ url('admin/social_networks') }}">@lang('admin.social_networks.title')</a>
     </li>
+    <li class="list-group-item @if(request()->url() == url('admin/success_stories'))active @endif">
+        <a href="{{ url('admin/success_stories') }}">@lang('admin.success_stories.title')</a>
+    </li>
 </ul>

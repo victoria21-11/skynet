@@ -318,6 +318,19 @@ return [
             'password_confirmation' => 'Подтверждение пароля',
         ]
     ],
+    'success_stories' => [
+        'title' => 'Истории успеха',
+        'create' => 'Новая история',
+        'columns' => [
+            'name' => 'ФИО сотрудника',
+            'id' => 'ID',
+            'start_position' => 'Стартовая должность',
+            'current_position' => 'Текущая должность',
+            'description' => 'Описание',
+            'experience_years' => 'Опыт работы',
+            'published' => 'Опубликовано',
+        ]
+    ],
     'tags' => [
         'title' => 'Теги',
     ],

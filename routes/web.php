@@ -88,6 +88,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('trees', 'TreeController');
             Route::resource('sections', 'SectionController');
             Route::resource('social_networks', 'SocialNetworkController');
+            Route::resource('success_stories', 'SuccessStoryController');
             Route::get('tags/search', 'TagController@search');
             Route::get('profile', 'ProfileController@index');
             Route::put('profile', 'ProfileController@update');
