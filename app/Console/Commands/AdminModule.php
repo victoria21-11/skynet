@@ -196,11 +196,23 @@ class AdminModule extends Command
         $type = Schema::getColumnType($this->table, $column);
         $scopeType = '';
         switch ($type) {
+            case 'bit':
+            case 'tinyint':
+            case 'smallint':
+            case 'int':
             case 'bigint':
+            case 'decimal':
+            case 'numeric':
+            case 'float':
+            case 'real':
                 $scopeType = 'ofStrict';
                 break;
 
+            case 'date':
+            case 'time':
             case 'datetime':
+            case 'timestamp':
+            case 'year':
                 $scopeType = 'ofDate';
                 break;
 
@@ -216,11 +228,19 @@ class AdminModule extends Command
         $type = Schema::getColumnType($this->table, $column);
         $rules = '';
         switch ($type) {
+            case 'bit':
+            case 'tinyint':
+            case 'smallint':
+            case 'int':
             case 'bigint':
+            case 'decimal':
+            case 'numeric':
                 $rules .= "'integer',";
                 break;
 
+            case 'date':
             case 'datetime':
+            case 'timestamp':
                 $rules .= "'date',";
                 break;
         }
@@ -232,8 +252,14 @@ class AdminModule extends Command
         $type = Schema::getColumnType($this->table, $column);
         $fieldType = '';
         switch ($type) {
+            case 'date':
             case 'datetime':
+            case 'timestamp':
                 $fieldType = 'date';
+                break;
+
+            case 'text':
+                $fieldType = 'textarea';
                 break;
 
             default:
