@@ -32,6 +32,10 @@ export default {
             }
         }
     },
+    mounted() {
+        const cloned = document.getElementsByClassName('slick-cloned');
+        Array.from(cloned).forEach((item, index) => item.addEventListener('click', () => this.toTariff(index + this.tariffGroups.length)));
+    },
     methods: {
         showModal(tariffGroup) {
             this.tariffGroup = tariffGroup;
@@ -140,6 +144,15 @@ export default {
         },
         selectTariff(tariff) {
             this.tariff = tariff;
+        },
+        toTariff(index) {
+            const currentIndex = this.$refs.slick.currentSlide();
+            console.log(index, currentIndex);
+            if(index > currentIndex) {
+                this.$refs.slick.next();
+            } else {
+                this.$refs.slick.prev();
+            }
         }
     }
 }

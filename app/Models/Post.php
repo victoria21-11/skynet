@@ -13,7 +13,6 @@ class Post extends Model
         'title' => 'ofLike',
         'published' => 'ofBoolean',
         'created_at' => 'ofDate',
-        'navigation_id' => 'ofStrict',
     ];
 
     public function navigation()

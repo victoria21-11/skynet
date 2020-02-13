@@ -31,7 +31,7 @@
             <slick
               ref="slick"
               :options="$root.slickOptions">>
-                <div class="px-2" v-for="group in tariffGroups">
+                <div class="px-2" v-for="(group, index) in tariffGroups" @click="toTariff(index)">
                     <tariff-card :show-modal="showModal" :group="group" :tariff="group.max_period_tariff" />
                 </div>
             </slick>

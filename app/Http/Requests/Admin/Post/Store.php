@@ -26,7 +26,6 @@ class Store extends FormRequest
         return [
             'title' => [],
             'description' => [],
-            'navigation_id' => [],
             'published' => [],
         ];
     }

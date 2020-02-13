@@ -15,14 +15,6 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.search_select', [
-                'lang' => 'admin.posts.columns.navigation_id',
-                'model' => 'filters.navigation_id',
-                'options' => App\Models\Navigation::get(),
-            ])
-            @endcomponent
-        </div>
-        <div class="col-lg-4">
             @component('admin.components.boolean', [
                 'lang' => 'admin.posts.columns.published',
                 'model' => 'filters.published',

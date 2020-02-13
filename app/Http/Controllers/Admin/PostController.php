@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index(Index $request)
     {
         $filters = $request->validated();
-        $paginatedData = Post::with('navigation')->ofFilters($filters)
+        $paginatedData = Post::ofFilters($filters)
             ->orderBy($request->get('sort_column', 'id'), $request->get('sort_direction', 'desc'))
             ->paginate(env('ADMIN_PAGINATION'));
 

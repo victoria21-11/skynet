@@ -20,13 +20,6 @@
             ])
             @endcomponent
 
-            @component('admin.components.search_select', [
-                'lang' => 'admin.posts.columns.navigation_id',
-                'model' => 'form.navigation_id',
-                'options' => App\Models\Navigation::get(),
-            ])
-            @endcomponent
-
             @component('admin.components.boolean', [
                 'lang' => 'admin.posts.columns.published',
                 'model' => 'form.published',

@@ -21,7 +21,6 @@
                         <tr>
                             <th class="sort" @click="sort($event, 'id')">@lang('admin.posts.columns.id')</th>
                             <th>@lang('admin.posts.columns.title')</th>
-                            <th>@lang('admin.posts.columns.navigation_id')</th>
                             <th>@lang('admin.posts.columns.created_at')</th>
                             <th>@lang('admin.posts.columns.published')</th>
                             <th></th>
@@ -31,7 +30,6 @@
                         <tr v-for="item in paginatedData.data">
                             <td>@{{ item.id }}</td>
                             <td>@{{ item.title }}</td>
-                            <td>@{{ item.navigation.title }}</td>
                             <td>@{{ item.created_at }}</td>
                             <td>
                                 <div class="custom-control custom-checkbox">
