@@ -40,11 +40,9 @@ class TreeController extends Controller
                     $item->withCount('likes');
                 }
             ])
-            ->first()
-            ->toArray();
-
-        foreach ($tree['children_trees'] as $key => $child) {
-            $tree['children_trees'][$key]['section']['className'] = quotemeta(Section::class);
+            ->first();
+        foreach ($tree->childrenTrees as $child) {
+            $child->section->className = quotemeta(Section::class);
         }
         return view('front.trees.about', [
             'tree' => $tree,

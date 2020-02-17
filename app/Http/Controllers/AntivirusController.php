@@ -13,7 +13,15 @@ class AntivirusController extends Controller
 {
     public function index(Request $request)
     {
-        $antiviruses = AntivirusType::with('antiviruses.periods')->get();
+        $antiviruses = AntivirusType::with([
+            'antiviruses.periods'
+        ])
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get();
+        foreach ($antiviruses as $key => $value) {
+            $value->className = quotemeta(AntivirusType::class);
+        }
         $section = Tree::ofUrl($request->path())->first()->section;
         return view('front.antiviruses.index', [
             'antiviruses' => $antiviruses,
