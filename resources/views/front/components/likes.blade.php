@@ -3,7 +3,7 @@
         <div class="">
             <like is-disabled="{{ $item->current_user_likes_count }}"
                 item-id="{{ $item->id }}"
-                :type="'{{ $item->className }}'"
+                :type="'{{ $item->getClassName() }}'"
                 count="{{ $item->likes_count }}" />
         </div>
         <div class="">

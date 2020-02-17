@@ -41,9 +41,6 @@ class TreeController extends Controller
                 }
             ])
             ->first();
-        foreach ($tree->childrenTrees as $child) {
-            $child->section->className = quotemeta(Section::class);
-        }
         return view('front.trees.about', [
             'tree' => $tree,
         ]);

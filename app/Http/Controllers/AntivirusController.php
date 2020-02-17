@@ -19,9 +19,7 @@ class AntivirusController extends Controller
             ->withCount('currentUserLikes')
             ->withCount('likes')
             ->get();
-        foreach ($antiviruses as $key => $value) {
-            $value->className = quotemeta(AntivirusType::class);
-        }
+
         $section = Tree::ofUrl($request->path())->first()->section;
         return view('front.antiviruses.index', [
             'antiviruses' => $antiviruses,
