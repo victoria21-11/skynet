@@ -12,8 +12,6 @@ class TariffGroup extends Model implements HasMedia
 
     use LikeTrait, HasMediaTrait;
 
-    protected $appends = ['is_my_like_exists'];
-
     protected $scopes = [
         'title' => 'ofLike',
         'tariff_type_id' => 'ofStrict',

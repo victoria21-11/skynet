@@ -15,6 +15,11 @@ class Like extends Model
         return $query->where('ip', $ip);
     }
 
+    public function scopeCurrentIP($query)
+    {
+        return $query->where('ip', request()->ip());
+    }
+
     public function scopeOfLikableType($query, $likeableType)
     {
         return $query->where('likeable_type', $likeableType);

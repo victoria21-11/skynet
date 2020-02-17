@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             localCount: parseInt(this.count),
-            disabled: Boolean(this.isDisabled)
+            disabled: this.isDisabled > 0
         }
     },
     props: {

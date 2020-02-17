@@ -8,8 +8,6 @@ class News extends Model
 {
 
     use LikeTrait;
-    
-    protected $appends = ['is_my_like_exists'];
 
     protected $scopes = [
         'title' => 'ofLike',

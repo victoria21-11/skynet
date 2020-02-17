@@ -16,6 +16,11 @@ trait LikeTrait
         return $this->morphMany(Like::class, 'likeable');
     }
 
+    public function currentUserLikes()
+    {
+        return $this->likes()->currentIP();
+    }
+
     public function getIsMyLikeExistsAttribute()
     {
         return Like::isExists(request()->ip(), $this->id, self::class);

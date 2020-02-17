@@ -8,6 +8,7 @@ use App\Models\{
     Document,
     PaymentMethod,
     Tree,
+    Section,
 };
 
 class TreeController extends Controller
@@ -33,8 +34,18 @@ class TreeController extends Controller
     public function about(Request $request)
     {
         $tree = Tree::ofUrl($request->path())
-            ->with('childrenTrees')
-            ->first();
+            ->with([
+                'childrenTrees.section' => function($item) {
+                    $item->withCount('currentUserLikes');
+                    $item->withCount('likes');
+                }
+            ])
+            ->first()
+            ->toArray();
+
+        foreach ($tree['children_trees'] as $key => $child) {
+            $tree['children_trees'][$key]['section']['className'] = quotemeta(Section::class);
+        }
         return view('front.trees.about', [
             'tree' => $tree,
         ]);
