@@ -11,7 +11,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.antiviruses.columns.antivirus_type_id',
                 'model' => 'filters.antivirus_type_id',
-                'options' => App\Models\AntivirusType::get()
+                'options' => $antivirusTypes
             ])
             @endcomponent
         </div>

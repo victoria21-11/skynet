@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\TariffGroup;
+use App\Models\{
+    TariffGroup,
+    TariffType
+};
 use App\Http\Requests\Admin\TariffGroup\{
     Store,
     Update,
@@ -34,8 +37,11 @@ class TariffGroupController extends Controller
             ]);
         }
 
+        $tariffTypes = TariffType::get()->toArray();
+
         return view('admin.tariff_groups.index', [
             'title' => $this->getTitle(),
+            'tariffTypes' => $tariffTypes,
         ]);
     }
 

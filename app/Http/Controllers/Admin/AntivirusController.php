@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Antivirus;
+use App\Models\{
+    Antivirus,
+    AntivirusType
+};
 use App\Http\Requests\Admin\Antivirus\{
     Store,
     Update,
@@ -35,15 +38,20 @@ class AntivirusController extends Controller
             ]);
         }
 
+        $antivirusTypes = AntivirusType::get()->toArray();
+
         return view('admin.antiviruses.index', [
             'title' => $this->getTitle(),
+            'antivirusTypes' => $antivirusTypes,
         ]);
     }
 
     public function create()
     {
+        $antivirusTypes = AntivirusType::get()->toArray();
         return view('admin.antiviruses.create', [
             'title' => trans('admin.antiviruses.create'),
+            'antivirusTypes' => $antivirusTypes
         ]);
     }
 
@@ -57,10 +65,12 @@ class AntivirusController extends Controller
 
     public function edit(Antivirus $antivirus)
     {
+        $antivirusTypes = AntivirusType::get()->toArray();
         return view('admin.antiviruses.edit', [
             'title' => "Редактировать $antivirus->title",
             'data' => $antivirus->load('tags'),
-            'media' => $antivirus->prepareMedia(['preview'])
+            'media' => $antivirus->prepareMedia(['preview']),
+            'antivirusTypes' => $antivirusTypes
         ]);
     }
 

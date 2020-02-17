@@ -11,7 +11,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariff_groups.columns.tariff_type_id',
                 'model' => 'filters.tariff_type_id',
-                'options' => App\Models\TariffType::get()
+                'options' => $tariffTypes
             ])
             @endcomponent
         </div>

@@ -29,7 +29,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariffs.columns.tariff_group_id',
                 'model' => 'form.tariff_group_id',
-                'options' => App\Models\TariffGroup::get(),
+                'options' => $tariffGroups,
             ])
             @endcomponent
 
@@ -42,7 +42,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariffs.columns.period_type_id',
                 'model' => 'form.period_type_id',
-                'options' => App\Models\PeriodType::get(),
+                'options' => $periodTypes,
             ])
             @endcomponent
 

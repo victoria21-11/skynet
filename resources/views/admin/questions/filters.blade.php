@@ -11,7 +11,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.questions.columns.question_type_id',
                 'model' => 'filters.question_type_id',
-                'options' => App\Models\QuestionType::get()
+                'options' => $questionTypes
             ])
             @endcomponent
         </div>

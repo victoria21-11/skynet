@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Tariff;
+use App\Models\{
+    Tariff,
+    TariffGroup,
+    PeriodType,
+    TariffType,
+};
 use App\Http\Requests\Admin\Tariff\{
     Store,
     Update,
@@ -35,15 +40,26 @@ class TariffController extends Controller
             ]);
         }
 
+        $tariffGroups = TariffGroup::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
+        $tariffTypes = TariffType::get()->toArray();
+
         return view('admin.tariffs.index', [
             'title' => $this->getTitle(),
+            'tariffGroups' => $tariffGroups,
+            'periodTypes' => $periodTypes,
+            'tariffTypes' => $tariffTypes,
         ]);
     }
 
     public function create()
     {
+        $tariffGroups = TariffGroup::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
         return view('admin.tariffs.create', [
             'title' => trans('admin.tariffs.create'),
+            'tariffGroups' => $tariffGroups,
+            'periodTypes' => $periodTypes,
         ]);
     }
 
@@ -55,9 +71,13 @@ class TariffController extends Controller
 
     public function edit(Tariff $tariff)
     {
+        $tariffGroups = TariffGroup::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
         return view('admin.tariffs.edit', [
             'title' => "Редактировать $tariff->title",
             'data' => $tariff,
+            'tariffGroups' => $tariffGroups,
+            'periodTypes' => $periodTypes,
         ]);
     }
 

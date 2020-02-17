@@ -11,7 +11,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.antivirus_periods.columns.antivirus_id',
                 'model' => 'filters.antivirus_id',
-                'options' => App\Models\Antivirus::get()
+                'options' => $antiviruses
             ])
             @endcomponent
         </div>
@@ -26,7 +26,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.antivirus_periods.columns.period_type_id',
                 'model' => 'filters.period_type_id',
-                'options' => App\Models\PeriodType::get()
+                'options' => $periodTypes
             ])
             @endcomponent
         </div>

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Question;
+use App\Models\{
+    Question,
+    QuestionType
+};
 use App\Http\Requests\Admin\Question\{
     Store,
     Update,
@@ -34,15 +37,20 @@ class QuestionController extends Controller
             ]);
         }
 
+        $questionTypes = QuestionType::get()->toArray();
+
         return view('admin.questions.index', [
             'title' => $this->getTitle(),
+            'questionTypes' => $questionTypes,
         ]);
     }
 
     public function create()
     {
+        $questionTypes = QuestionType::get()->toArray();
         return view('admin.questions.create', [
             'title' => trans('admin.questions.create'),
+            'questionTypes' => $questionTypes,
         ]);
     }
 
@@ -54,9 +62,11 @@ class QuestionController extends Controller
 
     public function edit(Question $question)
     {
+        $questionTypes = QuestionType::get()->toArray();
         return view('admin.questions.edit', [
             'title' => "Редактировать $question->title",
             'data' => $question,
+            'questionTypes' => $questionTypes,
         ]);
     }
 

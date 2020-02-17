@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\AntivirusPeriod;
+use App\Models\{
+    AntivirusPeriod,
+    Antivirus,
+    PeriodType
+};
 use App\Http\Requests\Admin\AntivirusPeriod\{
     Store,
     Update,
@@ -34,15 +38,24 @@ class AntivirusPeriodController extends Controller
             ]);
         }
 
+        $antiviruses = Antivirus::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
+
         return view('admin.antivirus_periods.index', [
             'title' => $this->getTitle(),
+            'antiviruses' => $antiviruses,
+            'periodTypes' => $periodTypes,
         ]);
     }
 
     public function create()
     {
+        $antiviruses = Antivirus::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
         return view('admin.antivirus_periods.create', [
             'title' => trans('admin.antivirus_periods.create'),
+            'antiviruses' => $antiviruses,
+            'periodTypes' => $periodTypes,
         ]);
     }
 
@@ -54,9 +67,13 @@ class AntivirusPeriodController extends Controller
 
     public function edit(AntivirusPeriod $antivirusPeriod)
     {
+        $antiviruses = Antivirus::get()->toArray();
+        $periodTypes = PeriodType::get()->toArray();
         return view('admin.antivirus_periods.edit', [
             'title' => "Редактировать $antivirusPeriod->title",
             'data' => $antivirusPeriod,
+            'antiviruses' => $antiviruses,
+            'periodTypes' => $periodTypes,
         ]);
     }
 

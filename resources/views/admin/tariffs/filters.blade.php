@@ -18,7 +18,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariffs.columns.tariff_type_id',
                 'model' => 'filters.tariff_type_id',
-                'options' => App\Models\TariffType::get()
+                'options' => $tariffTypes
             ])
             @endcomponent
         </div>
@@ -26,7 +26,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariffs.columns.tariff_group_id',
                 'model' => 'filters.tariff_group_id',
-                'options' => App\Models\TariffGroup::get()
+                'options' => $tariffGroups
             ])
             @endcomponent
         </div>
@@ -41,7 +41,7 @@
             @component('admin.components.select', [
                 'lang' => 'admin.tariffs.columns.period_type_id',
                 'model' => 'filters.period_type_id',
-                'options' => App\Models\PeriodType::get()
+                'options' => $periodTypes
             ])
             @endcomponent
         </div>
