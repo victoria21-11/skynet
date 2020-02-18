@@ -12,10 +12,18 @@ class PackageController extends Controller
 {
     public function index(Request $request)
     {
-        $extra = Package::extra()->with('tariffGroups')->get();
+        $extra = Package::extra()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->with('tariffGroups')
+            ->get();
         $extra = $this->getPreview($extra);
 
-        $packages = Package::notExtra()->with('tariffGroups')->get();
+        $packages = Package::notExtra()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->with('tariffGroups')
+            ->get();
         $packages = $this->getPreview($packages);
 
         $section = Tree::ofUrl($request->path())->with('section')->first()->section;

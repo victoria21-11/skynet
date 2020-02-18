@@ -35,9 +35,9 @@ class TreeController extends Controller
     {
         $tree = Tree::ofUrl($request->path())
             ->with([
-                'childrenTrees.section' => function($item) {
-                    $item->withCount('currentUserLikes');
-                    $item->withCount('likes');
+                'childrenTrees.section' => function($query) {
+                    $query->withCount('currentUserLikes');
+                    $query->withCount('likes');
                 }
             ])
             ->first();
@@ -48,7 +48,10 @@ class TreeController extends Controller
 
     public function documents()
     {
-        $documents = Document::published()->get();
+        $documents = Document::published()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get();
         return view('front.trees.documents', [
             'documents' => $documents
         ]);
@@ -56,7 +59,15 @@ class TreeController extends Controller
 
     public function partnership(Request $request)
     {
-        $tree = Tree::ofUrl($request->path())->with('section', 'childrenTrees.section')->first();
+        $tree = Tree::ofUrl($request->path())
+            ->with([
+                'section',
+                'childrenTrees.section' => function($query) {
+                    $query->withCount('currentUserLikes');
+                    $query->withCount('likes');
+                }
+            ])
+            ->first();
         return view('front.trees.partnership', [
             'tree' => $tree
         ]);
@@ -88,7 +99,12 @@ class TreeController extends Controller
 
     public function autopayment(Request $request)
     {
-        $section = Tree::ofUrl($request->path())->first();
+        $section = Tree::ofUrl($request->path())
+            ->first()
+            ->section()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->first();
         return view('front.trees.autopayment', [
             'section' => $section,
         ]);

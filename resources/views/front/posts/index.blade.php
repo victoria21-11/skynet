@@ -14,13 +14,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        @foreach($post->navigation->posts as $item)
-        @if($item->id != $post->id)
-        @include('front.posts.card', [
-            'post' => $item
-        ])
-        @endif
-        @endforeach
+        
     </div>
 </div>
 

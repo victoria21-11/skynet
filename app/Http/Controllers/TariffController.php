@@ -22,9 +22,14 @@ class TariffController extends Controller
         }
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
         $tree = Tree::ofUrl($request->path())->with('childrenTrees.section')->first();
-        $antiviruses = Antivirus::with('type')->get();
+        $antiviruses = Antivirus::with('type')
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get();
         $equipments = Equipment::get();
-        $services = Service::get();
+        $services = Service::withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get();
         return view('front.tariffs.internet.index', [
             'tariffs' => $tariffs,
             'tree' => $tree,
@@ -48,7 +53,10 @@ class TariffController extends Controller
     {
         $tariffs = TariffGroup::tv()->with('tariffs')->withCount('likes')->get();
         $tree = Tree::ofUrl($request->path())->with('childrenTrees')->first();
-        $packages = Package::extra()->get();
+        $packages = Package::extra()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get();
         return view('front.tariffs.tv.index', [
             'tariffs' => $tariffs,
             'tree' => $tree,

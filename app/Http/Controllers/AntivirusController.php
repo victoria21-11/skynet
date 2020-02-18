@@ -29,7 +29,11 @@ class AntivirusController extends Controller
 
     public function show(AntivirusType $antivirusType)
     {
-        $antiviruses = $antivirusType->antiviruses->each(function($item) {
+        $antiviruses = $antivirusType->antiviruses()
+            ->withCount('currentUserLikes')
+            ->withCount('likes')
+            ->get()
+            ->each(function($item) {
             $firstMedia = $item->getFirstMedia('preview');
             if($firstMedia) {
                 $item->preview = $firstMedia->getUrl('thumb');

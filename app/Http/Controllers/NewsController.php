@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::paginate(12);
+        $news = News::withCount('currentUserLikes')->withCount('likes')->paginate(12);
         return view('front.news.index', [
             'news' => $news
         ]);
@@ -17,7 +17,12 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
-        $moreNews = News::where('id', '!=', $news->id)->take(3)->get();
+        $news = $news->loadCount('currentUserLikes')->loadCount('likes');
+        $moreNews = News::withCount('currentUserLikes')
+            ->withCount('likes')
+            ->where('id', '!=', $news->id)
+            ->take(3)
+            ->get();
         return view('front.news.show', [
             'news' => $news,
             'moreNews' => $moreNews
