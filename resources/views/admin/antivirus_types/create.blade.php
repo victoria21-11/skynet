@@ -8,25 +8,25 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.antivirus_types.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.antivirus_types.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.antivirus_types.columns.preview_description',
                 'model' => 'form.preview_description',
             ])
             @endcomponent
             
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.antivirus_types.columns.published',
                 'model' => 'form.published',
             ])

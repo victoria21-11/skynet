@@ -1,21 +1,21 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.news.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.date_filter', [
+            @component('components.admin.date_filter', [
                 'lang' => 'admin.news.columns.created_at',
                 'model' => 'filters.created_at',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.news.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

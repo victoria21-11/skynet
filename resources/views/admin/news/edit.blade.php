@@ -8,19 +8,19 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.news.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.editor', [
+            @component('components.admin.editor', [
                 'lang' => 'admin.news.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.news.columns.published',
                 'model' => 'form.published',
             ])

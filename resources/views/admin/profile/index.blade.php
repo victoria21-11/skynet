@@ -9,31 +9,31 @@
                 @lang('admin.profile')
             </div>
             <div class="card-body">
-                @component('admin.components.fileupload', [
+                @component('components.admin.fileupload', [
                     'model' => 'form.avatar',
                     'media' => $media['avatar']
                 ])
                 @endcomponent
 
-                @component('admin.components.text', [
+                @component('components.admin.text', [
                     'lang' => 'admin.users.columns.name',
                     'model' => 'form.name',
                 ])
                 @endcomponent
 
-                @component('admin.components.text', [
+                @component('components.admin.text', [
                     'lang' => 'admin.users.columns.email',
                     'model' => 'form.email',
                 ])
                 @endcomponent
 
-                @component('admin.components.text', [
+                @component('components.admin.text', [
                     'lang' => 'admin.users.columns.first_name',
                     'model' => 'form.first_name',
                 ])
                 @endcomponent
 
-                @component('admin.components.text', [
+                @component('components.admin.text', [
                     'lang' => 'admin.users.columns.last_name',
                     'model' => 'form.last_name',
                 ])
@@ -50,19 +50,19 @@
             </div>
             <div class="card-body">
 
-                @component('admin.components.password', [
+                @component('components.admin.password', [
                     'lang' => 'admin.users.columns.old_password',
                     'model' => 'form.old_password',
                 ])
                 @endcomponent
 
-                @component('admin.components.password', [
+                @component('components.admin.password', [
                     'lang' => 'admin.users.columns.password',
                     'model' => 'form.password',
                 ])
                 @endcomponent
 
-                @component('admin.components.password', [
+                @component('components.admin.password', [
                     'lang' => 'admin.users.columns.password_confirmation',
                     'model' => 'form.password_confirmation',
                 ])

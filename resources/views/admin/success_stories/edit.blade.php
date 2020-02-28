@@ -8,43 +8,43 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.fileupload', [
+            @component('components.admin.fileupload', [
                 'model' => 'form.employee',
                 'media' => $media['employee']
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.success_stories.columns.name',
                 'model' => 'form.name',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.success_stories.columns.start_position',
                 'model' => 'form.start_position',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.success_stories.columns.current_position',
                 'model' => 'form.current_position',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.success_stories.columns.experience_years',
                 'model' => 'form.experience_years',
             ])
             @endcomponent
 
-            @component('admin.components.editor', [
+            @component('components.admin.editor', [
                 'lang' => 'admin.success_stories.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.success_stories.columns.published',
                 'model' => 'form.published',
             ])

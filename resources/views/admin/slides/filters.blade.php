@@ -1,28 +1,28 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.slides.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.slides.columns.link',
                 'model' => 'filters.link',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.slides.columns.link_title',
                 'model' => 'filters.link_title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.slides.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

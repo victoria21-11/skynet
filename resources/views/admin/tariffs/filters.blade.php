@@ -1,21 +1,21 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.bill_tariff_id',
                 'model' => 'filters.bill_tariff_id',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariffs.columns.tariff_type_id',
                 'model' => 'filters.tariff_type_id',
                 'options' => $tariffTypes
@@ -23,7 +23,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariffs.columns.tariff_group_id',
                 'model' => 'filters.tariff_group_id',
                 'options' => $tariffGroups
@@ -31,14 +31,14 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.period',
                 'model' => 'filters.period',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariffs.columns.period_type_id',
                 'model' => 'filters.period_type_id',
                 'options' => $periodTypes
@@ -46,14 +46,14 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.price',
                 'model' => 'filters.price',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariffs.columns.rebate',
                 'model' => 'filters.rebate',
                 'filter' => true,
@@ -61,7 +61,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariffs.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

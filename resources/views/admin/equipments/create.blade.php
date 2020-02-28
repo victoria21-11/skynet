@@ -8,43 +8,43 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.equipments.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.equipments.columns.extra',
                 'model' => 'form.extra',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.price',
                 'model' => 'form.price',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.equipments.columns.installment',
                 'model' => 'form.installment',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.installment_period',
                 'model' => 'form.installment_period',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.equipments.columns.published',
                 'model' => 'form.published',
             ])

@@ -1,14 +1,14 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.houses.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.search_select', [
+            @component('components.admin.search_select', [
                 'lang' => 'admin.houses.columns.street_id',
                 'model' => 'filters.street',
                 'url' => '/admin/streets/search',
@@ -16,7 +16,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.houses.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

@@ -1,14 +1,14 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariff_groups.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariff_groups.columns.tariff_type_id',
                 'model' => 'filters.tariff_type_id',
                 'options' => $tariffTypes
@@ -16,7 +16,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariff_groups.columns.rebate',
                 'model' => 'filters.rebate',
                 'filter' => true,
@@ -24,7 +24,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariff_groups.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

@@ -1,14 +1,14 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.antiviruses.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.antiviruses.columns.antivirus_type_id',
                 'model' => 'filters.antivirus_type_id',
                 'options' => $antivirusTypes
@@ -16,7 +16,7 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.antiviruses.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

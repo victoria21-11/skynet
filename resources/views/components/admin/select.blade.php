@@ -6,6 +6,6 @@
         @endforeach
     </select>
 </div>
-@include('admin.components.error', [
+@include('components.admin.error', [
     'model' => str_replace('form.', '', str_replace('filters.', '', $model))
 ])

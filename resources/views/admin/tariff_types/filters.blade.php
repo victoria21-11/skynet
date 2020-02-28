@@ -1,7 +1,7 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariff_types.columns.title',
                 'model' => 'filters.title',
             ])

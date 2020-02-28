@@ -8,19 +8,19 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.fileupload', [
+            @component('components.admin.fileupload', [
                 'model' => 'form.icon',
                 'media' => $media['icon']
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.social_networks.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.social_networks.columns.published',
                 'model' => 'form.published',
             ])

@@ -8,14 +8,14 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariff_types.columns.title',
                 'model' => 'form.title',
                 'readonly' => true,
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.tariff_types.columns.description',
                 'model' => 'form.description',
             ])

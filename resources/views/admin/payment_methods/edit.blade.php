@@ -8,31 +8,31 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.payment_methods.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.editor', [
+            @component('components.admin.editor', [
                 'lang' => 'admin.payment_methods.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.payment_methods.columns.link',
                 'model' => 'form.link',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.payment_methods.columns.alternative',
                 'model' => 'form.alternative',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.payment_methods.columns.published',
                 'model' => 'form.published',
             ])

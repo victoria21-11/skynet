@@ -8,55 +8,55 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.fileupload', [
+            @component('components.admin.fileupload', [
                 'model' => 'form.preview',
                 'media' => $media['preview']
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.packages.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.packages.columns.name',
                 'model' => 'form.name',
             ])
             @endcomponent
 
-            @component('admin.components.editor', [
+            @component('components.admin.editor', [
                 'lang' => 'admin.packages.columns.descriprion',
                 'model' => 'form.descriprion',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.packages.columns.hd_channels_count',
                 'model' => 'form.hd_channels_count',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.packages.columns.channels_count',
                 'model' => 'form.channels_count',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.packages.columns.price',
                 'model' => 'form.price',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.packages.columns.extra',
                 'model' => 'form.extra',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.packages.columns.published',
                 'model' => 'form.published',
             ])

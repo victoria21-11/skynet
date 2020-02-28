@@ -9,25 +9,25 @@
         </div>
         <div class="card-body">
 
-            @component('admin.components.fileupload', [
+            @component('components.admin.fileupload', [
                 'model' => 'form.icon',
                 'media' => $media['icon']
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariff_groups.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariff_groups.columns.preview_price',
                 'model' => 'form.preview_price',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariff_groups.columns.published',
                 'model' => 'form.published',
             ])

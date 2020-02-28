@@ -1,8 +1,8 @@
 <div class="form-group">
     <label for="">@lang($lang)</label>
-    <input type="email" class="form-control" v-model="{{ $model }}" @if($readonly ?? false)readonly @endif>
+    <input type="password" class="form-control" v-model="{{ $model }}" @if($readonly ?? false)readonly @endif>
 </div>
-@include('admin.components.error', [
+@include('components.admin.error', [
     'model' => str_replace('form.', '', str_replace('filters.', '', $model))
 ])
 @if($readonly ?? false)

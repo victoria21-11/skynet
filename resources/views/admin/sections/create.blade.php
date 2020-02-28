@@ -9,36 +9,36 @@
         </div>
         <div class="card-body">
 
-            @component('admin.components.fileupload', [
+            @component('components.admin.fileupload', [
                 'model' => 'form.tree_icon',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.sections.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.editor', [
+            @component('components.admin.editor', [
                 'lang' => 'admin.sections.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.sections.columns.url',
                 'model' => 'form.url',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.sections.columns.view',
                 'model' => 'form.view',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.sections.columns.published',
                 'model' => 'form.published',
             ])

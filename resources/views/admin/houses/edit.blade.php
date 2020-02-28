@@ -8,13 +8,13 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.houses.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.search_select', [
+            @component('components.admin.search_select', [
                 'lang' => 'admin.houses.columns.street_id',
                 'model' => 'form.street',
                 'columnName' => 'title',
@@ -22,7 +22,7 @@
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.houses.columns.published',
                 'model' => 'form.published',
             ])

@@ -1,21 +1,21 @@
 <div class="mb-3">
     <div class="row">
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.title',
                 'model' => 'filters.title',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.price',
                 'model' => 'filters.price',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.equipments.columns.installment',
                 'model' => 'filters.installment',
                 'filter' => true,
@@ -23,14 +23,14 @@
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.equipments.columns.installment_period',
                 'model' => 'filters.installment_period',
             ])
             @endcomponent
         </div>
         <div class="col-lg-4">
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.equipments.columns.published',
                 'model' => 'filters.published',
                 'filter' => true,

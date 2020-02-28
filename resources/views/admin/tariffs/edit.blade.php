@@ -8,57 +8,57 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.title',
                 'model' => 'form.title',
             ])
             @endcomponent
 
-            @component('admin.components.textarea', [
+            @component('components.admin.textarea', [
                 'lang' => 'admin.tariffs.columns.description',
                 'model' => 'form.description',
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.bill_tariff_id',
                 'model' => 'form.bill_tariff_id',
             ])
             @endcomponent
 
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariffs.columns.tariff_group_id',
                 'model' => 'form.tariff_group_id',
                 'options' => $tariffGroups,
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.period',
                 'model' => 'form.period',
             ])
             @endcomponent
 
-            @component('admin.components.select', [
+            @component('components.admin.select', [
                 'lang' => 'admin.tariffs.columns.period_type_id',
                 'model' => 'form.period_type_id',
                 'options' => $periodTypes,
             ])
             @endcomponent
 
-            @component('admin.components.text', [
+            @component('components.admin.text', [
                 'lang' => 'admin.tariffs.columns.price',
                 'model' => 'form.price',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariffs.columns.rebate',
                 'model' => 'form.rebate',
             ])
             @endcomponent
 
-            @component('admin.components.boolean', [
+            @component('components.admin.boolean', [
                 'lang' => 'admin.tariffs.columns.published',
                 'model' => 'form.published',
             ])
