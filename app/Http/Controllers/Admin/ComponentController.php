@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Component;
+use App\Models\{
+    Component,
+    ComponentParam
+};
 use App\Http\Requests\Admin\Component\{
     Store,
     Update,
@@ -50,6 +53,7 @@ class ComponentController extends Controller
     public function store(Store $request, Component $component)
     {
         $component = Component::create($request->validated());
+        $component->params()->createMany($request->get('params', []));
         return response([]);
     }
 
@@ -57,13 +61,15 @@ class ComponentController extends Controller
     {
         return view('admin.components.edit', [
             'title' => "Редактировать $component->title",
-            'data' => $component,
+            'data' => $component->load('params'),
         ]);
     }
 
     public function update(Update $request, Component $component)
     {
         $component->update($request->validated());
+        $component->params()->delete();
+        $component->params()->createMany($request->get('params', []));
         return response([]);
     }
 

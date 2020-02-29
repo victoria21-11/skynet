@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Section;
+use Illuminate\Support\Facades\DB;
+use App\Models\{
+    Section,
+    Component
+};
 use App\Http\Requests\Admin\Section\{
     Store,
     Update,
@@ -41,32 +45,55 @@ class SectionController extends Controller
 
     public function create()
     {
+        $components = Component::with('params')->get();
         return view('admin.sections.create', [
             'title' => trans('admin.sections.create'),
+            'components' => $components
         ]);
     }
 
     public function store(Store $request, Section $section)
     {
         $section = Section::create($request->validated());
+        $this->syncParams($section);
         $section->syncMedia(['tree_icon']);
         return response([]);
     }
 
     public function edit(Section $section)
     {
+        $components = Component::with('params')->get();
+        $usedComponents = $section->components()
+            ->get()
+            ->map(function($item) {
+                $item->params = json_decode($item->pivot->params, true);
+                return $item;
+            });
         return view('admin.sections.edit', [
             'title' => "Редактировать $section->title",
-            'data' => $section,
-            'media' => $section->prepareMedia(['tree_icon'])
+            'data' => $section->load('components'),
+            'media' => $section->prepareMedia(['tree_icon']),
+            'components' => $components,
+            'usedComponents' => $usedComponents,
         ]);
     }
 
     public function update(Update $request, Section $section)
     {
         $section->update($request->validated());
+        $this->syncParams($section);
         $section->syncMedia(['tree_icon']);
         return response([]);
+    }
+
+    private function syncParams(Section $section) {
+        $components = [];
+        foreach (request()->get('components', []) as $value) {
+            $components[$value['id']] = [
+                'params' => json_encode($value['params']),
+            ];
+        }
+        $section->components()->sync($components);
     }
 
     public function destroy(Delete $request, Section $section)

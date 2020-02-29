@@ -20,25 +20,22 @@
                     <thead>
                         <tr>
                             <th>@lang('admin.components.columns.id')</th>
-<th>@lang('admin.components.columns.name')</th>
-<th>@lang('admin.components.columns.title')</th>
-<th>@lang('admin.components.columns.description')</th>
-<th>@lang('admin.components.columns.path')</th>
-<th>@lang('admin.components.columns.created_at')</th>
-<th>@lang('admin.components.columns.updated_at')</th>
+                            <th>@lang('admin.components.columns.name')</th>
+                            <th>@lang('admin.components.columns.title')</th>
+                            <th>@lang('admin.components.columns.description')</th>
+                            <th>@lang('admin.components.columns.path')</th>
+                            <th>@lang('admin.components.columns.created_at')</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="item in paginatedData.data">
                             <td>@{{ item.id }}</td>
-<td>@{{ item.name }}</td>
-<td>@{{ item.title }}</td>
-<td>@{{ item.description }}</td>
-<td>@{{ item.path }}</td>
-<td>@{{ item.created_at }}</td>
-<td>@{{ item.updated_at }}</td>
-
+                            <td>@{{ item.name }}</td>
+                            <td>@{{ item.title }}</td>
+                            <td>@{{ item.description }}</td>
+                            <td>@{{ item.path }}</td>
+                            <td>@{{ item.created_at }}</td>
                             <td>
                                 <div class="d-flex flex-nowrap">
                                     <a :href="url + '/' + item.id + '/edit'" role="button" class="btn btn-primary mx-1">

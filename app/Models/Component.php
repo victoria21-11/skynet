@@ -8,25 +8,21 @@ class Component extends Model
     protected $table = 'components';
 
     protected $fillable = [
-        'id',
-'name',
-'title',
-'description',
-'path',
-'created_at',
-'updated_at',
-
+        'name',
+        'title',
+        'description',
+        'path',
     ];
 
     protected $scopes = [
-        'id' => 'ofStrict',
-'name' => 'ofLike',
-'title' => 'ofLike',
-'description' => 'ofLike',
-'path' => 'ofLike',
-'created_at' => 'ofDate',
-'updated_at' => 'ofDate',
+        'name' => 'ofLike',
+        'title' => 'ofLike',
+        'path' => 'ofLike',
 
     ];
+
+    public function params() {
+        return $this->hasMany(ComponentParam::class);
+    }
 
 }

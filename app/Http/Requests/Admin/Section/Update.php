@@ -29,6 +29,7 @@ class Update extends FormRequest
             'url' => [],
             'view' => [],
             'published' => [],
+            'components.*.id' => ['required', 'exists:components,id'],
         ];
     }
 }

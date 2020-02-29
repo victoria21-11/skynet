@@ -77,4 +77,7 @@
     <li class="list-group-item @if(request()->url() == url('admin/orders'))active @endif">
         <a href="{{ url('admin/orders') }}">@lang('admin.orders.title')</a>
     </li>
+    <li class="list-group-item @if(request()->url() == url('admin/components'))active @endif">
+        <a href="{{ url('admin/components') }}">@lang('admin.components.title')</a>
+    </li>
 </ul>

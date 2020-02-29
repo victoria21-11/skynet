@@ -24,14 +24,12 @@ class Update extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['integer',],
-'name' => [],
-'title' => [],
-'description' => [],
-'path' => [],
-'created_at' => ['date',],
-'updated_at' => ['date',],
-
+            'name' => ['required', 'alpha_dash'],
+            'title' => ['required', 'string'],
+            'description' => ['nullable'],
+            'path' => ['required', 'string'],
+            'params.*.name' => ['required', 'alpha_dash'],
+            'params.*.title' => ['required', 'string'],
         ];
     }
 }

@@ -8,44 +8,31 @@
             {{ $title }}
         </div>
         <div class="card-body">
-
+            <div class="alert alert-warning">
+                @lang('admin.components.warning')
+            </div>
             @component('components.admin.text', [
-    'lang' => 'admin.components.columns.id',
-    'model' => 'form.id',
-])
-@endcomponent
-@component('components.admin.text', [
-    'lang' => 'admin.components.columns.name',
-    'model' => 'form.name',
-])
-@endcomponent
-@component('components.admin.text', [
-    'lang' => 'admin.components.columns.title',
-    'model' => 'form.title',
-])
-@endcomponent
-@component('components.admin.textarea', [
-    'lang' => 'admin.components.columns.description',
-    'model' => 'form.description',
-])
-@endcomponent
-@component('components.admin.text', [
-    'lang' => 'admin.components.columns.path',
-    'model' => 'form.path',
-])
-@endcomponent
-@component('components.admin.date', [
-    'lang' => 'admin.components.columns.created_at',
-    'model' => 'form.created_at',
-])
-@endcomponent
-@component('components.admin.date', [
-    'lang' => 'admin.components.columns.updated_at',
-    'model' => 'form.updated_at',
-])
-@endcomponent
+                'lang' => 'admin.components.columns.name',
+                'model' => 'form.name',
+            ])
+            @endcomponent
+            @component('components.admin.text', [
+                'lang' => 'admin.components.columns.title',
+                'model' => 'form.title',
+            ])
+            @endcomponent
+            @component('components.admin.textarea', [
+                'lang' => 'admin.components.columns.description',
+                'model' => 'form.description',
+            ])
+            @endcomponent
+            @component('components.admin.text', [
+                'lang' => 'admin.components.columns.path',
+                'model' => 'form.path',
+            ])
+            @endcomponent
+            <params ref="params"></params>
 
-            
             <div class="text-right">
                 <button type="button" class="btn btn-success" @click="store">@lang('admin.save')</button>
             </div>

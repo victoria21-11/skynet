@@ -21,16 +21,17 @@ export default {
             }
             axios.put(this.modifiedURL, this.getFormData())
                 .then(response => {
+                    console.log(response);
                     this.onSuccess();
                 })
                 .catch(error => {
-                    this.onError();
+                    this.onError(error);
                 });
         },
         onSuccess() {
-            window.location.replace(this.url);
+            // window.location.replace(this.url);
         },
-        onError() {
+        onError(error) {
             this.errors = error.response.data.errors
             new Noty({
                 type: 'error',

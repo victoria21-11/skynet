@@ -8,6 +8,7 @@
             {{ $title }}
         </div>
         <div class="card-body">
+            <components ref="components" :components="{{ $components }}" :used="{{ $usedComponents }}"></components>
             @component('components.admin.fileupload', [
                 'model' => 'form.tree_icon',
                 'media' => $media['tree_icon']

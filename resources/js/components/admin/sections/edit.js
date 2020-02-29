@@ -1,4 +1,5 @@
 import CRUDMixins from '../crud/edit.js';
+import Components from './Components.vue';
 
 export default {
     data() {
@@ -6,5 +7,14 @@ export default {
             url: '/admin/sections'
         }
     },
+    components: {
+        Components
+    },
     mixins: [CRUDMixins],
+    methods: {
+        getFormData() {
+            this.form.components = this.$refs.components.selected;
+            return this.form;
+        }
+    }
 }

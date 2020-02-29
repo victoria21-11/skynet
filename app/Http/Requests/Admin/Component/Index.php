@@ -26,6 +26,9 @@ class Index extends FormRequest
         return [
             'sort_column' => ['nullable', 'string'],
             'sort_direction' => ['nullable', 'string'],
+            'name' => ['nullable', 'string'],
+            'title' => ['nullable', 'string'],
+            'path' => ['nullable', 'string'],
         ];
     }
 }

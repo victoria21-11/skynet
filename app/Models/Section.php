@@ -12,6 +12,14 @@ class Section extends Model implements HasMedia
 
     use LikeTrait, HasMediaTrait;
 
+    protected $fillable = [
+        'title',
+        'url',
+        'description',
+        'view',
+        'published',
+    ];
+
     protected $scopes = [
         'title' => 'ofLike',
         'published' => 'ofBoolean',
@@ -29,6 +37,10 @@ class Section extends Model implements HasMedia
     public function trees()
     {
         return $this->hasMany(Tree::class);
+    }
+
+    public function components() {
+        return $this->belongsToMany(Component::class)->withPivot('params');
     }
 
 }

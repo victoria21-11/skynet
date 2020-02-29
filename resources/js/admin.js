@@ -119,6 +119,10 @@ Vue.component('success-stories-index', require('./components/admin/success_stori
 Vue.component('success-stories-edit', require('./components/admin/success_stories/edit.js').default);
 Vue.component('success-stories-create', require('./components/admin/success_stories/create.js').default);
 
+Vue.component('components-index', require('./components/admin/components/index.js').default);
+Vue.component('components-edit', require('./components/admin/components/edit.js').default);
+Vue.component('components-create', require('./components/admin/components/create.js').default);
+
 Vue.component('profile-index', require('./components/admin/profile/index.js').default);
 
 Vue.mixin({
