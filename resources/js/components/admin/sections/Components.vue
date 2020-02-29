@@ -5,7 +5,7 @@
                 <div class="col-lg-4">
                     <input type="text" class="form-control" v-model="search">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 text-uppercase font-weight-bold">
                     Выбранные компоненты
                 </div>
             </div>
@@ -16,31 +16,35 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div v-for="(item, index) in selected" :key="item.id">
-                        <div class="components_item">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="">
-                                    {{ item.title }}
+                    <draggable v-model="selected" handle=".components_item">
+                        <transition-group>
+                            <div class="border mb-3" v-for="(item, index) in selected" :key="item.id + index">
+                                <div class="components_item">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="text-primary font-weight-bold">
+                                            {{ item.title }}
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="btn btn-sm btn-danger" @click="remove(index)">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="">
-                                    <button type="button" class="btn btn-sm btn-danger" @click="remove(index)">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
+                                <div class="p-2">
+                                    <div class="d-flex text-uppercase font-weight-bold border-bottom pb-2">
+                                        <div class="col-lg-4">
+                                            Параметр
+                                        </div>
+                                        <div class="col-lg-8">
+                                            Значение
+                                        </div>
+                                    </div>
+                                    <params v-model="item.params"></params>
                                 </div>
                             </div>
-                        </div>
-                        <div class="pt-3">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Параметр</th>
-                                        <th>Значение</th>
-                                    </tr>
-                                </thead>
-                                <params v-model="item.params"></params>
-                            </table>
-                        </div>
-                    </div>
+                        </transition-group>
+                    </draggable>
                 </div>
             </div>
         </div>
@@ -49,17 +53,19 @@
 
 <script>
 import Params from './Params.vue';
+import draggable from 'vuedraggable';
 
 export default {
     data() {
         return {
             localComponents: this.components,
             search: '',
-            selected: this.used
+            selected: this.used,
         }
     },
     components: {
-        Params
+        Params,
+        draggable,
     },
     props: {
         components: {

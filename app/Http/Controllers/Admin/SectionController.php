@@ -88,12 +88,15 @@ class SectionController extends Controller
 
     private function syncParams(Section $section) {
         $components = [];
-        foreach (request()->get('components', []) as $value) {
-            $components[$value['id']] = [
-                'params' => json_encode($value['params']),
-            ];
+        $section->components()->detach();
+        foreach (request()->get('components', []) as $key => $value) {
+            $section->components()->attach([
+                $value['id'] => [
+                    'params' => json_encode($value['params']),
+                    'order' => $key,
+                ]
+            ]);
         }
-        $section->components()->sync($components);
     }
 
     public function destroy(Delete $request, Section $section)

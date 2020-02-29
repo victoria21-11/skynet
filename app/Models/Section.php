@@ -40,7 +40,7 @@ class Section extends Model implements HasMedia
     }
 
     public function components() {
-        return $this->belongsToMany(Component::class)->withPivot('params');
+        return $this->belongsToMany(Component::class)->withPivot('params')->orderBy('order');
     }
 
     public function getFrontComponentsAttribute()
