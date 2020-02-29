@@ -43,4 +43,17 @@ class Section extends Model implements HasMedia
         return $this->belongsToMany(Component::class)->withPivot('params');
     }
 
+    public function getFrontComponentsAttribute()
+    {
+        return $this->components
+            ->map(function($item) {
+                $item->params = json_decode($item->pivot->params, true);
+                $item->params = collect($item->params)->keyBy('name')
+                    ->map(function($param) {
+                        return $param['value'];
+                    })->toArray();
+                return $item;
+            });
+    }
+
 }

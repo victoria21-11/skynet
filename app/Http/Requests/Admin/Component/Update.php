@@ -30,6 +30,9 @@ class Update extends FormRequest
             'path' => ['required', 'string'],
             'params.*.name' => ['required', 'alpha_dash'],
             'params.*.title' => ['required', 'string'],
+            'params.*.multiple' => ['nullable', 'boolean'],
+            'params.*.required' => ['nullable', 'boolean'],
+            'params.*.default_value' => ['nullable', 'string'],
         ];
     }
 }

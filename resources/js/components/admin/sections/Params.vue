@@ -6,7 +6,9 @@
                 <template v-if="item.multiple">
                     <multiple-param v-model="item.value"></multiple-param>
                 </template>
-                <input type="text" class="form-control" v-model="item.value" v-else>
+                <template v-else>
+                    <single-param v-model="item.value" :param="item"></single-param>
+                </template>
             </th>
         </tr>
     </tbody>
@@ -14,6 +16,7 @@
 
 <script>
 import MultipleParam from './MultipleParam.vue';
+import SingleParam from './SingleParam.vue';
 export default {
     data() {
         return {
@@ -29,7 +32,8 @@ export default {
         },
     },
     components: {
-        MultipleParam
+        MultipleParam,
+        SingleParam
     },
     watch: {
         items: {

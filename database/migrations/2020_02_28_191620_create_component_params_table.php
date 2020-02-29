@@ -18,6 +18,7 @@ class CreateComponentParamsTable extends Migration
             $table->unsignedBigInteger('component_id');
             $table->string('name');
             $table->string('title');
+            $table->string('default_value')->nullable();
             $table->boolean('multiple')->default(false);
             $table->boolean('required')->default(false);
         });

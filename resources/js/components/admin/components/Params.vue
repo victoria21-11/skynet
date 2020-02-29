@@ -10,6 +10,7 @@
                       <tr>
                           <th>Имя</th>
                           <th>Название</th>
+                          <th>Значение по умолчанию</th>
                           <th>Массив значений</th>
                           <th>Обязательный</th>
                           <th></th>
@@ -22,6 +23,9 @@
                           </td>
                           <td>
                               <input type="text" class="form-control" v-model="item.title">
+                          </td>
+                          <td>
+                              <input type="text" class="form-control" v-model="item.default_value">
                           </td>
                           <td>
                               <div class="form-check">

@@ -15,6 +15,7 @@ class ComponentParam extends Model
         'component_id',
         'multiple',
         'required',
+        'default_value',
     ];
 
     protected $scopes = [

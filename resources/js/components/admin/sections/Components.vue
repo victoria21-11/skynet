@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div v-for="(item, index) in selected">
+                    <div v-for="(item, index) in selected" :key="item.id">
                         <div class="components_item">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="">
@@ -37,7 +37,7 @@
                                         <th>Значение</th>
                                     </tr>
                                 </thead>
-                                <params ref="params" v-model="item.params"></params>
+                                <params v-model="item.params"></params>
                             </table>
                         </div>
                     </div>
