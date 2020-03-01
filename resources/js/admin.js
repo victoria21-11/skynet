@@ -123,6 +123,10 @@ Vue.component('components-index', require('./components/admin/components/index.j
 Vue.component('components-edit', require('./components/admin/components/edit.js').default);
 Vue.component('components-create', require('./components/admin/components/create.js').default);
 
+Vue.component('layouts-index', require('./components/admin/layouts/index.js').default);
+Vue.component('layouts-edit', require('./components/admin/layouts/edit.js').default);
+Vue.component('layouts-create', require('./components/admin/layouts/create.js').default);
+
 Vue.component('profile-index', require('./components/admin/profile/index.js').default);
 
 Vue.mixin({

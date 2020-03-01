@@ -24,12 +24,9 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['integer',],
-'name' => [],
-'title' => [],
-'markup' => [],
-'created_at' => ['date',],
-'updated_at' => ['date',],
+            'name' => ['required', 'string'],
+            'title' => ['required', 'string'],
+            'markup' => ['required'],
 
         ];
     }

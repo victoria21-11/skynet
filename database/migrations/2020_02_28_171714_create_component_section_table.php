@@ -18,6 +18,7 @@ class CreateComponentSectionTable extends Migration
             $table->unsignedBigInteger('section_id');
             $table->json('params')->nullable();
             $table->integer('order')->default(0);
+            $table->string('layout_cell_id');
         });
     }
 

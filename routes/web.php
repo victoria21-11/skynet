@@ -91,6 +91,7 @@ Route::prefix('admin')->group(function () {
             Route::resource('success_stories', 'SuccessStoryController');
             Route::resource('orders', 'OrderController');
             Route::resource('components', 'ComponentController');
+            Route::resource('layouts', 'LayoutController');
             Route::get('tags/search', 'TagController@search');
             Route::get('profile', 'ProfileController@index');
             Route::put('profile', 'ProfileController@update');

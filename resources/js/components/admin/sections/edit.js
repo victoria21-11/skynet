@@ -13,7 +13,7 @@ export default {
     mixins: [CRUDMixins],
     methods: {
         getFormData() {
-            this.form.components = this.$refs.components.selected;
+            this.form.components = this.$refs.components.layouts[0];
             return this.form;
         }
     }

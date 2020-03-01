@@ -1,17 +1,13 @@
 <template>
-    <div class="pt-2">
-        <div class="d-flex mb-2" v-for="item in params">
-            <div class="col-lg-4">
-                {{ item.title }}
-            </div>
-            <div class="col-lg-8">
-                <template v-if="item.multiple">
-                    <multiple-param v-model="item.value"></multiple-param>
-                </template>
-                <template v-else>
-                    <single-param v-model="item.value" :param="item"></single-param>
-                </template>
-            </div>
+    <div class="">
+        <div class="form-group mb-2" v-for="item in params">
+            <label for="">{{ item.title }}</label>
+            <template v-if="item.multiple">
+                <multiple-param v-model="item.value"></multiple-param>
+            </template>
+            <template v-else>
+                <single-param v-model="item.value" :param="item"></single-param>
+            </template>
         </div>
     </div>
 </template>

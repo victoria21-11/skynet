@@ -20,22 +20,16 @@
                     <thead>
                         <tr>
                             <th>@lang('admin.layouts.columns.id')</th>
-<th>@lang('admin.layouts.columns.name')</th>
-<th>@lang('admin.layouts.columns.title')</th>
-<th>@lang('admin.layouts.columns.markup')</th>
-<th>@lang('admin.layouts.columns.created_at')</th>
-<th>@lang('admin.layouts.columns.updated_at')</th>
+                            <th>@lang('admin.layouts.columns.name')</th>
+                            <th>@lang('admin.layouts.columns.title')</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="item in paginatedData.data">
                             <td>@{{ item.id }}</td>
-<td>@{{ item.name }}</td>
-<td>@{{ item.title }}</td>
-<td>@{{ item.markup }}</td>
-<td>@{{ item.created_at }}</td>
-<td>@{{ item.updated_at }}</td>
+                            <td>@{{ item.name }}</td>
+                            <td>@{{ item.title }}</td>
 
                             <td>
                                 <div class="d-flex flex-nowrap">

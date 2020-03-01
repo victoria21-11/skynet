@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Models\{
     Section,
-    Component
+    Component,
+    Layout
 };
 use App\Http\Requests\Admin\Section\{
     Store,
@@ -62,7 +63,54 @@ class SectionController extends Controller
 
     public function edit(Section $section)
     {
+        $data = [
+            [
+                'item' => 'row',
+                'items' => [
+                    [
+                        'item' => 'col-lg-4',
+                        'id' => rand(10000, 99999)
+                    ],
+                    [
+                        'item' => 'col-lg-8',
+                        'id' => rand(10000, 99999)
+                    ],
+                ]
+            ],
+            [
+                'item' => 'row',
+                'items' => [
+                    [
+                        'item' => 'col-lg-4',
+                        'id' => rand(10000, 99999)
+                    ],
+                    [
+                        'item' => 'col-lg-4',
+                        'id' => rand(10000, 99999)
+                    ],
+                    [
+                        'item' => 'col-lg-4',
+                        'id' => rand(10000, 99999)
+                    ],
+                ]
+            ],
+            [
+                'item' => 'row',
+                'items' => [
+                    [
+                        'item' => 'col-lg-6',
+                        'id' => rand(10000, 99999)
+                    ],
+                    [
+                        'item' => 'col-lg-6',
+                        'id' => rand(10000, 99999)
+                    ],
+                ]
+            ]
+        ];
+        // dd(json_encode($data));
         $components = Component::with('params')->get();
+        $layouts = Layout::get();
         $usedComponents = $section->components()
             ->get()
             ->map(function($item) {
@@ -75,6 +123,7 @@ class SectionController extends Controller
             'media' => $section->prepareMedia(['tree_icon']),
             'components' => $components,
             'usedComponents' => $usedComponents,
+            'layouts' => $layouts,
         ]);
     }
 
@@ -89,6 +138,8 @@ class SectionController extends Controller
     private function syncParams(Section $section) {
         $components = [];
         $section->components()->detach();
+        $components = request()->input('components.markup', []);
+        dd($components);
         foreach (request()->get('components', []) as $key => $value) {
             $section->components()->attach([
                 $value['id'] => [

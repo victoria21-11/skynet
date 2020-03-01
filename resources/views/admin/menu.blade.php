@@ -80,4 +80,7 @@
     <li class="list-group-item @if(request()->url() == url('admin/components'))active @endif">
         <a href="{{ url('admin/components') }}">@lang('admin.components.title')</a>
     </li>
+    <li class="list-group-item @if(request()->url() == url('admin/layouts'))active @endif">
+        <a href="{{ url('admin/layouts') }}">@lang('admin.layouts.title')</a>
+    </li>
 </ul>
