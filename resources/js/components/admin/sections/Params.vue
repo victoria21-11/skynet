@@ -33,14 +33,6 @@ export default {
         MultipleParam,
         SingleParam
     },
-    watch: {
-        items: {
-            handler() {
-                this.$emit('input', this.params);
-            },
-            deep: true
-        },
-    },
 }
 </script>
 

@@ -52,3 +52,11 @@
     function socialNetworks() {
         return SocialNetwork::published()->get();
     }
+
+    function prepareParams($params) {
+        $result = [];
+        foreach ($params as $key => $value) {
+            $result[$value['name']] = $value['value'] ?? $value['default_value'];
+        }
+        return $result;
+    }

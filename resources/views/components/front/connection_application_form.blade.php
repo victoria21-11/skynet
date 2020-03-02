@@ -1,3 +1,6 @@
+@php
+$params = prepareParams($params);
+@endphp
 <div class="card">
     <div class="card-header">
         {{ $params['title'] }}

@@ -16,8 +16,11 @@ class TreeController extends Controller
     public function index(string $url = null)
     {
         $tree = Tree::ofUrl($url)->with('section.components')->first();
+        $components = json_decode($tree->section->components, true);
+        // dd($components);
         return view($tree->section->view, [
             'tree' => $tree,
+            'components' => $components,
         ]);
     }
 
