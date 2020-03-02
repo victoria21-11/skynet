@@ -1,22 +1,11 @@
 <template>
     <div class="card mb-3">
         <div class="card-body">
-            <!-- <draggable :list="localComponents" :group="{ name: 'components', pull: 'clone', put: false }">
-                <div class="p-4" v-for="(item, index) in localComponents" :key="item.id">
-                    {{ item.title }}
-                </div>
-            </draggable>
-            <Layout ref="layout" :layouts="layouts" /> -->
-            <div class="row align-items-center mb-3">
-                <div class="col-lg-4">
-                    <input type="text" class="form-control" v-model="search">
-                </div>
-                <div class="col-lg-8 text-uppercase font-weight-bold">
-                    Выбранные компоненты
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-4">
+                    <div>
+                        <input type="text" class="form-control" v-model="search">
+                    </div>
                     <draggable :list="localComponents" :group="{ name: 'components', pull: 'clone', put: false }">
                         <div class="components_item" v-for="item in filter()" :key="item.id">
                             {{ item.title }}
@@ -24,28 +13,19 @@
                     </draggable>
                 </div>
                 <div class="col-lg-8">
-                    <Layout ref="layout" :layouts="layouts" />
-                    <!-- <draggable v-model="selected" handle=".components_item">
-                        <transition-group>
-                            <div class="border mb-3" v-for="(item, index) in selected" :key="item.id + Math.random()">
-                                <div class="components_item">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="text-primary font-weight-bold">
-                                            {{ item.title }}
-                                        </div>
-                                        <div class="">
-                                            <button type="button" class="btn btn-sm btn-danger" @click="remove(index)">
-                                                <i class="far fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3">
-                                    <params v-model="item.params"></params>
-                                </div>
-                            </div>
-                        </transition-group>
-                    </draggable> -->
+                    <div class="form-group">
+                        <label>Выберите шаблон</label>
+                        <select class="form-control" v-model="selected">
+                            <option v-for="layout in layouts" :value="layout">
+                                {{ layout.title }}
+                            </option>
+                        </select>
+                    </div>
+                    <template v-if="selected">
+                        <h2>{{ selected.title }}</h2>
+                        <Markup ref="layout" :markup="selected.markup" />
+                        <hr>
+                    </template>
                 </div>
             </div>
         </div>
@@ -55,20 +35,20 @@
 <script>
 import Params from './Params.vue';
 import draggable from 'vuedraggable';
-import Layout from './Layout.vue';
+import Markup from './Markup.vue';
 
 export default {
     data() {
         return {
             localComponents: this.components,
             search: '',
-            selected: this.used,
+            selected: this.selectedLayout
         }
     },
     components: {
         Params,
         draggable,
-        Layout
+        Markup
     },
     props: {
         layouts: {
@@ -78,6 +58,12 @@ export default {
                 return [];
             }
         },
+        selectedLayout: {
+            type: Object,
+            default: () => {
+                return {};
+            }
+        },
         components: {
             required: true,
             type: Array,
@@ -85,13 +71,6 @@ export default {
                 return [];
             }
         },
-        used: {
-            required: false,
-            type: Array,
-            default: () => {
-                return [];
-            }
-        }
     },
     methods: {
         filter() {
@@ -99,15 +78,6 @@ export default {
                 return this.localComponents.filter(({title}) => title.includes(this.search));
             }
             return this.localComponents;
-        },
-        select(item) {
-            this.selected.push(item);
-        },
-        remove(index) {
-            this.confirm()
-                .then(() => {
-                    this.$delete(this.selected, index);
-                });
         },
     },
 }

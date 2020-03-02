@@ -10,8 +10,8 @@
         <div class="card-body">
             <components ref="components"
                 :components="{{ $components }}"
-                :layouts="{{ $layouts }}"
-                :used="{{ $usedComponents }}"></components>
+                :selected-layout="{{ json_encode($selectedLayout) }}"
+                :layouts="{{ json_encode($layouts) }}"></components>
             @component('components.admin.fileupload', [
                 'model' => 'form.tree_icon',
                 'media' => $media['tree_icon']

@@ -8,11 +8,6 @@
     </div>
     <div class="card-body">
         {!! html_entity_decode($tree->section->description) !!}
-        @foreach ($components as $value)
-            @include($value->path, [
-                'params' => $value->params
-            ])
-        @endforeach
     </div>
 </div>
 

@@ -4,17 +4,18 @@ import Components from './Components.vue';
 export default {
     data() {
         return {
-            url: '/admin/sections'
-        }
+            url: '/admin/sections',
+        };
     },
     components: {
-        Components
+        Components,
     },
     mixins: [CRUDMixins],
     methods: {
         getFormData() {
-            this.form.components = this.$refs.components.layouts[0];
+            this.form.layout = this.$refs.components.selected;
+            this.form.layout_id = this.$refs.components.selected.id;
             return this.form;
-        }
-    }
-}
+        },
+    },
+};

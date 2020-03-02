@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        Оставить заявку на подключение
+        {{ $params['title'] }}
     </div>
     <div class="card-body">
         <div class="form-group">
@@ -9,9 +9,9 @@
         <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" value="" id="agreement">
             <label class="form-check-label" for="agreement">
-                Согласен на обработку данных
+                {{ $params['agreement'] }}
             </label>
         </div>
-        <button type="button" class="btn btn-success btn-block">Отправить</button>
+        <button type="button" class="btn btn-success btn-block">{{ $params['buttonTitle'] }}</button>
     </div>
 </div>

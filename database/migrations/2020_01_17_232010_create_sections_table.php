@@ -18,8 +18,10 @@ class CreateSectionsTable extends Migration
             $table->string('title');
             $table->string('url');
             $table->text('description')->nullable();
+            $table->json('components')->nullable();
             $table->string('view')->default('front.navigations.index');
             $table->boolean('published')->default(false);
+            $table->unsignedBigInteger('layout_id')->nullable();
             $table->timestamps();
         });
     }

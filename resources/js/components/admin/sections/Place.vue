@@ -22,10 +22,10 @@
 import Params from './Params.vue';
 
 export default {
-    name: 'layout-item',
+    name: 'row',
     data() {
         return {
-            components: []
+            components: this.value
         }
     },
     components: {
@@ -33,7 +33,10 @@ export default {
     },
     props: {
         value: {
-            type: Object
+            type: Array,
+            default: () => {
+                return []
+            }
         },
         item: {
             required: true,
@@ -48,7 +51,6 @@ export default {
                 });
         },
         onAdd() {
-            this.components.forEach(item => item.layout_cell_id = this.item.id)
             this.$emit('input', this.components);
         }
     }

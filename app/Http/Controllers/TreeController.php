@@ -16,10 +16,8 @@ class TreeController extends Controller
     public function index(string $url = null)
     {
         $tree = Tree::ofUrl($url)->with('section.components')->first();
-        $components = $tree->section->getFrontComponentsAttribute();
         return view($tree->section->view, [
             'tree' => $tree,
-            'components' => $components,
         ]);
     }
 

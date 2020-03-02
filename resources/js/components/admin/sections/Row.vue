@@ -12,7 +12,7 @@
 import Place from './Place.vue';
 
 export default {
-    name: 'layout-item',
+    name: 'row',
     data() {
         return {
             components: []

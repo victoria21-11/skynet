@@ -18,6 +18,8 @@ class Section extends Model implements HasMedia
         'description',
         'view',
         'published',
+        'components',
+        'layout_id',
     ];
 
     protected $scopes = [
@@ -25,6 +27,10 @@ class Section extends Model implements HasMedia
         'published' => 'ofBoolean',
         'url' => 'ofLike',
         'view' => 'ofLike',
+    ];
+
+    protected $casts = [
+        'components' => 'json',
     ];
 
     public function registerMediaCollections()
@@ -39,21 +45,13 @@ class Section extends Model implements HasMedia
         return $this->hasMany(Tree::class);
     }
 
-    public function components() {
-        return $this->belongsToMany(Component::class)->withPivot('params')->orderBy('order');
+    public function layout()
+    {
+        return $this->belongsTo(Layout::class);
     }
 
-    public function getFrontComponentsAttribute()
-    {
-        return $this->components
-            ->map(function($item) {
-                $item->params = json_decode($item->pivot->params, true);
-                $item->params = collect($item->params)->keyBy('name')
-                    ->map(function($param) {
-                        return $param['value'];
-                    })->toArray();
-                return $item;
-            });
+    public function components() {
+        return $this->belongsToMany(Component::class)->withPivot('params')->orderBy('order');
     }
 
 }

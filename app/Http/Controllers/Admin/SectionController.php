@@ -56,61 +56,24 @@ class SectionController extends Controller
     public function store(Store $request, Section $section)
     {
         $section = Section::create($request->validated());
-        $this->syncParams($section);
+        $section->update([
+            'components' => json_encode(request()->input('layout.markup', []))
+        ]);
         $section->syncMedia(['tree_icon']);
         return response([]);
     }
 
     public function edit(Section $section)
     {
-        $data = [
-            [
-                'item' => 'row',
-                'items' => [
-                    [
-                        'item' => 'col-lg-4',
-                        'id' => rand(10000, 99999)
-                    ],
-                    [
-                        'item' => 'col-lg-8',
-                        'id' => rand(10000, 99999)
-                    ],
-                ]
-            ],
-            [
-                'item' => 'row',
-                'items' => [
-                    [
-                        'item' => 'col-lg-4',
-                        'id' => rand(10000, 99999)
-                    ],
-                    [
-                        'item' => 'col-lg-4',
-                        'id' => rand(10000, 99999)
-                    ],
-                    [
-                        'item' => 'col-lg-4',
-                        'id' => rand(10000, 99999)
-                    ],
-                ]
-            ],
-            [
-                'item' => 'row',
-                'items' => [
-                    [
-                        'item' => 'col-lg-6',
-                        'id' => rand(10000, 99999)
-                    ],
-                    [
-                        'item' => 'col-lg-6',
-                        'id' => rand(10000, 99999)
-                    ],
-                ]
-            ]
-        ];
-        // dd(json_encode($data));
         $components = Component::with('params')->get();
-        $layouts = Layout::get();
+        $layouts = Layout::get()->toArray();
+        $selectedLayout = [];
+        foreach ($layouts as $key => $value) {
+            if($value['id'] == $section->layout_id) {
+                $layouts[$key]['markup'] = json_decode($section->components, true);
+                $selectedLayout = $layouts[$key];
+            }
+        }
         $usedComponents = $section->components()
             ->get()
             ->map(function($item) {
@@ -124,30 +87,18 @@ class SectionController extends Controller
             'components' => $components,
             'usedComponents' => $usedComponents,
             'layouts' => $layouts,
+            'selectedLayout' => $selectedLayout,
         ]);
     }
 
     public function update(Update $request, Section $section)
     {
         $section->update($request->validated());
-        $this->syncParams($section);
+        $section->update([
+            'components' => json_encode(request()->input('layout.markup', []))
+        ]);
         $section->syncMedia(['tree_icon']);
         return response([]);
-    }
-
-    private function syncParams(Section $section) {
-        $components = [];
-        $section->components()->detach();
-        $components = request()->input('components.markup', []);
-        dd($components);
-        foreach (request()->get('components', []) as $key => $value) {
-            $section->components()->attach([
-                $value['id'] => [
-                    'params' => json_encode($value['params']),
-                    'order' => $key,
-                ]
-            ]);
-        }
     }
 
     public function destroy(Delete $request, Section $section)
