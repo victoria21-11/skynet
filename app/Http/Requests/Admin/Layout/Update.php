@@ -26,7 +26,7 @@ class Update extends FormRequest
         return [
             'name' => ['required', 'string'],
             'title' => ['required', 'string'],
-            'markup' => ['required'],
+            'layout_filename' => ['required', 'string'],
 
         ];
     }

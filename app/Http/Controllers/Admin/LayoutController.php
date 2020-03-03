@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Layout;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\Admin\Layout\{
     Store,
     Update,
@@ -44,6 +45,7 @@ class LayoutController extends Controller
     {
         return view('admin.layouts.create', [
             'title' => trans('admin.layouts.create'),
+            'files' => $this->getFiles(),
         ]);
     }
 
@@ -55,9 +57,11 @@ class LayoutController extends Controller
 
     public function edit(Layout $layout)
     {
+
         return view('admin.layouts.edit', [
             'title' => "Редактировать $layout->title",
             'data' => $layout,
+            'files' => $this->getFiles(),
         ]);
     }
 
@@ -71,5 +75,14 @@ class LayoutController extends Controller
     {
         $layout->delete();
         return response([]);
+    }
+
+    private function getFiles()
+    {
+        $files = File::files(resource_path('layouts'));
+        foreach ($files as $key => $file) {
+            $files[$key] = pathinfo($file);
+        }
+        return $files;
     }
 }

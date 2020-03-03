@@ -4,27 +4,26 @@ export default {
             form: this.data,
             url: '/',
             modifiedURL: null,
-            errors: {}
-        }
+            errors: {},
+        };
     },
     props: {
         data: {
             type: Object,
             required: true,
-        }
+        },
     },
     methods: {
         update() {
             this.errors = {};
-            if(!this.modifiedURL) {
-                this.modifiedURL = this.url + '/' + this.data.id;
+            if (!this.modifiedURL) {
+                this.modifiedURL = `${this.url}/${this.data.id}`;
             }
             axios.put(this.modifiedURL, this.getFormData())
-                .then(response => {
-                    console.log(response);
+                .then((response) => {
                     this.onSuccess();
                 })
-                .catch(error => {
+                .catch((error) => {
                     this.onError(error);
                 });
         },
@@ -32,7 +31,7 @@ export default {
             // window.location.replace(this.url);
         },
         onError(error) {
-            this.errors = error.response.data.errors
+            this.errors = error.response.data.errors;
             new Noty({
                 type: 'error',
                 text: error.response.data.message,
@@ -40,6 +39,6 @@ export default {
         },
         getFormData() {
             return this.form;
-        }
-    }
-}
+        },
+    },
+};

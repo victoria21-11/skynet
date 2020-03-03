@@ -8,7 +8,15 @@
             {{ $title }}
         </div>
         <div class="card-body">
-            <components ref="components" :components="{{ $components }}"></components>
+            <layout ref="layout"
+                :components="{{ $components }}"
+                :layouts="{{ json_encode($layouts) }}">
+                @foreach ($layouts as $value)
+                    <div class="layouts" data-id="{{ $value['id'] }}">
+                        {!! $value['content'] !!}
+                    </div>
+                @endforeach
+            </layout>
             @component('components.admin.fileupload', [
                 'model' => 'form.tree_icon',
             ])

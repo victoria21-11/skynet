@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Models\{
     Section,
@@ -57,7 +58,7 @@ class SectionController extends Controller
     {
         $section = Section::create($request->validated());
         $section->update([
-            'components' => json_encode(request()->input('layout.markup', []))
+            'components' => json_encode(request()->get('components', []))
         ]);
         $section->syncMedia(['tree_icon']);
         return response([]);
@@ -67,10 +68,11 @@ class SectionController extends Controller
     {
         $components = Component::with('params')->get();
         $layouts = Layout::get()->toArray();
+        $layouts[0]['content'] = File::get(resource_path("layouts/{$layouts[0]['layout_filename']}"));
         $selectedLayout = [];
         foreach ($layouts as $key => $value) {
             if($value['id'] == $section->layout_id) {
-                $layouts[$key]['markup'] = json_decode($section->components, true);
+                $layouts[$key]['components'] = json_decode($section->components, true);
                 $selectedLayout = $layouts[$key];
             }
         }
@@ -95,7 +97,7 @@ class SectionController extends Controller
     {
         $section->update($request->validated());
         $section->update([
-            'components' => json_encode(request()->input('layout.markup', []))
+            'components' => json_encode(request()->get('components', []))
         ]);
         $section->syncMedia(['tree_icon']);
         return response([]);

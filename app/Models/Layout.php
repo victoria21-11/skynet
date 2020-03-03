@@ -10,18 +10,15 @@ class Layout extends Model
     protected $fillable = [
         'name',
         'title',
-        'markup',
+        'layout_filename',
 
     ];
 
     protected $scopes = [
         'name' => 'ofLike',
         'title' => 'ofLike',
+        'layout_filename' => 'ofLike',
 
-    ];
-
-    protected $casts = [
-        'markup' => 'array',
     ];
 
 }

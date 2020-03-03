@@ -1,85 +1,51 @@
 <template>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div>
-                        <input type="text" class="form-control" v-model="search">
-                    </div>
-                    <draggable :list="localComponents" :group="{ name: 'components', pull: 'clone', put: false }">
-                        <div class="components_item" v-for="item in filter()" :key="item.id">
-                            {{ item.title }}
-                        </div>
-                    </draggable>
+    <draggable class="border p-4 h-100" :list="components" group="components" @add="onAdd">
+        <template v-if="components.length">
+            <div class="border mb-2 p-2" v-for="(component, index) in components" :key="Math.random()">
+                <div class="font-weight-bold d-flex align-items-center justify-content-between">
+                    {{ component.title }}
+                    <button type="button" class="btn btn-sm btn-danger" @click="remove(index)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
                 </div>
-                <div class="col-lg-9">
-                    <div class="form-group">
-                        <label>Выберите шаблон</label>
-                        <select class="form-control" v-model="selected">
-                            <option v-for="layout in layouts" :value="layout">
-                                {{ layout.title }}
-                            </option>
-                        </select>
-                    </div>
-                    <template v-if="selected">
-                        <h2>{{ selected.title }}</h2>
-                        <Markup ref="layout" :markup="selected.markup" />
-                        <hr>
-                    </template>
-                </div>
+                <hr>
+                <params v-model="component.params"></params>
             </div>
+        </template>
+        <div class="" v-else>
+            Поместите компонент в эту область
         </div>
-    </div>
+    </draggable>
 </template>
 
 <script>
 import Params from './Params.vue';
-import draggable from 'vuedraggable';
-import Markup from './Markup.vue';
 
 export default {
+    name: 'components',
     data() {
         return {
-            localComponents: this.components,
-            search: '',
-            selected: this.selectedLayout
+            components: [],
+            name: 'components'
         }
     },
     components: {
-        Params,
-        draggable,
-        Markup
-    },
-    props: {
-        layouts: {
-            required: true,
-            type: Array,
-            default: () => {
-                return [];
-            }
-        },
-        selectedLayout: {
-            type: Object,
-            default: () => {
-                return {};
-            }
-        },
-        components: {
-            required: true,
-            type: Array,
-            default: () => {
-                return [];
-            }
-        },
+        Params
     },
     methods: {
-        filter() {
-            if(this.search.length) {
-                return this.localComponents.filter(({title}) => title.includes(this.search));
-            }
-            return this.localComponents;
+        remove(index) {
+            this.confirm()
+                .then(() => {
+                    this.$delete(this.components, index);
+                });
         },
-    },
+        onAdd() {
+            // this.$emit('input', this.components);
+        },
+        setComponents(data) {
+            this.components = data;
+        }
+    }
 }
 </script>
 

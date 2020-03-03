@@ -22,6 +22,7 @@
                             <th>@lang('admin.layouts.columns.id')</th>
                             <th>@lang('admin.layouts.columns.name')</th>
                             <th>@lang('admin.layouts.columns.title')</th>
+                            <th>@lang('admin.layouts.columns.layout_filename')</th>
 
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                             <td>@{{ item.id }}</td>
                             <td>@{{ item.name }}</td>
                             <td>@{{ item.title }}</td>
+                            <td>@{{ item.layout_filename }}</td>
 
                             <td>
                                 <div class="d-flex flex-nowrap">

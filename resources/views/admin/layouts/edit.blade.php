@@ -25,6 +25,14 @@
             ])
             @endcomponent
 
+            <div class="form-group">
+                <label for="">@lang('admin.layouts.columns.layout_filename')</label>
+                <select class="form-control" v-model="form.layout_filename">
+                    @foreach($files as $file)
+                    <option value="{{ $file['basename'] }}">{{ $file['basename'] }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="text-right">
                 <button type="button" class="btn btn-success" @click="update">@lang('admin.save')</button>

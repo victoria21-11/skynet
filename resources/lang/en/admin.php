@@ -353,6 +353,7 @@ return [
             'name' => 'Имя',
             'title' => 'Название',
             'markup' => 'Разметка',
+            'layout_filename' => 'Файл шаблона',
         ]
     ],
     'tags' => [

@@ -1,20 +1,23 @@
 import CRUDMixins from '../crud/create.js';
+import Layout from './Layout.vue';
 import Components from './Components.vue';
 
 export default {
     data() {
         return {
             url: '/admin/sections',
-        }
+        };
     },
     components: {
-        Components
+        Layout,
+        Components,
     },
     mixins: [CRUDMixins],
     methods: {
         getFormData() {
-            this.form.components = this.$refs.components.selected;
+            this.form.components = this.$refs.layout.$children.filter(({ name }) => name === 'components')
+                .map(({ components }) => components);
             return this.form;
-        }
-    }
-}
+        },
+    },
+};

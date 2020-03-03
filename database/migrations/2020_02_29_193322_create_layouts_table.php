@@ -17,7 +17,7 @@ class CreateLayoutsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('title');
-            $table->json('markup');
+            $table->string('layout_filename');
             $table->timestamps();
         });
     }

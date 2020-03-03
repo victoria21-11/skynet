@@ -1,4 +1,5 @@
 import CRUDMixins from '../crud/edit.js';
+import Layout from './Layout.vue';
 import Components from './Components.vue';
 
 export default {
@@ -8,13 +9,14 @@ export default {
         };
     },
     components: {
+        Layout,
         Components,
     },
     mixins: [CRUDMixins],
     methods: {
         getFormData() {
-            this.form.layout = this.$refs.components.selected;
-            this.form.layout_id = this.$refs.components.selected.id;
+            this.form.components = this.$refs.layout.$children.filter(({ name }) => name === 'components')
+                .map(({ components }) => components);
             return this.form;
         },
     },

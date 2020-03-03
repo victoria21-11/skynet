@@ -14,6 +14,13 @@
         ])
         @endcomponent
         </div>
+        <div class="col-lg-4">
+        @component('components.admin.text', [
+            'lang' => 'admin.layouts.columns.layout_filename',
+            'model' => 'filters.layout_filename',
+        ])
+        @endcomponent
+        </div>
         <div class="col-auto align-self-end">
             <button type="button" class="btn btn-warning mb-3" @click="clearFilters">@lang('admin.clear')</button>
         </div>

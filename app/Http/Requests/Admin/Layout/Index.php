@@ -28,6 +28,7 @@ class Index extends FormRequest
             'sort_direction' => ['nullable', 'string'],
             'name' => ['nullable', 'string'],
             'title' => ['nullable', 'string'],
+            'layout_filename' => ['nullable', 'string'],
         ];
     }
 }
