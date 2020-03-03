@@ -68,9 +68,9 @@ class SectionController extends Controller
     {
         $components = Component::with('params')->get();
         $layouts = Layout::get()->toArray();
-        $layouts[0]['content'] = File::get(resource_path("layouts/{$layouts[0]['layout_filename']}"));
         $selectedLayout = [];
         foreach ($layouts as $key => $value) {
+            $layouts[$key]['content'] = File::get(resource_path("layouts/{$value['layout_filename']}"));
             if($value['id'] == $section->layout_id) {
                 $layouts[$key]['components'] = json_decode($section->components, true);
                 $selectedLayout = $layouts[$key];

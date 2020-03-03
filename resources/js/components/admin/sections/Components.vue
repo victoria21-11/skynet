@@ -43,7 +43,9 @@ export default {
             // this.$emit('input', this.components);
         },
         setComponents(data) {
-            this.components = data;
+            if(Array.isArray(data)) {
+                this.components = data;
+            }
         }
     }
 }

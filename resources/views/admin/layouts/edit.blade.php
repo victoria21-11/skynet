@@ -19,11 +19,6 @@
                 'model' => 'form.title',
             ])
             @endcomponent
-            @component('components.admin.textarea', [
-                'lang' => 'admin.layouts.columns.markup',
-                'model' => 'form.markup',
-            ])
-            @endcomponent
 
             <div class="form-group">
                 <label for="">@lang('admin.layouts.columns.layout_filename')</label>

@@ -82,7 +82,8 @@ export default {
             this.onSelect();
         },
         onSelect() {
-            this.nodes.filter(({dataset}) => dataset.id == this.selectedLayout.id)
+            this.nodes.forEach(({classList}) => classList.add('d-none'))
+            this.nodes.filter(({dataset}) => dataset.id == this.selected.id)
                 .forEach(({classList}) => classList.remove('d-none'));
         },
         setComponents() {

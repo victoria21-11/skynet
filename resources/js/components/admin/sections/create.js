@@ -17,6 +17,7 @@ export default {
         getFormData() {
             this.form.components = this.$refs.layout.$children.filter(({ name }) => name === 'components')
                 .map(({ components }) => components);
+            this.form.layout_id = this.$refs.layout.selected.id;
             return this.form;
         },
     },
