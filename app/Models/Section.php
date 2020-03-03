@@ -50,8 +50,4 @@ class Section extends Model implements HasMedia
         return $this->belongsTo(Layout::class);
     }
 
-    public function components() {
-        return $this->belongsToMany(Component::class)->withPivot('params')->orderBy('order');
-    }
-
 }

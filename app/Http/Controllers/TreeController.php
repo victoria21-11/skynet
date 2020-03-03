@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiRequest;
+use Illuminate\Support\Facades\File;
 use App\Models\{
     Question,
     Document,
@@ -16,13 +17,13 @@ class TreeController extends Controller
 {
     public function index(string $url = null)
     {
-        $tree = Tree::ofUrl($url)->with('section.components')->first();
+        $tree = Tree::ofUrl($url)->with('section.layout')->first();
         $components = json_decode($tree->section->components, true);
+
         // $client = new \GuzzleHttp\Client();
         // $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
         // echo $response->getStatusCode();
         // $request = new ApiRequest;
-        // dd($request);
         return view($tree->section->view, [
             'tree' => $tree,
             'components' => $components,

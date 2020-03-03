@@ -76,18 +76,11 @@ class SectionController extends Controller
                 $selectedLayout = $layouts[$key];
             }
         }
-        $usedComponents = $section->components()
-            ->get()
-            ->map(function($item) {
-                $item->params = json_decode($item->pivot->params, true);
-                return $item;
-            });
         return view('admin.sections.edit', [
             'title' => "Редактировать $section->title",
-            'data' => $section->load('components'),
+            'data' => $section,
             'media' => $section->prepareMedia(['tree_icon']),
             'components' => $components,
-            'usedComponents' => $usedComponents,
             'layouts' => $layouts,
             'selectedLayout' => $selectedLayout,
         ]);

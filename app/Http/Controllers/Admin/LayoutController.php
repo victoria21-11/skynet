@@ -16,6 +16,8 @@ use App\Http\Requests\Admin\Layout\{
 class LayoutController extends Controller
 {
 
+    public $i = 0;
+
     public function getTitle()
     {
         return trans('admin.layouts.title');
@@ -68,6 +70,13 @@ class LayoutController extends Controller
     public function update(Update $request, Layout $layout)
     {
         $layout->update($request->validated());
+        $contents = File::get(resource_path("layouts/{$layout->layout_filename}"));
+        $contents = preg_replace_callback('/<components><\/components>/', function($matches) {
+            $result = '@foreach ($components['.$this->i.'] as $component)@component($component[\'path\'], [\'params\' => $component[\'params\']])@endcomponent @endforeach';
+            $this->i++;
+            return $result;
+        }, $contents);
+        File::put(resource_path("views/layouts/custom/{$layout->name}.blade.php"), $contents);
         return response([]);
     }
 
