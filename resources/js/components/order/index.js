@@ -1,3 +1,5 @@
+import SearchSelect from './SearchSelect.vue';
+
 export default {
     data() {
         return {
@@ -22,6 +24,9 @@ export default {
                 loop: true,
             }
         }
+    },
+    components: {
+        SearchSelect
     },
     props: {
         tariffGroups: {
@@ -93,7 +98,7 @@ export default {
                 return;
             }
             this.loading = true;
-            axios.get('streets', {
+            axios.get('/streets', {
                 params: {
                     title: this.street
                 }
@@ -154,5 +159,5 @@ export default {
                 this.$refs.slick.prev();
             }
         }
-    }
+    },
 }

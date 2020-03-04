@@ -15,4 +15,9 @@ class Street extends Model
         return $this->hasMany(House::class);
     }
 
+    public function scopeOfTitle($query, $title)
+    {
+        return $query->where('title', 'like', "%$title%");
+    }
+
 }

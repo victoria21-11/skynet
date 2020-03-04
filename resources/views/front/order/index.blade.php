@@ -6,14 +6,15 @@
     <div class="container">
         <div class="card mb-3">
             <div class="card-body">
-                <div class="form-group">
+                <search-select url="/streets" v-model="street" placeholder="Улица"></search-select>
+                {{-- <div class="form-group">
                     <input type="text" class="form-control" placeholder="Улица" v-model="street" @input="searchStreets">
                     <div class="">
                         <div class="" v-for="street in streets" @click="selectStreet( street )">
                             @{{ street.title }}
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Дом" v-model="house" @input="searchHouses">
                     <div class="">

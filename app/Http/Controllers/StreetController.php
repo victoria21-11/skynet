@@ -7,19 +7,13 @@ use App\Models\{
     Street,
     House
 };
-use App\Http\Requests\{
-    IndexStreet,
-    SearchHousesStreet
-};
 
 class StreetController extends Controller
 {
-    public function index(IndexStreet $request)
+    public function index(Request $request)
     {
-        $data = [
-            'streets' => Street::ofTitle($request->get('title', ''))->get()
-        ];
-        return response($data);
+        $streets = Street::ofTitle($request->get('title', ''))->get();
+        return response($streets);
     }
 
     public function searchHouses(Street $street, SearchHousesStreet $request)
