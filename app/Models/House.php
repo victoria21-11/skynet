@@ -20,4 +20,9 @@ class House extends Model
     {
         return $this->belongsTo(Street::class);
     }
+
+    public function scopeOfTitle($query, $title)
+    {
+        return $query->where('title', 'like', "%$title%");
+    }
 }

@@ -1,4 +1,6 @@
 import SearchSelect from './SearchSelect.vue';
+import PhoneInput from './PhoneInput.vue';
+import Promocode from './Promocode.vue';
 
 export default {
     data() {
@@ -9,14 +11,10 @@ export default {
             tariffGroup: {},
             phone: null,
             order: null,
-            streets: [],
-            houses: [],
             street: null,
             house: null,
             loading: false,
             selected: {
-                street: null,
-                house: null
             },
             swiperOptions: {
                 slidesPerView: 3,
@@ -26,7 +24,9 @@ export default {
         }
     },
     components: {
-        SearchSelect
+        SearchSelect,
+        PhoneInput,
+        Promocode
     },
     props: {
         tariffGroups: {
@@ -47,20 +47,16 @@ export default {
             this.tariff = this.tariffGroup.max_period_tariff;
             this.$refs.tariffInfo.show();
         },
-        phoneChanged() {
-            if(this.phone) {
-                if(this.phone.length == 11) {
-                    if(this.order) {
-                        this.updateOrder();
-                    } else {
-                        this.createOrder();
-                    }
-                }
+        onChangePhone() {
+            if(this.order) {
+                this.updateOrder();
+            } else {
+                this.createOrder();
             }
         },
         createOrder() {
-            axios.post('orders', {
-                phone: this.preparePhone(),
+            axios.post('/orders', {
+                phone: this.phone,
                 house_id: this.getHouseID()
             })
                 .then(response => {
@@ -68,8 +64,8 @@ export default {
                 });
         },
         updateOrder() {
-            axios.put('orders/' + this.order.id, {
-                phone: this.preparePhone(),
+            axios.put('/orders/' + this.order.id, {
+                phone: this.phone,
                 house_id: this.getHouseID()
             })
                 .then(response => {
@@ -82,82 +78,19 @@ export default {
             }
             return null;
         },
-        preparePhone() {
-            var phone = this.phone;
-            phone = phone.substr(1);
-            return phone;
-        },
-        searchStreets() {
-            if(this.loading) {
-                return;
-            }
-            if(!this.street) {
-                this.selected.street = null;
-                this.selected.house = null;
-                this.house = null;
-                return;
-            }
-            this.loading = true;
-            axios.get('/streets', {
-                params: {
-                    title: this.street
-                }
-            })
-                .then(response => {
-                    this.streets = response.data.streets
-                })
-                .finally(() => {
-                    this.loading = false;
-                });
-        },
-        searchHouses() {
-            if(this.loading || !this.selected.street || !this.selected.street.id) {
-                return;
-            }
-            if(!this.house) {
-                this.selected.house = null;
-                return;
-            }
-            this.loading = true;
-            axios.get('streets/' + this.selected.street.id + '/houses', {
-                params: {
-                    title: this.house
-                }
-            })
-                .then(response => {
-                    this.houses = response.data.houses
-                })
-                .finally(() => {
-                    this.loading = false;
-                });
-        },
-        selectStreet(street) {
-            this.selected.street = street;
-            this.street = street.title;
-            this.streets = [];
-
-            this.selected.house = null;
-            this.house = null;
-        },
-        selectHouse(house) {
-            this.selected.house = house;
-            this.house = house.title;
-            this.houses = [];
-            if(this.order) {
-                this.updateOrder();
-            }
-        },
         selectTariff(tariff) {
             this.tariff = tariff;
         },
         toTariff(index) {
             const currentIndex = this.$refs.slick.currentSlide();
-            console.log(index, currentIndex);
             if(index > currentIndex) {
                 this.$refs.slick.next();
             } else {
                 this.$refs.slick.prev();
             }
+        },
+        onClearStreet() {
+            this.$refs.house.clear();
         }
     },
 }

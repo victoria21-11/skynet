@@ -12,15 +12,13 @@ class StreetController extends Controller
 {
     public function index(Request $request)
     {
-        $streets = Street::ofTitle($request->get('title', ''))->get();
-        return response($streets);
+        $data = Street::ofTitle($request->get('title', ''))->get();
+        return response($data);
     }
 
-    public function searchHouses(Street $street, SearchHousesStreet $request)
+    public function searchHouses(Street $street, Request $request)
     {
-        $data = [
-            'houses' => $street->houses()->ofTitle($request->title)->get()
-        ];
+        $data = $street->houses()->ofTitle($request->title)->get();
         return response($data);
     }
 }

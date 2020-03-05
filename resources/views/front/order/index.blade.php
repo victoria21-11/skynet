@@ -6,26 +6,18 @@
     <div class="container">
         <div class="card mb-3">
             <div class="card-body">
-                <search-select url="/streets" v-model="street" placeholder="Улица"></search-select>
-                {{-- <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Улица" v-model="street" @input="searchStreets">
-                    <div class="">
-                        <div class="" v-for="street in streets" @click="selectStreet( street )">
-                            @{{ street.title }}
-                        </div>
-                    </div>
-                </div> --}}
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Дом" v-model="house" @input="searchHouses">
-                    <div class="">
-                        <div class="" v-for="house in houses" @click="selectHouse( house )">
-                            @{{ house.title }}
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Телефон" v-model="phone" @change="phoneChanged">
-                </div>
+                <search-select ref="street"
+                    url="/streets"
+                    v-on:clear="onClearStreet"
+                    v-model="street"
+                    placeholder="Улица"></search-select>
+
+                <search-select ref="house"
+                    url="/streets/1/houses"
+                    :readonly="!street"
+                    placeholder="Дом"></search-select>
+
+                <phone-input v-model="phone" v-on:change="onChangePhone"></phone-input>
             </div>
         </div>
         <div class="mb-3">
@@ -37,6 +29,7 @@
                 </div>
             </slick>
         </div>
+        <promocode></promocode>
         <div class="text-center">
             <button class="btn btn-primary">Готово</button>
         </div>

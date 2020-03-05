@@ -53,6 +53,7 @@ Route::resource('streets', 'StreetController');
 Route::resource('likes', 'LikeController');
 Route::get('questions/{question}', 'QuestionController@show');
 Route::get('streets/{street}/houses', 'StreetController@searchHouses');
+Route::post('orders/promocode/check', 'OrderController@checkPromocode');
 Route::get('posts/{post}', 'PostController@index');
 
 Route::prefix('admin')->group(function () {

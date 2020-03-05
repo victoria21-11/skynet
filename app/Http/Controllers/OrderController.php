@@ -8,8 +8,10 @@ use App\Models\{
     TariffGroup,
     Order
 };
-use App\Http\Requests\StoreOrder;
-use App\Http\Requests\UpdateOrder;
+use App\Http\Requests\Front\Order\{
+    Store,
+    Update
+};
 
 class OrderController extends Controller
 {
@@ -45,7 +47,7 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrder $request)
+    public function store(Store $request)
     {
         $order = Order::create($request->validated());
         return response([
@@ -82,7 +84,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrder $request, Order $order)
+    public function update(Update $request, Order $order)
     {
         $order->update($request->validated());
         return response([
@@ -99,5 +101,11 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function checkPromocode(Request $request)
+    {
+        return response([
+        ]);
     }
 }

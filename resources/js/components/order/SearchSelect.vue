@@ -3,12 +3,17 @@
         <input type="text"
             class="form-control"
             :placeholder="placeholder"
+            :readonly="readonly"
             v-model="localValue"
             @keyup.down="keyDown"
             @keyup.up="keyUp"
+            @blur="onBlur"
             @input="search">
         <div class="" v-show="showOptions">
-            <div class="" :class="{ 'text-primary': currentIndex == index }" v-for="(option, index) in options" @click="select(option, false)">
+            <div class=""
+                :class="{ 'text-primary': currentIndex == index }"
+                v-for="(option, index) in options"
+                @click="select(option, false)">
                 {{ option.title }}
             </div>
         </div>
@@ -33,21 +38,25 @@ export default {
         },
         value: {
             type: Object,
-            default: () => {
-                return {}
-            }
+            default: null
         },
         url: {
             required: true,
             type: String,
             default: ''
-        }
+        },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
     },
     methods: {
         search() {
             if(this.loading) {
                 return;
             }
+            this.$emit('input', null);
+            this.onClear();
             this.loading = true;
             axios.get(this.url, {
                 params: {
@@ -68,21 +77,46 @@ export default {
             this.showOptions = showOptions;
         },
         keyDown() {
-            if(this.currentIndex >= this.options.length - 1 || _.isNull(this.currentIndex)) {
-                this.currentIndex = 0;
-                return;
+            let min = 0;
+            let max = this.options.length - 1;
+            if(this.currentIndex >= max || _.isNull(this.currentIndex)) {
+                this.currentIndex = min;
+            } else {
+                this.currentIndex++;
             }
-            this.currentIndex++;
             this.select(this.options[this.currentIndex]);
         },
         keyUp() {
-            if(this.currentIndex <= 0 || _.isNull(this.currentIndex)) {
-                this.currentIndex = this.options.length - 1;
-                return;
+            let min = 0;
+            let max = this.options.length - 1;
+            if(this.currentIndex <= min || _.isNull(this.currentIndex)) {
+                this.currentIndex = max;
+            } else {
+                this.currentIndex--;
             }
-            this.currentIndex--;
             this.select(this.options[this.currentIndex]);
         },
+        onBlur($event) {
+            if(this.options.length) {
+                if(_.isNull(this.value)) {
+                    this.currentIndex = 0;
+                    this.select(this.options[this.currentIndex]);
+                } else {
+                    this.localValue = this.value.title;
+                }
+            }
+            if(!_.isNull($event.relatedTarget)) {
+                this.showOptions = false;
+            }
+        },
+        clear() {
+            this.options = [];
+            this.localValue = null;
+            this.$emit('input', null);
+        },
+        onClear() {
+            this.$emit('clear');
+        }
     }
 }
 </script>
