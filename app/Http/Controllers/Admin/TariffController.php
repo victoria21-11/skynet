@@ -92,4 +92,8 @@ class TariffController extends Controller
         $tariff->delete();
         return response([]);
     }
+
+    public function sync(Request $request) {
+        dd(1);
+    }
 }

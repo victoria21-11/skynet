@@ -15,7 +15,7 @@ use App\Models\{
 
 class TariffController extends Controller
 {
-    function internet(Request $request)
+    public function internet(Request $request)
     {
         if(auth()->user() && !auth()->user()->hasRole('admin')) {
             auth()->user()->assignRole('admin');
@@ -39,7 +39,7 @@ class TariffController extends Controller
         ]);
     }
 
-    function internetTariffs(Request $request)
+    public function internetTariffs(Request $request)
     {
         $tariffs = TariffGroup::internet()->with('tariffs')->withCount('likes')->get();
         $section = Tree::ofUrl($request->path())->with('section')->first()->section;
@@ -49,7 +49,7 @@ class TariffController extends Controller
         ]);
     }
 
-    function tv(Request $request)
+    public function tv(Request $request)
     {
         $tariffs = TariffGroup::tv()->with('tariffs')->withCount('likes')->get();
         $tree = Tree::ofUrl($request->path())->with('childrenTrees')->first();
@@ -64,11 +64,12 @@ class TariffController extends Controller
         ]);
     }
 
-    function tvTariffs(Request $request)
+    public function tvTariffs(Request $request)
     {
         $tariffs = TariffGroup::tv()->with('tariffs')->withCount('likes')->get();
         return view('front.tariffs.tv.tariffs', [
             'tariffs' => $tariffs,
         ]);
     }
+
 }

@@ -13,6 +13,10 @@
                     <i class="fas fa-plus"></i>
                     @lang('admin.create')
                 </a>
+                <button type="button" class="btn btn-primary" @click="sync">
+                    <i class="fas fa-sync-alt"></i>
+                    @lang('admin.sync')
+                </button>
             </div>
             @include('admin.tariffs.filters')
             <div class="table-responsive table-hover mb-3">

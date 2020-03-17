@@ -60,6 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::namespace('Admin')->group(function () {
             Route::get('/', 'HomeController@index');
+            Route::get('/tariffs/sync', 'TariffController@sync');
             Route::resource('tariffs', 'TariffController');
             Route::resource('tariff_groups', 'TariffGroupController');
             Route::resource('tariff_types', 'TariffTypeController');
