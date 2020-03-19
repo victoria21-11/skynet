@@ -61,6 +61,8 @@ Route::prefix('admin')->group(function () {
         Route::namespace('Admin')->group(function () {
             Route::get('/', 'HomeController@index');
             Route::get('/tariffs/sync', 'TariffController@sync');
+            Route::post('/tariffs/sync', 'TariffController@syncCreate');
+            Route::put('/tariffs/{tariff}/sync', 'TariffController@syncUpdate');
             Route::resource('tariffs', 'TariffController');
             Route::resource('tariff_groups', 'TariffGroupController');
             Route::resource('tariff_types', 'TariffTypeController');

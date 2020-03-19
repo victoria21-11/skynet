@@ -24,7 +24,7 @@ export default {
             result = result.replace('+7', '');
             result = VMasker.toPattern(result, { pattern: '99999999999' });
             if(result.length == 10) {
-                this.onChage(result);
+                this.onChange(result);
                 let firstChar = result.charAt(0);
                 if(firstChar == 8 || firstChar == 7) {
                     result = result.slice(1);
@@ -39,7 +39,7 @@ export default {
             });
             result = VMasker.toPattern( result, { pattern: '99999999999' });
         },
-        onChage(result) {
+        onChange(result) {
             this.$emit('input', result);
             this.$emit('change');
         }

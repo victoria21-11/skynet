@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Bill\Tariff as BillTariff;
 use App\Models\{
     Tariff,
     TariffGroup,
@@ -94,6 +95,27 @@ class TariffController extends Controller
     }
 
     public function sync(Request $request) {
-        dd(1);
+        $billTariffs = new BillTariff;
+        $billTariffs = $billTariffs->getData();
+
+        return response([
+            'data' => $billTariffs,
+        ]);
+    }
+
+    public function syncCreate(Request $request)
+    {
+        $data = $request->all();
+        $data = array_merge($data, [
+            'period_type_id' => 1,
+        ]);
+        $tariff = Tariff::create($data);
+        return response($tariff);
+    }
+
+    public function syncUpdate(Request $request, Tariff $tariff)
+    {
+        $tariff->update($request->all());
+        return response([]);
     }
 }
