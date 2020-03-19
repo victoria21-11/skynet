@@ -3,46 +3,42 @@
 namespace App\Bill;
 
 use App\Models\Tariff as TariffModel;
-use App\Bill\BillItem;
 
 class Tariff
 {
-    static $billBindField = 'bl_s1_connection';
+    static $billBindField = 'id';
 
     static $localBindField = 'bill_tariff_id';
 
     static $syncFields = [
         'title' => 'title',
         'price_month' => 'price',
-        'bl_s1_connection' => 'bill_tariff_id',
+        'id' => 'bill_tariff_id',
+        'bl_s1_connection' => 'bill_tariff_group_id',
     ];
 
-    protected function getBillFields(): array
-    {
-        return array_keys(self::$syncFields);
-    }
+    private $state = [];
 
     protected function getLocalFields(): array
     {
         return array_values(self::$syncFields);
     }
 
-    protected function filterByNotNullBillBindField(array $data): array
+    protected function onlyWithConnection(): self
     {
-        return array_filter($data, function($item) {
-            return $item->{self::$billBindField};
+        $this->state = array_filter($this->state, function($item) {
+            return $item['bl_s1_connection'];
         });
+        return $this;
     }
 
-    protected function filterBySyncFields(array $data): array
+    protected function filterBySyncFields(): self
     {
-        $result = [];
-        foreach ($data as $key => $tariff) {
-            foreach ($this->getBillFields() as $field) {
-                $result[$key][$field] = $tariff[$field];
-            }
-        }
-        return $result;
+        $this->state = array_map(function($item) {
+            return array_intersect_key($item, self::$syncFields);
+        }, $this->state);
+
+        return $this;
     }
 
     public function getLocalTariffs(): array
@@ -52,18 +48,6 @@ class Tariff
             ->get()
             ->keyBy(self::$localBindField)
             ->toArray();
-    }
-
-    protected function prepareSyncFields(array $data): array
-    {
-        $result = [];
-        foreach ($data as $key => $value) {
-            $result[] = [
-                'field' => $key,
-                'value' => $value,
-            ];
-        }
-        return $result;
     }
 
     protected function syncWithLocal(array $data): array
@@ -79,27 +63,34 @@ class Tariff
                     'localValue' => $localTariffs[$item[self::$billBindField]][$localField] ?? null,
                 ];
             }
-            // $result = [
-            //     'bill' => $this->prepareSyncFields($item),
-            //     'local' => $this->prepareSyncFields($localTariffs[$item[self::$billBindField]] ?? []),
-            // ];
             return $result;
         }, $data);
         return array_values($result);
     }
 
+    public function requestData(): self
+    {
+        $this->state = json_decode(file_get_contents(public_path('/tariffs.json')), true)['tarifs'] ?? [];
+        foreach ($this->state as $key => $value) {
+            $this->state[$key]['id'] = $key;
+        }
+        $this->state = array_values($this->state);
+        return $this;
+    }
+
+    public function get(): array
+    {
+        return $this->state;
+    }
+
     public function getData(): array
     {
-        $billTariffs = file_get_contents(public_path('/tariffs.json'));
-        $billTariffs = json_decode($billTariffs, true);
-        $billTariffs = $billTariffs['tarifs'];
-        $result = [];
-        foreach ($billTariffs as $value) {
-            $result[] = new BillItem($value);
-        }
-        $billTariffs = $this->filterByNotNullBillBindField($result);
-        dd($billTariffs);
-        $billTariffs = $this->filterBySyncFields($billTariffs);
+        $result = $this->requestData()
+            ->onlyWithConnection()
+            ->filterBySyncFields()
+            ->get();
+        dd($result);
+
         $billTariffs = $this->syncWithLocal($billTariffs);
         return $billTariffs;
     }
